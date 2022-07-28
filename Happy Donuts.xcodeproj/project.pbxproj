@@ -1,0 +1,516 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		16B083FA288B60430089FEC0 /* Happy_DonutsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B083F9288B60430089FEC0 /* Happy_DonutsApp.swift */; };
+		16B083FC288B60430089FEC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B083FB288B60430089FEC0 /* ContentView.swift */; };
+		16B083FE288B60450089FEC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16B083FD288B60450089FEC0 /* Assets.xcassets */; };
+		16B08401288B60450089FEC0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16B08400288B60450089FEC0 /* Preview Assets.xcassets */; };
+		16B08409288B84460089FEC0 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B08408288B84460089FEC0 /* SplashScreenView.swift */; };
+		16B0840C288B84F90089FEC0 /* LottieImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B0840B288B84F90089FEC0 /* LottieImage.swift */; };
+		16B0840F288B856B0089FEC0 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 16B0840E288B856B0089FEC0 /* Lottie */; };
+		16B08411288B86280089FEC0 /* DonutAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 16B08410288B86280089FEC0 /* DonutAnimation.json */; };
+		16B08414288B86960089FEC0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B08413288B86960089FEC0 /* LoginView.swift */; };
+		16B084172890A4330089FEC0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B084162890A4320089FEC0 /* LoginViewModel.swift */; };
+		16B0841A2890A4F40089FEC0 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B084192890A4F40089FEC0 /* LoginModel.swift */; };
+		16B0841C2890A5FC0089FEC0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B0841B2890A5FC0089FEC0 /* UserModel.swift */; };
+		16B0841E2891AB890089FEC0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16B0841D2891AB890089FEC0 /* GoogleService-Info.plist */; };
+		16B084212891AC5A0089FEC0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 16B084202891AC5A0089FEC0 /* FirebaseAnalytics */; };
+		16B084232891AC5A0089FEC0 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 16B084222891AC5A0089FEC0 /* FirebaseAnalyticsSwift */; };
+		16B084252891AC5A0089FEC0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 16B084242891AC5A0089FEC0 /* FirebaseAuth */; };
+		16B084272891AC5A0089FEC0 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 16B084262891AC5A0089FEC0 /* FirebaseDatabase */; };
+		16B084292891AC5A0089FEC0 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 16B084282891AC5A0089FEC0 /* FirebaseDatabaseSwift */; };
+		16B0842B2891AC5A0089FEC0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 16B0842A2891AC5A0089FEC0 /* FirebaseFirestore */; };
+		16B0842D2891AC5A0089FEC0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 16B0842C2891AC5A0089FEC0 /* FirebaseFirestoreSwift */; };
+		16B0842F2891AC5A0089FEC0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 16B0842E2891AC5A0089FEC0 /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		16B083F6288B60430089FEC0 /* Happy Donuts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Donuts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16B083F9288B60430089FEC0 /* Happy_DonutsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_DonutsApp.swift; sourceTree = "<group>"; };
+		16B083FB288B60430089FEC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		16B083FD288B60450089FEC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		16B08400288B60450089FEC0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		16B08408288B84460089FEC0 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		16B0840B288B84F90089FEC0 /* LottieImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieImage.swift; sourceTree = "<group>"; };
+		16B08410288B86280089FEC0 /* DonutAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DonutAnimation.json; sourceTree = "<group>"; };
+		16B08413288B86960089FEC0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		16B084162890A4320089FEC0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		16B084192890A4F40089FEC0 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		16B0841B2890A5FC0089FEC0 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		16B0841D2891AB890089FEC0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16B083F3288B60430089FEC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16B084292891AC5A0089FEC0 /* FirebaseDatabaseSwift in Frameworks */,
+				16B084272891AC5A0089FEC0 /* FirebaseDatabase in Frameworks */,
+				16B0842F2891AC5A0089FEC0 /* FirebaseStorage in Frameworks */,
+				16B084232891AC5A0089FEC0 /* FirebaseAnalyticsSwift in Frameworks */,
+				16B084212891AC5A0089FEC0 /* FirebaseAnalytics in Frameworks */,
+				16B0840F288B856B0089FEC0 /* Lottie in Frameworks */,
+				16B084252891AC5A0089FEC0 /* FirebaseAuth in Frameworks */,
+				16B0842B2891AC5A0089FEC0 /* FirebaseFirestore in Frameworks */,
+				16B0842D2891AC5A0089FEC0 /* FirebaseFirestoreSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16B083ED288B60420089FEC0 = {
+			isa = PBXGroup;
+			children = (
+				16B083F8288B60430089FEC0 /* Happy Donuts */,
+				16B083F7288B60430089FEC0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		16B083F7288B60430089FEC0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16B083F6288B60430089FEC0 /* Happy Donuts.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16B083F8288B60430089FEC0 /* Happy Donuts */ = {
+			isa = PBXGroup;
+			children = (
+				16B084182890A48C0089FEC0 /* Models */,
+				16B0840A288B84D10089FEC0 /* ViewModels */,
+				16B08407288B84180089FEC0 /* Views */,
+				16B083F9288B60430089FEC0 /* Happy_DonutsApp.swift */,
+				16B083FB288B60430089FEC0 /* ContentView.swift */,
+				16B0841D2891AB890089FEC0 /* GoogleService-Info.plist */,
+				16B08410288B86280089FEC0 /* DonutAnimation.json */,
+				16B083FD288B60450089FEC0 /* Assets.xcassets */,
+				16B083FF288B60450089FEC0 /* Preview Content */,
+			);
+			path = "Happy Donuts";
+			sourceTree = "<group>";
+		};
+		16B083FF288B60450089FEC0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				16B08400288B60450089FEC0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		16B08407288B84180089FEC0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				16B08408288B84460089FEC0 /* SplashScreenView.swift */,
+				16B08412288B86740089FEC0 /* LoginViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		16B0840A288B84D10089FEC0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				16B084152890A41C0089FEC0 /* Login */,
+				16B0840B288B84F90089FEC0 /* LottieImage.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		16B08412288B86740089FEC0 /* LoginViews */ = {
+			isa = PBXGroup;
+			children = (
+				16B08413288B86960089FEC0 /* LoginView.swift */,
+			);
+			path = LoginViews;
+			sourceTree = "<group>";
+		};
+		16B084152890A41C0089FEC0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				16B084162890A4320089FEC0 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		16B084182890A48C0089FEC0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				16B084192890A4F40089FEC0 /* LoginModel.swift */,
+				16B0841B2890A5FC0089FEC0 /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		16B083F5288B60430089FEC0 /* Happy Donuts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16B08404288B60450089FEC0 /* Build configuration list for PBXNativeTarget "Happy Donuts" */;
+			buildPhases = (
+				16B083F2288B60430089FEC0 /* Sources */,
+				16B083F3288B60430089FEC0 /* Frameworks */,
+				16B083F4288B60430089FEC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Happy Donuts";
+			packageProductDependencies = (
+				16B0840E288B856B0089FEC0 /* Lottie */,
+				16B084202891AC5A0089FEC0 /* FirebaseAnalytics */,
+				16B084222891AC5A0089FEC0 /* FirebaseAnalyticsSwift */,
+				16B084242891AC5A0089FEC0 /* FirebaseAuth */,
+				16B084262891AC5A0089FEC0 /* FirebaseDatabase */,
+				16B084282891AC5A0089FEC0 /* FirebaseDatabaseSwift */,
+				16B0842A2891AC5A0089FEC0 /* FirebaseFirestore */,
+				16B0842C2891AC5A0089FEC0 /* FirebaseFirestoreSwift */,
+				16B0842E2891AC5A0089FEC0 /* FirebaseStorage */,
+			);
+			productName = "Happy Donuts";
+			productReference = 16B083F6288B60430089FEC0 /* Happy Donuts.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16B083EE288B60420089FEC0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					16B083F5288B60430089FEC0 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 16B083F1288B60420089FEC0 /* Build configuration list for PBXProject "Happy Donuts" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 16B083ED288B60420089FEC0;
+			packageReferences = (
+				16B0840D288B856B0089FEC0 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				16B0841F2891AC5A0089FEC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = 16B083F7288B60430089FEC0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				16B083F5288B60430089FEC0 /* Happy Donuts */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		16B083F4288B60430089FEC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16B08411288B86280089FEC0 /* DonutAnimation.json in Resources */,
+				16B0841E2891AB890089FEC0 /* GoogleService-Info.plist in Resources */,
+				16B08401288B60450089FEC0 /* Preview Assets.xcassets in Resources */,
+				16B083FE288B60450089FEC0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16B083F2288B60430089FEC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16B0840C288B84F90089FEC0 /* LottieImage.swift in Sources */,
+				16B0841A2890A4F40089FEC0 /* LoginModel.swift in Sources */,
+				16B0841C2890A5FC0089FEC0 /* UserModel.swift in Sources */,
+				16B083FC288B60430089FEC0 /* ContentView.swift in Sources */,
+				16B084172890A4330089FEC0 /* LoginViewModel.swift in Sources */,
+				16B083FA288B60430089FEC0 /* Happy_DonutsApp.swift in Sources */,
+				16B08414288B86960089FEC0 /* LoginView.swift in Sources */,
+				16B08409288B84460089FEC0 /* SplashScreenView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		16B08402288B60450089FEC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		16B08403288B60450089FEC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		16B08405288B60450089FEC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Happy Donuts/Preview Content\"";
+				DEVELOPMENT_TEAM = 6Z8MU97UL5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Jacob.Happy-Donuts";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		16B08406288B60450089FEC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Happy Donuts/Preview Content\"";
+				DEVELOPMENT_TEAM = 6Z8MU97UL5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Jacob.Happy-Donuts";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16B083F1288B60420089FEC0 /* Build configuration list for PBXProject "Happy Donuts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16B08402288B60450089FEC0 /* Debug */,
+				16B08403288B60450089FEC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16B08404288B60450089FEC0 /* Build configuration list for PBXNativeTarget "Happy Donuts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16B08405288B60450089FEC0 /* Debug */,
+				16B08406288B60450089FEC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		16B0840D288B856B0089FEC0 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LottieFiles/lottie-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		16B0841F2891AC5A0089FEC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		16B0840E288B856B0089FEC0 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16B0840D288B856B0089FEC0 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		16B084202891AC5A0089FEC0 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16B0841F2891AC5A0089FEC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		16B084222891AC5A0089FEC0 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16B0841F2891AC5A0089FEC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		16B084242891AC5A0089FEC0 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16B0841F2891AC5A0089FEC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		16B084262891AC5A0089FEC0 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16B0841F2891AC5A0089FEC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		16B084282891AC5A0089FEC0 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16B0841F2891AC5A0089FEC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		16B0842A2891AC5A0089FEC0 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16B0841F2891AC5A0089FEC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		16B0842C2891AC5A0089FEC0 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16B0841F2891AC5A0089FEC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		16B0842E2891AC5A0089FEC0 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16B0841F2891AC5A0089FEC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 16B083EE288B60420089FEC0 /* Project object */;
+}
