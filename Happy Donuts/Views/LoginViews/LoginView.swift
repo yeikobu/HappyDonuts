@@ -11,18 +11,20 @@ struct LoginView: View {
     
     @State var email: String = ""
     @State var password: String = ""
-    @State var comfirmPass: String = ""
+    @State var confirmPass: String = ""
     
     @State var isEmailCorrect: Bool = false
+    @State var isSignupComplete: Bool = false
     @ObservedObject var loginViewModel: LoginViewModel = LoginViewModel()
     @State var errorMessage: String = ""
     @Namespace var animation
     
     var body: some View {
-        ZStack {
+        
+        VStack {
             
             VStack {
-                VStack() {
+                VStack {
                     ZStack { //Logo
                         VStack {
                             Rectangle()
@@ -65,7 +67,7 @@ struct LoginView: View {
                             
                             HStack(alignment: .center, spacing: 0) {
                                 Text("Login")
-                                    .foregroundColor(!self.loginViewModel.isSignupButtonSelected ? .white : Color("switchBackgroundTextColor"))
+                                    .foregroundColor(!self.loginViewModel.isSignupButtonSelected ? Color("buttonTextColor") : Color("switchBackgroundTextColor"))
                                     .font(.system(size: 16, weight: .bold, design: .rounded))
                                     .padding(.horizontal, 15)
                                     .padding()
@@ -77,7 +79,7 @@ struct LoginView: View {
                                     
                                 
                                 Text("Registrar")
-                                    .foregroundColor(self.loginViewModel.isSignupButtonSelected ? .white : Color("switchBackgroundTextColor"))
+                                    .foregroundColor(self.loginViewModel.isSignupButtonSelected ? Color("buttonTextColor") : Color("switchBackgroundTextColor"))
                                     .font(.system(size: 16, weight: .bold, design: .rounded))
                                     .padding(.leading, 20)
                                     .padding()
@@ -102,7 +104,7 @@ struct LoginView: View {
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: 242, maxHeight: 60, alignment: .center)
                             .offset(x: self.loginViewModel.isSignupButtonSelected ? -1800 : 0, y: 0)
-                            .foregroundColor(Color("titleTextColor"))
+                            .foregroundColor(Color("fontColor"))
                             .padding(.vertical, 10)
                             .matchedGeometryEffect(id: "title", in: animation)
                     } else {
@@ -111,7 +113,7 @@ struct LoginView: View {
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: 242, maxHeight: 60, alignment: .center)
                             .offset(x: !self.loginViewModel.isSignupButtonSelected ? -1800 : 0, y: 0)
-                            .foregroundColor(Color("titleTextColor"))
+                            .foregroundColor(Color("fontColor"))
                             .padding(.vertical, 10)
                             .matchedGeometryEffect(id: "title", in: animation)
                     }
@@ -123,7 +125,7 @@ struct LoginView: View {
                         HStack { //Email text field
                             VStack {
                                 Image(systemName: "envelope.fill")
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color("buttonTextColor"))
                                     .font(.system(size: 25))
                             }
                             .frame(width: 40, height: 40, alignment: .center)
@@ -134,28 +136,27 @@ struct LoginView: View {
                                 if email.isEmpty {
                                     Text(verbatim: "Correo")
                                         .font(.system(size: 20, weight: .bold, design: .rounded))
-                                        .foregroundColor(Color("titleTextColor"))
+                                        .foregroundColor(Color("fontColor"))
                                 }
                                 
                                 TextField("", text: $email)
-                                    .foregroundColor(Color("titleTextColor"))
+                                    .foregroundColor(Color("fontColor"))
                                     .font(.system(size: 20, weight: .bold, design: .rounded))
-                                    .foregroundColor(Color("titleTextColor"))
                                     .keyboardType(.emailAddress)
                                     .ignoresSafeArea(.keyboard, edges: .bottom)
                             }
                         }
                         .background(
                             RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                .foregroundColor(.white)
-                                .shadow(color: .gray, radius: 2, x: 0, y: 1)
+                                .foregroundColor(Color("textField"))
+                                .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
                         )
                         
                         
                         HStack { //Password text field
                             VStack {
                                 Image(systemName: "lock.fill")
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Color("buttonTextColor"))
                                     .font(.system(size: 28))
                             }
                             .frame(width: 40, height: 40, alignment: .center)
@@ -166,28 +167,27 @@ struct LoginView: View {
                                 if password.isEmpty {
                                     Text(verbatim: "Contraseña")
                                         .font(.system(size: 20, weight: .bold, design: .rounded))
-                                        .foregroundColor(Color("titleTextColor"))
+                                        .foregroundColor(Color("fontColor"))
                                 }
                                 
                                 SecureField("", text: $password)
-                                    .foregroundColor(Color("titleTextColor"))
+                                    .foregroundColor(Color("fontColor"))
                                     .font(.system(size: 20, weight: .bold, design: .rounded))
-                                    .foregroundColor(Color("titleTextColor"))
                                     .keyboardType(.emailAddress)
                                     .ignoresSafeArea(.keyboard, edges: .bottom)
                             }
                         }
                         .background(
                             RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                .foregroundColor(.white)
-                                .shadow(color: .gray, radius: 2, x: 0, y: 1)
+                                .foregroundColor(Color("textField"))
+                                .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
                         )
                         
                         if !self.loginViewModel.isSignupButtonSelected {
                             HStack { //Password text field
                                 VStack {
                                     Image(systemName: "lock.fill")
-                                        .foregroundColor(.white)
+                                        .foregroundColor(Color("buttonTextColor"))
                                         .font(.system(size: 28))
                                 }
                                 .frame(width: 40, height: 40, alignment: .center)
@@ -198,21 +198,20 @@ struct LoginView: View {
                                     if password.isEmpty {
                                         Text(verbatim: "Confirmar Contraseña")
                                             .font(.system(size: 20, weight: .bold, design: .rounded))
-                                            .foregroundColor(Color("titleTextColor"))
+                                            .foregroundColor(Color("fontColor"))
                                     }
 
                                     SecureField("", text: $password)
-                                        .foregroundColor(Color("titleTextColor"))
+                                        .foregroundColor(Color("fontColor"))
                                         .font(.system(size: 20, weight: .bold, design: .rounded))
-                                        .foregroundColor(Color("titleTextColor"))
                                         .keyboardType(.emailAddress)
                                         .ignoresSafeArea(.keyboard, edges: .bottom)
                                 }
                             }
                             .background(
                                 RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                    .foregroundColor(.white)
-                                    .shadow(color: .gray, radius: 2, x: 0, y: 1)
+                                    .foregroundColor(Color("textField"))
+                                    .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
                             )
                             .matchedGeometryEffect(id: "confirmPass", in: animation)
                             .opacity(0)
@@ -221,7 +220,7 @@ struct LoginView: View {
                             HStack { //Password text field
                                 VStack {
                                     Image(systemName: "lock.fill")
-                                        .foregroundColor(.white)
+                                        .foregroundColor(Color("buttonTextColor"))
                                         .font(.system(size: 28))
                                 }
                                 .frame(width: 40, height: 40, alignment: .center)
@@ -229,24 +228,23 @@ struct LoginView: View {
                                 .cornerRadius(15)
                                 
                                 ZStack(alignment: .leading) {
-                                    if password.isEmpty {
+                                    if self.confirmPass.isEmpty {
                                         Text(verbatim: "Confirmar Contraseña")
                                             .font(.system(size: 20, weight: .bold, design: .rounded))
-                                            .foregroundColor(Color("titleTextColor"))
+                                            .foregroundColor(Color("fontColor"))
                                     }
                                     
-                                    SecureField("", text: $comfirmPass)
-                                        .foregroundColor(Color("titleTextColor"))
+                                    SecureField("", text: self.$confirmPass)
+                                        .foregroundColor(Color("fontColor"))
                                         .font(.system(size: 20, weight: .bold, design: .rounded))
-                                        .foregroundColor(Color("titleTextColor"))
                                         .keyboardType(.emailAddress)
                                         .ignoresSafeArea(.keyboard, edges: .bottom)
                                 }
                             }
                             .background(
                                 RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                    .foregroundColor(.white)
-                                    .shadow(color: .gray, radius: 2, x: 0, y: 1)
+                                    .foregroundColor(Color("textField"))
+                                    .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
                             )
                             .matchedGeometryEffect(id: "confirmPass", in: animation)
                             .opacity(1)
@@ -261,27 +259,26 @@ struct LoginView: View {
                     
                     // MARK: - Bottom buttons
                     VStack {
-                        Button { //Login button
-                            if !self.loginViewModel.validateEmail(userEmail: self.email) {
-                                self.errorMessage = self.loginViewModel.emailValidationMessage
-                            } else {
-                                self.isEmailCorrect = true
-                                print("Email correcto")
-                            }
-                        } label: {
-                            VStack {
-                                Text(!self.loginViewModel.isSignupButtonSelected ? "Login" : "Registrar")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 30, weight: .bold, design: .rounded))
-                                    .padding(.horizontal, 50)
-                            }
-                            .padding(12)
-                            .background(!self.loginViewModel.isSignupButtonSelected ? Color("pink") : Color("green"))
-                            .cornerRadius(40)
-                            .shadow(color: .gray, radius: 2, x: 0, y: 1)
-                        }
                         
                         if !self.loginViewModel.isSignupButtonSelected {
+                            
+                            Button { //Login button
+    //                            print(self.loginViewModel.validatePassword(password: self.password))
+    //                            print(self.password)
+                            } label: {
+                                VStack {
+                                    Text("Login")
+                                        .foregroundColor(Color("buttonTextColor"))
+                                        .font(.system(size: 30, weight: .bold, design: .rounded))
+                                        .padding(.horizontal, 50)
+                                }
+                                .matchedGeometryEffect(id: "button", in: animation)
+                                .padding(12)
+                                .background(Color("pink"))
+                                .cornerRadius(40)
+                                .shadow(color: .gray, radius: 2, x: 0, y: 1)
+                            }
+                            
                             Button { //Fotgot your account button
                                 //
                             } label: {
@@ -294,6 +291,22 @@ struct LoginView: View {
                             .matchedGeometryEffect(id: "forgotPass", in: animation)
                             .opacity(1)
                         } else {
+                            
+                            Button { //Registrar button
+                                self.loginViewModel.createNewUser(email: self.email, password: self.password, confirmPassword: self.confirmPass)
+                            } label: {
+                                VStack {
+                                    Text("Registrar")
+                                        .foregroundColor(Color("buttonTextColor"))
+                                        .font(.system(size: 30, weight: .bold, design: .rounded))
+                                        .padding(.horizontal, 50)
+                                }
+                                .padding(12)
+                                .background(Color("green"))
+                                .cornerRadius(40)
+                                .shadow(color: .gray, radius: 2, x: 0, y: 1)
+                            }
+                            
                             Button { //Fotgot your account button
                                 //
                             } label: {
@@ -317,15 +330,25 @@ struct LoginView: View {
                 }
                 .ignoresSafeArea()
                 .background(Color("background"))
+                .task {
+                    print("View: \(self.loginViewModel.itWasAccountCreated)")
+                }
                 
             }
             
+            if self.loginViewModel.itWasAccountCreated {
+                DashboardView()
+            }
+
         }
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
+        LoginView()
+            .preferredColorScheme(.dark)
+        
         LoginView()
     }
 }
