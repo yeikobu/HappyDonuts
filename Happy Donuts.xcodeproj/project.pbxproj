@@ -32,6 +32,7 @@
 		16B08433289340D80089FEC0 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B08432289340D80089FEC0 /* AuthRepository.swift */; };
 		16B084372894C9000089FEC0 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B084362894C9000089FEC0 /* DashboardView.swift */; };
 		16B0843E2898B6DD0089FEC0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B0843D2898B6DC0089FEC0 /* HomeView.swift */; };
+		16B084422899C5C40089FEC0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B084412899C5C40089FEC0 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		16B08432289340D80089FEC0 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		16B084362894C9000089FEC0 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		16B0843D2898B6DC0089FEC0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		16B084412899C5C40089FEC0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		16B0840A288B84D10089FEC0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				16B0843F2899C59B0089FEC0 /* Dashboard */,
 				16B084152890A41C0089FEC0 /* Login */,
 				16B0840B288B84F90089FEC0 /* LottieImage.swift */,
 			);
@@ -215,6 +218,22 @@
 			children = (
 			);
 			path = Cart;
+			sourceTree = "<group>";
+		};
+		16B0843F2899C59B0089FEC0 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				16B084402899C5AB0089FEC0 /* Home */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		16B084402899C5AB0089FEC0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				16B084412899C5C40089FEC0 /* HomeViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +325,7 @@
 			files = (
 				16B0840C288B84F90089FEC0 /* LottieImage.swift in Sources */,
 				16B0841A2890A4F40089FEC0 /* LoginModel.swift in Sources */,
+				16B084422899C5C40089FEC0 /* HomeViewModel.swift in Sources */,
 				16B0843128933F8B0089FEC0 /* AuthDatasource.swift in Sources */,
 				16B08433289340D80089FEC0 /* AuthRepository.swift in Sources */,
 				16B0841C2890A5FC0089FEC0 /* UserModel.swift in Sources */,
