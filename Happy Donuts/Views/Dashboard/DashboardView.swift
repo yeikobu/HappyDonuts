@@ -71,7 +71,7 @@ struct CustomTabView: View {
                 Text("Profile")
                     .tag("person.fill")
                 
-                Text("Home")
+                HomeView()
                     .tag("bag.fill")
                 
                 Text("Liked")

@@ -31,6 +31,7 @@
 		16B0843128933F8B0089FEC0 /* AuthDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B0843028933F8B0089FEC0 /* AuthDatasource.swift */; };
 		16B08433289340D80089FEC0 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B08432289340D80089FEC0 /* AuthRepository.swift */; };
 		16B084372894C9000089FEC0 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B084362894C9000089FEC0 /* DashboardView.swift */; };
+		16B0843E2898B6DD0089FEC0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B0843D2898B6DC0089FEC0 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		16B0843028933F8B0089FEC0 /* AuthDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDatasource.swift; sourceTree = "<group>"; };
 		16B08432289340D80089FEC0 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		16B084362894C9000089FEC0 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		16B0843D2898B6DC0089FEC0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +117,7 @@
 		16B08407288B84180089FEC0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				16B084352894C8B50089FEC0 /* Home */,
+				16B084352894C8B50089FEC0 /* Dashboard */,
 				16B084342894C8440089FEC0 /* WelcomeScreenVIews */,
 				16B08412288B86740089FEC0 /* LoginViews */,
 			);
@@ -166,12 +168,53 @@
 			path = WelcomeScreenVIews;
 			sourceTree = "<group>";
 		};
-		16B084352894C8B50089FEC0 /* Home */ = {
+		16B084352894C8B50089FEC0 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
 				16B084362894C9000089FEC0 /* DashboardView.swift */,
+				16B0843A2898B67E0089FEC0 /* Profile */,
+				16B084392898B6590089FEC0 /* Home */,
+				16B0843B2898B68F0089FEC0 /* Liked */,
+				16B0843C2898B6960089FEC0 /* Cart */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		16B084382898B6310089FEC0 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		16B084392898B6590089FEC0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				16B084382898B6310089FEC0 /* Subviews */,
+				16B0843D2898B6DC0089FEC0 /* HomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		16B0843A2898B67E0089FEC0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		16B0843B2898B68F0089FEC0 /* Liked */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Liked;
+			sourceTree = "<group>";
+		};
+		16B0843C2898B6960089FEC0 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +313,7 @@
 				16B084372894C9000089FEC0 /* DashboardView.swift in Sources */,
 				16B084172890A4330089FEC0 /* LoginViewModel.swift in Sources */,
 				16B083FA288B60430089FEC0 /* Happy_DonutsApp.swift in Sources */,
+				16B0843E2898B6DD0089FEC0 /* HomeView.swift in Sources */,
 				16B08414288B86960089FEC0 /* LoginView.swift in Sources */,
 				16B08409288B84460089FEC0 /* SplashScreenView.swift in Sources */,
 			);
