@@ -29,7 +29,9 @@ final class LoginViewModel: ObservableObject {
         self.authRepository = authRepository
     }
     
-    
+    /// This method validates email's format.
+    /// The email can not be empty
+    /// - Returns: Bool. True if all is correct. False if one of the validations can not be passed.
     func validateEmail(userEmail: String) -> Bool {
         if userEmail.isEmpty {
             self.emailValidationMessage = loginMessageError[0]
@@ -46,7 +48,11 @@ final class LoginViewModel: ObservableObject {
         return true
     }
     
-    
+    /// This method validates password's rules.
+    /// The methods checks if the password match with the regular expresion.
+    /// Also, checks if the password is empty.
+    /// And counts the characters must be more than 6.
+    /// - Returns: True if all the validations can be completed successfuly. Else, return false
     func validatePassword(password: String) -> Bool {
         let pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[.$@$#!%*?&])"
         
@@ -72,6 +78,8 @@ final class LoginViewModel: ObservableObject {
     }
     
     
+    /// This method creates a new user on firebase following the validateEmail method, the validatePassword method, and cheks if the password matches with the confirmPassword field. 
+    /// - Returns: Void
     func createNewUser(email: String, password: String, confirmPassword: String) {
         if validateEmail(userEmail: email) && validatePassword(password: password) && password == confirmPassword {
             authRepository.createNewUser(email: email, password: password) { [weak self] result in

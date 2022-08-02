@@ -77,6 +77,7 @@ struct HomeView: View {
                 .padding(.horizontal, 10)
                 // MARK: - End search space
                 
+                // MARK: - Categories Scroll View
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 0) {
                         ForEach(homeViewModel.categories, id: \.self) { categorie in
@@ -115,6 +116,7 @@ struct HomeView: View {
                     .cornerRadius(30)
                     .padding(10)
                 }
+                // MARK: - End Categories Scroll View
                 
             }
             
