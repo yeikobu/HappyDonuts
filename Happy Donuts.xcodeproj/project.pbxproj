@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		162956BE28A1B2C600755069 /* DonutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162956BD28A1B2C600755069 /* DonutModel.swift */; };
+		162956C128A1B54100755069 /* DonutsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162956C028A1B54100755069 /* DonutsDataSource.swift */; };
+		162956C328A1DE7F00755069 /* DonutsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162956C228A1DE7F00755069 /* DonutsRepository.swift */; };
+		162956C628A1DF7000755069 /* DonutsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162956C528A1DF7000755069 /* DonutsViewModel.swift */; };
+		162956C828A1E98C00755069 /* DonutCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162956C728A1E98C00755069 /* DonutCardView.swift */; };
+		162956CB28A1EDE700755069 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 162956CA28A1EDE700755069 /* Kingfisher */; };
 		16B083FA288B60430089FEC0 /* Happy_DonutsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B083F9288B60430089FEC0 /* Happy_DonutsApp.swift */; };
 		16B083FC288B60430089FEC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B083FB288B60430089FEC0 /* ContentView.swift */; };
 		16B083FE288B60450089FEC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16B083FD288B60450089FEC0 /* Assets.xcassets */; };
@@ -36,6 +42,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		162956BD28A1B2C600755069 /* DonutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutModel.swift; sourceTree = "<group>"; };
+		162956C028A1B54100755069 /* DonutsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutsDataSource.swift; sourceTree = "<group>"; };
+		162956C228A1DE7F00755069 /* DonutsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutsRepository.swift; sourceTree = "<group>"; };
+		162956C528A1DF7000755069 /* DonutsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutsViewModel.swift; sourceTree = "<group>"; };
+		162956C728A1E98C00755069 /* DonutCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutCardView.swift; sourceTree = "<group>"; };
 		16B083F6288B60430089FEC0 /* Happy Donuts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Donuts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B083F9288B60430089FEC0 /* Happy_DonutsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_DonutsApp.swift; sourceTree = "<group>"; };
 		16B083FB288B60430089FEC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +76,7 @@
 				16B084272891AC5A0089FEC0 /* FirebaseDatabase in Frameworks */,
 				16B0842F2891AC5A0089FEC0 /* FirebaseStorage in Frameworks */,
 				16B084232891AC5A0089FEC0 /* FirebaseAnalyticsSwift in Frameworks */,
+				162956CB28A1EDE700755069 /* Kingfisher in Frameworks */,
 				16B084212891AC5A0089FEC0 /* FirebaseAnalytics in Frameworks */,
 				16B0840F288B856B0089FEC0 /* Lottie in Frameworks */,
 				16B084252891AC5A0089FEC0 /* FirebaseAuth in Frameworks */,
@@ -76,6 +88,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		162956BF28A1B50300755069 /* FirebaseDB */ = {
+			isa = PBXGroup;
+			children = (
+				162956C028A1B54100755069 /* DonutsDataSource.swift */,
+				162956C228A1DE7F00755069 /* DonutsRepository.swift */,
+				162956C528A1DF7000755069 /* DonutsViewModel.swift */,
+			);
+			path = FirebaseDB;
+			sourceTree = "<group>";
+		};
 		16B083ED288B60420089FEC0 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +151,7 @@
 		16B0840A288B84D10089FEC0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				162956BF28A1B50300755069 /* FirebaseDB */,
 				16B0843F2899C59B0089FEC0 /* Dashboard */,
 				16B084152890A41C0089FEC0 /* Login */,
 				16B0840B288B84F90089FEC0 /* LottieImage.swift */,
@@ -159,6 +182,7 @@
 			children = (
 				16B084192890A4F40089FEC0 /* LoginModel.swift */,
 				16B0841B2890A5FC0089FEC0 /* UserModel.swift */,
+				162956BD28A1B2C600755069 /* DonutModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,6 +219,7 @@
 			children = (
 				16B084382898B6310089FEC0 /* Subviews */,
 				16B0843D2898B6DC0089FEC0 /* HomeView.swift */,
+				162956C728A1E98C00755069 /* DonutCardView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -262,6 +287,7 @@
 				16B0842A2891AC5A0089FEC0 /* FirebaseFirestore */,
 				16B0842C2891AC5A0089FEC0 /* FirebaseFirestoreSwift */,
 				16B0842E2891AC5A0089FEC0 /* FirebaseStorage */,
+				162956CA28A1EDE700755069 /* Kingfisher */,
 			);
 			productName = "Happy Donuts";
 			productReference = 16B083F6288B60430089FEC0 /* Happy Donuts.app */;
@@ -294,6 +320,7 @@
 			packageReferences = (
 				16B0840D288B856B0089FEC0 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				16B0841F2891AC5A0089FEC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				162956C928A1EDE700755069 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 16B083F7288B60430089FEC0 /* Products */;
 			projectDirPath = "";
@@ -325,6 +352,7 @@
 			files = (
 				16B0840C288B84F90089FEC0 /* LottieImage.swift in Sources */,
 				16B0841A2890A4F40089FEC0 /* LoginModel.swift in Sources */,
+				162956BE28A1B2C600755069 /* DonutModel.swift in Sources */,
 				16B084422899C5C40089FEC0 /* HomeViewModel.swift in Sources */,
 				16B0843128933F8B0089FEC0 /* AuthDatasource.swift in Sources */,
 				16B08433289340D80089FEC0 /* AuthRepository.swift in Sources */,
@@ -333,9 +361,13 @@
 				16B084372894C9000089FEC0 /* DashboardView.swift in Sources */,
 				16B084172890A4330089FEC0 /* LoginViewModel.swift in Sources */,
 				16B083FA288B60430089FEC0 /* Happy_DonutsApp.swift in Sources */,
+				162956C628A1DF7000755069 /* DonutsViewModel.swift in Sources */,
+				162956C128A1B54100755069 /* DonutsDataSource.swift in Sources */,
 				16B0843E2898B6DD0089FEC0 /* HomeView.swift in Sources */,
 				16B08414288B86960089FEC0 /* LoginView.swift in Sources */,
+				162956C328A1DE7F00755069 /* DonutsRepository.swift in Sources */,
 				16B08409288B84460089FEC0 /* SplashScreenView.swift in Sources */,
+				162956C828A1E98C00755069 /* DonutCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +570,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		162956C928A1EDE700755069 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		16B0840D288B856B0089FEC0 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/LottieFiles/lottie-ios";
@@ -557,6 +597,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		162956CA28A1EDE700755069 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 162956C928A1EDE700755069 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		16B0840E288B856B0089FEC0 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 16B0840D288B856B0089FEC0 /* XCRemoteSwiftPackageReference "lottie-ios" */;
