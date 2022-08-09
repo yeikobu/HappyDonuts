@@ -37,7 +37,16 @@ struct DonutCardView: View {
                     .frame(height: 32)
             }
             .padding(.horizontal, 5)
-
+            
+            HStack(alignment: .center) {
+                
+                Spacer()
+                
+                Text("$\(donutsViewModel.price)")
+                    .font(.system(size: 14, weight: .black, design: .rounded))
+                
+                Spacer()
+            }
             
             Spacer()
             
@@ -54,5 +63,7 @@ struct DonutCardView: View {
 struct DonutCardView_Previews: PreviewProvider {
     static var previews: some View {
         DonutCardView()
+        DonutCardView()
+            .colorScheme(.dark)
     }
 }
