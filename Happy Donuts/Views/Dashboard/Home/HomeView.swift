@@ -118,31 +118,30 @@ struct HomeView: View {
                     }
                     .background(Color("switchBackground"))
                     .cornerRadius(30)
-                    .padding(10)
+                    .padding(.top, 10)
+                    .padding(.horizontal, 10)
                 }
                 // MARK: - End Categories Scroll View
-                
-                // MARK: - Donuts Scroll View
-                VStack {
-                    ScrollView(showsIndicators: false) {
-                        LazyVGrid(columns: self.gridForm) {
-                            ForEach(self.donutsViewModel.donutModel, id: \.self) { donut in
-                                DonutCardView(donutModel: donut)
-                                    .padding(.vertical, 5)
-                            }
+            }
+            
+            // MARK: - Donuts Scroll View
+            VStack {
+                ScrollView(showsIndicators: false) {
+                    LazyVGrid(columns: self.gridForm) {
+                        ForEach(self.donutsViewModel.donutsModel, id: \.self) { donut in
+                            DonutCardView(donutModel: donut)
+                                .padding(.vertical, 2)
                         }
                     }
                 }
-                // MARK: - End Donuts Scroll View
-                
+                .padding(.horizontal, 15)
+                .padding(.bottom, 35)
             }
-            .task {
-                self.donutsViewModel.getAllDonuts()
-            }
+            // MARK: - End Donuts Scroll View
             
             Spacer()
         }
-        .ignoresSafeArea(.all, edges: .top)
+        .ignoresSafeArea(edges: [.top])
         .background(Color("background"))
         
     }

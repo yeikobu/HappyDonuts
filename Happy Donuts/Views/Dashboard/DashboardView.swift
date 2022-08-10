@@ -49,7 +49,7 @@ struct TabButtonview: View {
                         Color(.gray)
                     )
                     .font(.system(size: 32, weight: .bold))
-                    .padding(.bottom, 4)
+                    .padding(.bottom, 10)
             }
         }
         
@@ -94,7 +94,7 @@ struct CustomTabView: View {
                 
             }
             .padding(.horizontal, 34)
-            .padding(.vertical, 26)
+            .padding(.vertical, 16)
             .background(
                 RoundedRectangle(cornerRadius: 25, style: .continuous)
                     .foregroundColor(Color("background"))
