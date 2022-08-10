@@ -8,10 +8,10 @@
 import Foundation
 
 struct DonutModel: Decodable, Hashable {
-    let name: String
-    let description: String
-    let price: Int
-    let category: String
-    let sellCount: Int
-    let imgUrl: String
+    var name: String = ""
+    var description: String = ""
+    var price: Int = 0
+    var category: String = ""
+    var sellCount: Int = 0
+    var imgUrl: String = ""
 }

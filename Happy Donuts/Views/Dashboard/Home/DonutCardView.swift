@@ -11,27 +11,34 @@ import Kingfisher
 struct DonutCardView: View {
     
     @ObservedObject private var donutsViewModel = DonutsViewModel()
+    @State var donutModel: DonutModel
     
     var body: some View {
         VStack(alignment: .leading) {
             ZStack {
                 Rectangle()
-                    .foregroundColor(Color("pink"))
+                    .foregroundColor(
+                        self.donutModel.category == "glaseadas" ? Color("pink") :
+                            self.donutModel.category == "chocolate" ? Color("green") :
+                            self.donutModel.category == "normal" ? Color("blue") :
+                            self.donutModel.category == "rellenas" ? Color("purple") :
+                            Color(.gray)
+                    )
                     .frame(width: 170, height: 140, alignment: .center)
                     .cornerRadius(35)
                 
-                KFImage(URL(string: self.donutsViewModel.imgUrl))
+                KFImage(URL(string: self.donutModel.imgUrl))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 120, height: 113, alignment: .center)
             }
             
             VStack(alignment: .leading) {
-                Text(self.donutsViewModel.name)
+                Text(self.donutModel.name)
                     .font(.system(size: 14, weight: .black, design: .rounded))
                     .foregroundColor(Color("fontColor"))
                 
-                Text(self.donutsViewModel.description)
+                Text(self.donutModel.description)
                     .font(.system(size: 11, weight: .bold, design: .rounded))
                     .foregroundColor(Color("fontColor"))
                     .frame(height: 32)
@@ -42,8 +49,9 @@ struct DonutCardView: View {
                 
                 Spacer()
                 
-                Text("$\(donutsViewModel.price)")
+                Text("$\(donutModel.price)")
                     .font(.system(size: 14, weight: .black, design: .rounded))
+                    .foregroundColor(Color("fontColor"))
                 
                 Spacer()
             }
@@ -62,8 +70,8 @@ struct DonutCardView: View {
 
 struct DonutCardView_Previews: PreviewProvider {
     static var previews: some View {
-        DonutCardView()
-        DonutCardView()
+        DonutCardView(donutModel: DonutModel.init())
+        DonutCardView(donutModel: DonutModel.init())
             .colorScheme(.dark)
     }
 }

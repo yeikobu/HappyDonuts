@@ -10,10 +10,14 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
+    @ObservedObject var donutsViewModel: DonutsViewModel = DonutsViewModel()
+    
     @State var searchDonut: String = ""
     @State var selectedCategorie: String = "Populares"
     
     @Namespace var animation
+    
+    private let gridForm = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
         VStack {
@@ -118,12 +122,29 @@ struct HomeView: View {
                 }
                 // MARK: - End Categories Scroll View
                 
+                // MARK: - Donuts Scroll View
+                VStack {
+                    ScrollView(showsIndicators: false) {
+                        LazyVGrid(columns: self.gridForm) {
+                            ForEach(self.donutsViewModel.donutModel, id: \.self) { donut in
+                                DonutCardView(donutModel: donut)
+                                    .padding(.vertical, 5)
+                            }
+                        }
+                    }
+                }
+                // MARK: - End Donuts Scroll View
+                
+            }
+            .task {
+                self.donutsViewModel.getAllDonuts()
             }
             
             Spacer()
         }
         .ignoresSafeArea(.all, edges: .top)
         .background(Color("background"))
+        
     }
 }
 
