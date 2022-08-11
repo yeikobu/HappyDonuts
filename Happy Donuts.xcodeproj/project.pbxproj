@@ -13,6 +13,7 @@
 		162956C628A1DF7000755069 /* DonutsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162956C528A1DF7000755069 /* DonutsViewModel.swift */; };
 		162956C828A1E98C00755069 /* DonutCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162956C728A1E98C00755069 /* DonutCardView.swift */; };
 		162956CB28A1EDE700755069 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 162956CA28A1EDE700755069 /* Kingfisher */; };
+		162956CE28A48FD100755069 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162956CD28A48FD100755069 /* StringExtensions.swift */; };
 		16B083FA288B60430089FEC0 /* Happy_DonutsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B083F9288B60430089FEC0 /* Happy_DonutsApp.swift */; };
 		16B083FC288B60430089FEC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B083FB288B60430089FEC0 /* ContentView.swift */; };
 		16B083FE288B60450089FEC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16B083FD288B60450089FEC0 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		162956C228A1DE7F00755069 /* DonutsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutsRepository.swift; sourceTree = "<group>"; };
 		162956C528A1DF7000755069 /* DonutsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutsViewModel.swift; sourceTree = "<group>"; };
 		162956C728A1E98C00755069 /* DonutCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutCardView.swift; sourceTree = "<group>"; };
+		162956CD28A48FD100755069 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		16B083F6288B60430089FEC0 /* Happy Donuts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Donuts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B083F9288B60430089FEC0 /* Happy_DonutsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_DonutsApp.swift; sourceTree = "<group>"; };
 		16B083FB288B60430089FEC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 			path = FirebaseDB;
 			sourceTree = "<group>";
 		};
+		162956CC28A48FB600755069 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				162956CD28A48FD100755069 /* StringExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		16B083ED288B60420089FEC0 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 		16B083F8288B60430089FEC0 /* Happy Donuts */ = {
 			isa = PBXGroup;
 			children = (
+				162956CC28A48FB600755069 /* Extensions */,
 				16B084182890A48C0089FEC0 /* Models */,
 				16B0840A288B84D10089FEC0 /* ViewModels */,
 				16B08407288B84180089FEC0 /* Views */,
@@ -368,6 +379,7 @@
 				162956C328A1DE7F00755069 /* DonutsRepository.swift in Sources */,
 				16B08409288B84460089FEC0 /* SplashScreenView.swift in Sources */,
 				162956C828A1E98C00755069 /* DonutCardView.swift in Sources */,
+				162956CE28A48FD100755069 /* StringExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

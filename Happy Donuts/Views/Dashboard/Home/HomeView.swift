@@ -13,7 +13,7 @@ struct HomeView: View {
     @ObservedObject var donutsViewModel: DonutsViewModel = DonutsViewModel()
     
     @State var searchDonut: String = ""
-    @State var selectedCategorie: String = "Populares"
+    @State var selectedCategory: String = "populares"
     
     @Namespace var animation
     
@@ -84,36 +84,41 @@ struct HomeView: View {
                 // MARK: - Categories Scroll View
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 0) {
-                        ForEach(homeViewModel.categories, id: \.self) { categorie in
+                        ForEach(homeViewModel.categories, id: \.self) { category in
                             
-                            if categorie != self.selectedCategorie {
-                                Text(categorie)
+                            if category != self.selectedCategory {
+                                Text(category.capitalizingFirstLetter())
                                     .font(.system(size: 16, weight: .bold, design: .rounded))
                                     .foregroundColor(Color("fontColor"))
                                     .padding(4)
                                     .padding(.horizontal, 4)
                                     .onTapGesture {
                                         withAnimation() {
-                                            self.selectedCategorie = categorie
+                                            self.selectedCategory = category
                                         }
                                     }
                             } else {
-                                Text(categorie)
+                                Text(category.capitalizingFirstLetter())
                                     .font(.system(size: 16, weight: .bold, design: .rounded))
                                     .foregroundColor(Color("buttonTextColor"))
                                     .padding(4)
                                     .padding(.horizontal, 4)
-                                    .background(Color("pink"))
+                                    .background(Color(
+                                        category == "chocolate" ? "green" :
+                                        category == "rellenas" ? "purple" :
+                                        category == "normal" ? "blue" :
+                                        "pink"
+                                        )
+                                    )
                                     .cornerRadius(30)
                                     .onTapGesture {
                                         withAnimation() {
-                                            self.selectedCategorie = categorie
+                                            self.selectedCategory = category
                                         }
                                     }
                                     .matchedGeometryEffect(id: "selectedCategorie", in: animation)
                             }
                             
-                                
                         }
                     }
                     .background(Color("switchBackground"))
@@ -128,11 +133,55 @@ struct HomeView: View {
             VStack {
                 ScrollView(showsIndicators: false) {
                     LazyVGrid(columns: self.gridForm) {
-                        ForEach(self.donutsViewModel.donutsModel, id: \.self) { donut in
-                            DonutCardView(donutModel: donut)
-                                .padding(.vertical, 2)
+                        
+                        if self.selectedCategory == self.homeViewModel.categories[0] {
+                            ForEach(self.donutsViewModel.donutsModel, id: \.self) { donut in
+                                DonutCardView(donutModel: donut)
+                                    .padding(.vertical, 2)
+                                    .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                    .transition(.scale)
+                            }
                         }
+                        
+                        if self.selectedCategory == self.homeViewModel.categories[1] {
+                            ForEach(self.donutsViewModel.glaseadaDonuts, id: \.self) { donut in
+                                DonutCardView(donutModel: donut)
+                                    .padding(.vertical, 2)
+                                    .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                    .transition(.scale)
+                            }
+                        }
+                        
+                        if self.selectedCategory == self.homeViewModel.categories[2] {
+                            ForEach(self.donutsViewModel.chocolateDonuts, id: \.self) { donut in
+                                DonutCardView(donutModel: donut)
+                                    .padding(.vertical, 2)
+                                    .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                    .transition(.scale)
+                            }
+                        }
+                        
+                        if self.selectedCategory == self.homeViewModel.categories[3] {
+                            ForEach(self.donutsViewModel.rellenaDonuts, id: \.self) { donut in
+                                DonutCardView(donutModel: donut)
+                                    .padding(.vertical, 2)
+                                    .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                    .transition(.scale)
+                            }
+                        }
+                        
+                        if self.selectedCategory == self.homeViewModel.categories[4] {
+                            ForEach(self.donutsViewModel.normalDonuts, id: \.self) { donut in
+                                DonutCardView(donutModel: donut)
+                                    .padding(.vertical, 2)
+                                    .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                    .transition(.scale)
+                            }
+                        }
+                        
                     }
+                    .matchedGeometryEffect(id: "grid", in: animation)
+                    
                 }
                 .padding(.horizontal, 15)
                 .padding(.bottom, 35)
