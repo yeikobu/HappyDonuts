@@ -25,6 +25,7 @@ final class DonutsViewModel: ObservableObject {
         getDonutsFromSelectedCategory()
     }
     
+    
     /// This method get all the donuts data from Firebase and saves the data in one array of DonutModels
     /// - Returns: Void
     func getAllDonuts() {
@@ -37,6 +38,7 @@ final class DonutsViewModel: ObservableObject {
             }
         }
     }
+    
     
     /// This method get the last donut and save it in a variable.
     /// - Returns: Void
