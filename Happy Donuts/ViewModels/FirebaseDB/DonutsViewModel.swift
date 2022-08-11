@@ -25,7 +25,8 @@ final class DonutsViewModel: ObservableObject {
         getDonutsFromSelectedCategory()
     }
     
-    
+    /// This method get all the donuts data from Firebase and saves the data in one array of DonutModels
+    /// - Returns: Void
     func getAllDonuts() {
         self.donutsRepository.getAllDonuts { [weak self] result in
             switch result {
@@ -37,7 +38,8 @@ final class DonutsViewModel: ObservableObject {
         }
     }
     
-    
+    /// This method get the last donut and save it in a variable.
+    /// - Returns: Void
     func getLastDonut() {
         self.donutsRepository.getAllDonuts { [weak self] result in
             switch result {
@@ -52,6 +54,8 @@ final class DonutsViewModel: ObservableObject {
     }
     
     
+    /// This method save the data in diferents arrays depending of the categorie in order to be used like a filter in the view.
+    /// - Returns: Void
     func getDonutsFromSelectedCategory() {
         self.donutsRepository.getAllDonuts { [weak self] result in
             switch result {
@@ -60,22 +64,18 @@ final class DonutsViewModel: ObservableObject {
                     
                     if donut.category == self?.homeViewModel.categories[1] {
                         self?.glaseadaDonuts.append(donut)
-                        print("Donut agregada a categoria \(donut)")
                     }
 
                     if donut.category == self?.homeViewModel.categories[2] {
                         self?.chocolateDonuts.append(donut)
-                        print("Donut agregada a categoria \(donut)")
                     }
 
                     if donut.category == self?.homeViewModel.categories[3] {
                         self?.rellenaDonuts.append(donut)
-                        print("Donut agregada a categoria \(donut)")
                     }
 
                     if donut.category == self?.homeViewModel.categories[4] {
                         self?.normalDonuts.append(donut)
-                        print("Donut agregada a categoria \(donut)")
                     }
                 }
             case .failure(let error):
