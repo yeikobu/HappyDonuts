@@ -40,6 +40,7 @@
 		16B084372894C9000089FEC0 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B084362894C9000089FEC0 /* DashboardView.swift */; };
 		16B0843E2898B6DD0089FEC0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B0843D2898B6DC0089FEC0 /* HomeView.swift */; };
 		16B084422899C5C40089FEC0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B084412899C5C40089FEC0 /* HomeViewModel.swift */; };
+		16C62D7928A5EB9400143721 /* DonutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C62D7828A5EB9400143721 /* DonutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		16B084362894C9000089FEC0 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		16B0843D2898B6DC0089FEC0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		16B084412899C5C40089FEC0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		16C62D7828A5EB9400143721 /* DonutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 				16B084382898B6310089FEC0 /* Subviews */,
 				16B0843D2898B6DC0089FEC0 /* HomeView.swift */,
 				162956C728A1E98C00755069 /* DonutCardView.swift */,
+				16C62D7828A5EB9400143721 /* DonutView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				16B0840C288B84F90089FEC0 /* LottieImage.swift in Sources */,
 				16B0841A2890A4F40089FEC0 /* LoginModel.swift in Sources */,
 				162956BE28A1B2C600755069 /* DonutModel.swift in Sources */,
+				16C62D7928A5EB9400143721 /* DonutView.swift in Sources */,
 				16B084422899C5C40089FEC0 /* HomeViewModel.swift in Sources */,
 				16B0843128933F8B0089FEC0 /* AuthDatasource.swift in Sources */,
 				16B08433289340D80089FEC0 /* AuthRepository.swift in Sources */,
