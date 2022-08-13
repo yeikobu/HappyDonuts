@@ -14,6 +14,12 @@ struct HomeView: View {
     
     @State var searchDonut: String = ""
     @State var selectedCategory: String = "populares"
+    @State var isDonutSelected = false
+    @State var imgUrl: String = ""
+    @State var name: String = ""
+    @State var price: Int = 0
+    @State var description: String = ""
+    @State var donutModel = DonutModel.init()
     
     @Namespace var animation
     
@@ -21,174 +27,194 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-            VStack {
-                // MARK: - Banner/logo
-                ZStack {
-                    Rectangle()
-                        .frame(height: 140, alignment: .center)
-                        .cornerRadius(35)
-                        .foregroundColor(Color("pink"))
-                        
-                    Image("logo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 123, height: 76, alignment: .center)
-                        .padding(.top, 30)
-                }
-                // MARK: - End banner/logo
-                
-                // MARK: - Search space
-                VStack(alignment: .leading) {
+            if !isDonutSelected {
+                VStack {
+                    // MARK: - Banner/logo
+                    ZStack {
+                        Rectangle()
+                            .frame(height: 140, alignment: .center)
+                            .cornerRadius(35)
+                            .foregroundColor(Color("pink"))
+                            
+                        Image("logo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 123, height: 76, alignment: .center)
+                            .padding(.top, 30)
+                    }
+                    // MARK: - End banner/logo
                     
-                    Text("¿Qué deseas pedir hoy?")
-                        .font(.system(size: 24, weight: .black, design: .rounded))
-                        .foregroundColor(Color("fontColor"))
-                        .frame(alignment: .leading)
-                    
-                    HStack {
-                        VStack {
-                            Image(systemName: "magnifyingglass")
-                                .foregroundColor(Color("fontColor"))
-                                .font(.system(size: 16))
-                        }
-                        .frame(width: 30, height: 42, alignment: .center)
-                        .padding(.leading, 10)
+                    // MARK: - Search space
+                    VStack(alignment: .leading) {
                         
-                        ZStack(alignment: .leading) {
-                            if self.searchDonut.isEmpty {
-                                Text(verbatim: "Busca alguna donut...")
+                        Text("¿Qué deseas pedir hoy?")
+                            .font(.system(size: 24, weight: .black, design: .rounded))
+                            .foregroundColor(Color("fontColor"))
+                            .frame(alignment: .leading)
+                        
+                        HStack {
+                            VStack {
+                                Image(systemName: "magnifyingglass")
+                                    .foregroundColor(Color("fontColor"))
+                                    .font(.system(size: 16))
+                            }
+                            .frame(width: 30, height: 42, alignment: .center)
+                            .padding(.leading, 10)
+                            
+                            ZStack(alignment: .leading) {
+                                if self.searchDonut.isEmpty {
+                                    Text(verbatim: "Busca alguna donut...")
+                                        .font(.system(size: 18, weight: .bold, design: .rounded))
+                                        .foregroundColor(Color("fontColor"))
+                                }
+                                
+                                TextField("", text: self.$searchDonut)
+                                    .foregroundColor(Color("fontColor"))
                                     .font(.system(size: 18, weight: .bold, design: .rounded))
-                                    .foregroundColor(Color("fontColor"))
+                                    .keyboardType(.default)
+                                    .ignoresSafeArea(.keyboard, edges: .bottom)
+                                    .padding(.vertical, 10)
                             }
-                            
-                            TextField("", text: self.$searchDonut)
-                                .foregroundColor(Color("fontColor"))
-                                .font(.system(size: 18, weight: .bold, design: .rounded))
-                                .keyboardType(.default)
-                                .ignoresSafeArea(.keyboard, edges: .bottom)
-                                .padding(.vertical, 10)
                         }
+                        .background(
+                            RoundedRectangle(cornerRadius: 15, style: .continuous)
+                                .foregroundColor(Color("textField"))
+                                .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
+                        )
+                        .padding(.top, -10)
                     }
-                    .background(
-                        RoundedRectangle(cornerRadius: 15, style: .continuous)
-                            .foregroundColor(Color("textField"))
-                            .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
-                    )
-                    .padding(.top, -10)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.top, 10)
-                .padding(.horizontal, 10)
-                // MARK: - End search space
-                
-                // MARK: - Categories Scroll View
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 0) {
-                        ForEach(homeViewModel.categories, id: \.self) { category in
-                            
-                            if category != self.selectedCategory {
-                                Text(category.capitalizingFirstLetter())
-                                    .font(.system(size: 16, weight: .bold, design: .rounded))
-                                    .foregroundColor(Color("fontColor"))
-                                    .padding(4)
-                                    .padding(.horizontal, 4)
-                                    .onTapGesture {
-                                        withAnimation() {
-                                            self.selectedCategory = category
-                                        }
-                                    }
-                            } else {
-                                Text(category.capitalizingFirstLetter())
-                                    .font(.system(size: 16, weight: .bold, design: .rounded))
-                                    .foregroundColor(Color("buttonTextColor"))
-                                    .padding(4)
-                                    .padding(.horizontal, 4)
-                                    .background(Color(
-                                        category == "chocolate" ? "green" :
-                                        category == "rellenas" ? "purple" :
-                                        category == "normal" ? "blue" :
-                                        "pink"
-                                        )
-                                    )
-                                    .cornerRadius(30)
-                                    .onTapGesture {
-                                        withAnimation() {
-                                            self.selectedCategory = category
-                                        }
-                                    }
-                                    .matchedGeometryEffect(id: "selectedCategorie", in: animation)
-                            }
-                            
-                        }
-                    }
-                    .background(Color("switchBackground"))
-                    .cornerRadius(30)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 10)
                     .padding(.horizontal, 10)
+                    // MARK: - End search space
+                    
+                    // MARK: - Categories Scroll View
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 0) {
+                            ForEach(homeViewModel.categories, id: \.self) { category in
+                                
+                                if category != self.selectedCategory {
+                                    Text(category.capitalizingFirstLetter())
+                                        .font(.system(size: 16, weight: .bold, design: .rounded))
+                                        .foregroundColor(Color("fontColor"))
+                                        .padding(4)
+                                        .padding(.horizontal, 4)
+                                        .onTapGesture {
+                                            withAnimation() {
+                                                self.selectedCategory = category
+                                            }
+                                            
+                                        }
+                                } else {
+                                    Text(category.capitalizingFirstLetter())
+                                        .font(.system(size: 16, weight: .bold, design: .rounded))
+                                        .foregroundColor(Color("buttonTextColor"))
+                                        .padding(4)
+                                        .padding(.horizontal, 4)
+                                        .background(Color(
+                                            category == "chocolate" ? "green" :
+                                            category == "rellenas" ? "purple" :
+                                            category == "normal" ? "blue" :
+                                            "pink"
+                                            )
+                                        )
+                                        .cornerRadius(30)
+                                        .onTapGesture {
+                                            withAnimation() {
+                                                self.selectedCategory = category
+                                            }
+                                        }
+                                        .matchedGeometryEffect(id: "selectedCategorie", in: animation)
+                                }
+                                
+                            }
+                        }
+                        .background(Color("switchBackground"))
+                        .cornerRadius(30)
+                        .padding(.top, 10)
+                        .padding(.horizontal, 10)
+                    }
+                    // MARK: - End Categories Scroll View
                 }
-                // MARK: - End Categories Scroll View
-            }
-            
-            // MARK: - Donuts Scroll View
-            VStack {
-                ScrollView(showsIndicators: false) {
-                    LazyVGrid(columns: self.gridForm) {
-                        
-                        if self.selectedCategory == self.homeViewModel.categories[0] {
-                            ForEach(self.donutsViewModel.donutsModel, id: \.self) { donut in
-                                DonutCardView(donutModel: donut)
-                                    .padding(.vertical, 2)
-                                    .matchedGeometryEffect(id: "\(donut.name)", in: animation)
-                                    .transition(.scale)
+                
+                // MARK: - Donuts Scroll View
+                VStack {
+                    ScrollView(showsIndicators: false) {
+                        LazyVGrid(columns: self.gridForm) {
+                            
+                            if self.selectedCategory == self.homeViewModel.categories[0] {
+                                ForEach(self.donutsViewModel.donutsModel, id: \.self) { donut in
+                                    DonutCardView(donutModel: donut, animation: animation)
+                                        .padding(.vertical, 2)
+                                        .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                        .transition(.scale)
+                                        .onTapGesture {
+//                                            self.imgUrl = donut.imgUrl
+//                                            self.name = donut.name
+//                                            self.price = donut.price
+//                                            self.description = donut.description
+//                                            self.donutModel = donut
+                                            self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut)
+                                            withAnimation(.easeOut) {
+                                                self.isDonutSelected = true
+                                            }
+                                        }
+                                }
                             }
-                        }
-                        
-                        if self.selectedCategory == self.homeViewModel.categories[1] {
-                            ForEach(self.donutsViewModel.glaseadaDonuts, id: \.self) { donut in
-                                DonutCardView(donutModel: donut)
-                                    .padding(.vertical, 2)
-                                    .matchedGeometryEffect(id: "\(donut.name)", in: animation)
-                                    .transition(.scale)
+                            
+                            if self.selectedCategory == self.homeViewModel.categories[1] {
+                                ForEach(self.donutsViewModel.glaseadaDonuts, id: \.self) { donut in
+                                    DonutCardView(donutModel: donut, animation: animation)
+                                        .padding(.vertical, 2)
+                                        .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                        .transition(.scale)
+                                }
                             }
-                        }
-                        
-                        if self.selectedCategory == self.homeViewModel.categories[2] {
-                            ForEach(self.donutsViewModel.chocolateDonuts, id: \.self) { donut in
-                                DonutCardView(donutModel: donut)
-                                    .padding(.vertical, 2)
-                                    .matchedGeometryEffect(id: "\(donut.name)", in: animation)
-                                    .transition(.scale)
+                            
+                            if self.selectedCategory == self.homeViewModel.categories[2] {
+                                ForEach(self.donutsViewModel.chocolateDonuts, id: \.self) { donut in
+                                    DonutCardView(donutModel: donut, animation: animation)
+                                        .padding(.vertical, 2)
+                                        .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                        .transition(.scale)
+                                }
                             }
-                        }
-                        
-                        if self.selectedCategory == self.homeViewModel.categories[3] {
-                            ForEach(self.donutsViewModel.rellenaDonuts, id: \.self) { donut in
-                                DonutCardView(donutModel: donut)
-                                    .padding(.vertical, 2)
-                                    .matchedGeometryEffect(id: "\(donut.name)", in: animation)
-                                    .transition(.scale)
+                            
+                            if self.selectedCategory == self.homeViewModel.categories[3] {
+                                ForEach(self.donutsViewModel.rellenaDonuts, id: \.self) { donut in
+                                    DonutCardView(donutModel: donut, animation: animation)
+                                        .padding(.vertical, 2)
+                                        .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                        .transition(.scale)
+                                }
                             }
-                        }
-                        
-                        if self.selectedCategory == self.homeViewModel.categories[4] {
-                            ForEach(self.donutsViewModel.normalDonuts, id: \.self) { donut in
-                                DonutCardView(donutModel: donut)
-                                    .padding(.vertical, 2)
-                                    .matchedGeometryEffect(id: "\(donut.name)", in: animation)
-                                    .transition(.scale)
+                            
+                            if self.selectedCategory == self.homeViewModel.categories[4] {
+                                ForEach(self.donutsViewModel.normalDonuts, id: \.self) { donut in
+                                    DonutCardView(donutModel: donut, animation: animation)
+                                        .padding(.vertical, 2)
+                                        .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                        .transition(.scale)
+                                }
                             }
+                            
                         }
+                        .matchedGeometryEffect(id: "grid", in: animation)
                         
                     }
-                    .matchedGeometryEffect(id: "grid", in: animation)
-                    
+                    .padding(.horizontal, 15)
+                    .padding(.bottom, 35)
                 }
-                .padding(.horizontal, 15)
-                .padding(.bottom, 35)
+                // MARK: - End Donuts Scroll View
+                
+                Spacer()
             }
-            // MARK: - End Donuts Scroll View
             
-            Spacer()
+            if isDonutSelected {
+//                DonutView(donutModel: self.donutModel, animation: animation, imgUrl: self.$imgUrl, name: self.$name, price: self.$price, description: self.$description, isDonutSelected: self.$isDonutSelected)
+                DonutView(donutModel: self.donutsViewModel.donutModel, animation: animation, imgUrl: self.$donutsViewModel.imgUrl, name: self.$donutsViewModel.name, price: self.$donutsViewModel.price, description: self.$donutsViewModel.description, isDonutSelected: self.$isDonutSelected)
+            }
+   
         }
         .ignoresSafeArea(edges: [.top])
         .background(Color("background"))

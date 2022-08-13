@@ -12,7 +12,7 @@ struct DonutCardView: View {
     
     @ObservedObject private var donutsViewModel = DonutsViewModel()
     @State var donutModel: DonutModel
-    @Namespace var animation
+    var animation: Namespace.ID
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -25,27 +25,26 @@ struct DonutCardView: View {
                             self.donutModel.category == "rellenas" ? Color("purple") :
                             Color("pink")
                     )
-                    .matchedGeometryEffect(id: "backgroundColor", in: animation)
                     .frame(width: 170, height: 140, alignment: .center)
                     .cornerRadius(35)
                 
                 KFImage(URL(string: self.donutModel.imgUrl))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .matchedGeometryEffect(id: "donutImage", in: animation)
                     .frame(width: 120, height: 113, alignment: .center)
             }
+            .matchedGeometryEffect(id: "\(self.donutModel.name)backgroundColor", in: animation)
             
             VStack(alignment: .leading) {
                 Text(self.donutModel.name)
+//                    .matchedGeometryEffect(id: "\(self.donutModel.name)donutName", in: animation)
                     .font(.system(size: 14, weight: .black, design: .rounded))
-                    .foregroundColor(Color("fontColor"))
-                    .matchedGeometryEffect(id: "donutName", in: animation)
+                    .foregroundColor(Color("fontColor"))  
                 
                 Text(self.donutModel.description)
                     .font(.system(size: 11, weight: .bold, design: .rounded))
                     .foregroundColor(Color("fontColor"))
-                    .matchedGeometryEffect(id: "donutDescription", in: animation)
+//                    .matchedGeometryEffect(id: "\(self.donutModel.name)donutDescription", in: animation)
                     .frame(height: 32)
             }
             .padding(.horizontal, 5)
@@ -57,7 +56,7 @@ struct DonutCardView: View {
                 Text("$\(donutModel.price)")
                     .font(.system(size: 14, weight: .black, design: .rounded))
                     .foregroundColor(Color("fontColor"))
-                    .matchedGeometryEffect(id: "donutPrice", in: animation)
+//                    .matchedGeometryEffect(id: "\(self.donutModel.name)donutPrice", in: animation)
                 
                 Spacer()
             }
@@ -67,6 +66,8 @@ struct DonutCardView: View {
             
             
         }
+        .matchedGeometryEffect(id: "\(self.donutModel.name)fullView", in: animation)
+//        .ignoresSafeArea()
         .background(Color("background"))
         .frame(width: 170, height: 250, alignment: .center)
         .cornerRadius(35)
@@ -75,9 +76,10 @@ struct DonutCardView: View {
 }
 
 struct DonutCardView_Previews: PreviewProvider {
+    
+    @Namespace static var animation
+    
     static var previews: some View {
-        DonutCardView(donutModel: DonutModel.init())
-        DonutCardView(donutModel: DonutModel.init())
-            .colorScheme(.dark)
+        DonutCardView(donutModel: DonutModel.init(), animation: animation)
     }
 }

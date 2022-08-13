@@ -20,6 +20,7 @@ struct DonutView: View {
     @Binding var name: String
     @Binding var price: Int
     @Binding var description: String
+    @Binding var isDonutSelected: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -32,23 +33,49 @@ struct DonutView: View {
                             self.donutModel.category == "rellenas" ? Color("purple") :
                             Color("green")
                     )
-                    .matchedGeometryEffect(id: "backgroundColor", in: animation)
-                    .frame(width: .infinity, height: 270, alignment: .center)
+                    .frame(maxWidth: .infinity, maxHeight: 270, alignment: .center)
                     .cornerRadius(35)
                 
                 KFImage(URL(string: self.imgUrl))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .matchedGeometryEffect(id: "donutImage", in: animation)
                     .frame(width: 200, height: 200, alignment: .center)
+                
+                ZStack(alignment: .topTrailing) {
+                    VStack {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 20, weight: .black, design: .rounded))
+                            .foregroundColor(Color("buttonTextColor"))
+                            .padding(5)
+                            .background(
+                                self.donutModel.category == "glaseadas" ? Color("pink") :
+                                    self.donutModel.category == "chocolate" ? Color("green") :
+                                    self.donutModel.category == "normal" ? Color("blue") :
+                                    self.donutModel.category == "rellenas" ? Color("purple") :
+                                    Color("green")
+                            )
+                            .cornerRadius(30)
+                            .shadow(color: Color("shadow"), radius: 1, x: 1, y: 1)
+                            .onTapGesture {
+                                withAnimation(.easeIn) {
+                                    self.isDonutSelected = false
+                                }
+                                
+                            }
+                    }
+                    .padding(.top, 35)
+                    .padding(.trailing, 10)
+                }
+                .frame(maxWidth: .infinity, maxHeight: 270, alignment: .topTrailing)
             }
+            .matchedGeometryEffect(id: "\(self.donutModel.name)backgroundColor", in: animation)
             
             VStack(alignment: .leading) {
                 HStack {
                     Text(self.name)
+//                        .matchedGeometryEffect(id: "\(self.donutModel.name)donutName", in: animation)
                         .font(.system(size: 28, weight: .black, design: .rounded))
                         .foregroundColor(Color("fontColor"))
-                        .matchedGeometryEffect(id: "donutName", in: animation)
                     
                     Spacer()
                     
@@ -56,19 +83,19 @@ struct DonutView: View {
                         .font(.system(size: 25, weight: .bold, design: .rounded))
                         .foregroundColor(Color(.gray))
                         .matchedGeometryEffect(id: "heartButton", in: animation)
-                        .offset(x: self.isDonutInfoShowing ? 0 : 300, y: 0)
+                        .offset(x: self.isDonutInfoShowing ? 0 : 600, y: 0)
                 }
                 
                 VStack(alignment: .leading) {
                     Text("$\(self.price) c/u")
                         .font(.system(size: 22, weight: .black, design: .rounded))
                         .foregroundColor(Color("fontColor"))
-                        .matchedGeometryEffect(id: "donutPrice", in: animation)
+//                        .matchedGeometryEffect(id: "\(self.donutModel.name)donutPrice", in: animation)
                     
                     Text(self.description)
                         .font(.system(size: 18, weight: .bold, design: .rounded))
                         .foregroundColor(Color("fontColor"))
-                        .matchedGeometryEffect(id: "donutDescription", in: animation)
+//                        .matchedGeometryEffect(id: "\(self.donutModel.name)donutDescription", in: animation)
                         .padding(.top, 10)
                 }
             }
@@ -144,7 +171,7 @@ struct DonutView: View {
             }
             .padding(.horizontal, 10)
             .padding(.top, 40)
-            .offset(x: self.isDonutInfoShowing ? 0 : 600, y: 0)
+            .offset(x: self.isDonutInfoShowing ? 0 : 800, y: 0)
             
             HStack {
                 Spacer()
@@ -154,7 +181,7 @@ struct DonutView: View {
                     .foregroundColor(Color("fontColor"))
                 
                 Button {
-                    //
+                    self.isDonutSelected = false
                 } label: {
                     VStack {
                         Image(systemName: "cart.fill.badge.plus")
@@ -176,16 +203,20 @@ struct DonutView: View {
 
             }
             .padding(.top, 40)
-            .padding(.trailing)
+            .padding(.trailing, 10)
+            .offset(x: 0, y: self.isDonutInfoShowing ? 0 : 1200)
             
             
             Spacer()
             
         }
+        .matchedGeometryEffect(id: "\(self.donutModel.name)fullView", in: animation)
         .ignoresSafeArea()
         .background(Color("background"))
+//        .cornerRadius(35)
+//        .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
         .onAppear {
-            withAnimation(.spring(response: 0.7, dampingFraction: 1)) {
+            withAnimation(.spring(response: 0.7, dampingFraction: 0.85)) {
                 self.isDonutInfoShowing = true
             }
         }
@@ -201,6 +232,7 @@ struct DonutView_Previews: PreviewProvider {
     @State static var description = "Donut bañada en en manjar, con sufflés crocantes de chocolate y salsa de chocolate. \n\nEsta donut fue creada pensando en el paladar de los fanáticos de lo crocante y el chocolate."
     
     static var previews: some View {
-        DonutView(donutModel: DonutModel.init(), animation: animation, imgUrl: $imgUrl, name: $name, price: $price, description: $description)
+        DonutView(donutModel: DonutModel.init(), animation: animation, imgUrl: $imgUrl, name: $name, price: $price, description: $description, isDonutSelected: .constant(false))
     }
 }
+

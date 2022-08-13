@@ -16,6 +16,11 @@ final class DonutsViewModel: ObservableObject {
     @Published var rellenaDonuts: [DonutModel] = []
     @Published var normalDonuts: [DonutModel] = []
     @Published var lastItem: String = ""
+    @Published var imgUrl: String = ""
+    @Published var name: String = ""
+    @Published var price: Int = 0
+    @Published var description: String = ""
+    @Published var donutModel: DonutModel = DonutModel()
     
     
     init(donutsRepository: DonutsRepository = DonutsRepository()) {
@@ -84,5 +89,14 @@ final class DonutsViewModel: ObservableObject {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    
+    func setDataFromSelectedDonut(imgUrl: String, name: String, price: Int, description: String, donutModel: DonutModel) {
+        self.imgUrl = imgUrl
+        self.name = name
+        self.price = price
+        self.description = description
+        self.donutModel = donutModel
     }
 }
