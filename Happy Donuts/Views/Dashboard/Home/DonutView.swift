@@ -57,7 +57,7 @@ struct DonutView: View {
                             .cornerRadius(30)
                             .shadow(color: Color("shadow"), radius: 1, x: 1, y: 1)
                             .onTapGesture {
-                                withAnimation(.easeIn) {
+                                withAnimation(.spring(response: 0.5, dampingFraction: 0.85)) {
                                     self.isDonutSelected = false
                                 }
                                 
@@ -210,7 +210,7 @@ struct DonutView: View {
             Spacer()
             
         }
-        .matchedGeometryEffect(id: "\(self.donutModel.name)fullView", in: animation)
+//        .matchedGeometryEffect(id: "\(self.donutModel.name)fullView", in: animation)
         .ignoresSafeArea()
         .background(Color("background"))
 //        .cornerRadius(35)

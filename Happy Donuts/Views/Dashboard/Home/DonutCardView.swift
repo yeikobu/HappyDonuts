@@ -66,7 +66,7 @@ struct DonutCardView: View {
             
             
         }
-        .matchedGeometryEffect(id: "\(self.donutModel.name)fullView", in: animation)
+//        .matchedGeometryEffect(id: "\(self.donutModel.name)fullView", in: animation)
 //        .ignoresSafeArea()
         .background(Color("background"))
         .frame(width: 170, height: 250, alignment: .center)

@@ -14,7 +14,7 @@ struct HomeView: View {
     
     @State var searchDonut: String = ""
     @State var selectedCategory: String = "populares"
-    @State var isDonutSelected = false
+    @State var isDonutSelected: Bool = false
     @State var imgUrl: String = ""
     @State var name: String = ""
     @State var price: Int = 0
@@ -145,17 +145,15 @@ struct HomeView: View {
                             if self.selectedCategory == self.homeViewModel.categories[0] {
                                 ForEach(self.donutsViewModel.donutsModel, id: \.self) { donut in
                                     DonutCardView(donutModel: donut, animation: animation)
-                                        .padding(.vertical, 2)
                                         .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                        .frame(width: 170, height: 250, alignment: .center)
+                                        .cornerRadius(35)
+                                        .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
+                                        .padding(.vertical, 2)
                                         .transition(.scale)
                                         .onTapGesture {
-//                                            self.imgUrl = donut.imgUrl
-//                                            self.name = donut.name
-//                                            self.price = donut.price
-//                                            self.description = donut.description
-//                                            self.donutModel = donut
                                             self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut)
-                                            withAnimation(.easeOut) {
+                                            withAnimation(.spring(response: 0.5, dampingFraction: 0.85)) {
                                                 self.isDonutSelected = true
                                             }
                                         }
@@ -211,8 +209,8 @@ struct HomeView: View {
             }
             
             if isDonutSelected {
-//                DonutView(donutModel: self.donutModel, animation: animation, imgUrl: self.$imgUrl, name: self.$name, price: self.$price, description: self.$description, isDonutSelected: self.$isDonutSelected)
                 DonutView(donutModel: self.donutsViewModel.donutModel, animation: animation, imgUrl: self.$donutsViewModel.imgUrl, name: self.$donutsViewModel.name, price: self.$donutsViewModel.price, description: self.$donutsViewModel.description, isDonutSelected: self.$isDonutSelected)
+                    .matchedGeometryEffect(id: "\(self.donutsViewModel.name)", in: animation)
             }
    
         }
