@@ -37,14 +37,12 @@ struct DonutCardView: View {
             
             VStack(alignment: .leading) {
                 Text(self.donutModel.name)
-//                    .matchedGeometryEffect(id: "\(self.donutModel.name)donutName", in: animation)
                     .font(.system(size: 14, weight: .black, design: .rounded))
                     .foregroundColor(Color("fontColor"))  
                 
                 Text(self.donutModel.description)
                     .font(.system(size: 11, weight: .bold, design: .rounded))
                     .foregroundColor(Color("fontColor"))
-//                    .matchedGeometryEffect(id: "\(self.donutModel.name)donutDescription", in: animation)
                     .frame(height: 32)
             }
             .padding(.horizontal, 5)
@@ -56,7 +54,6 @@ struct DonutCardView: View {
                 Text("$\(donutModel.price)")
                     .font(.system(size: 14, weight: .black, design: .rounded))
                     .foregroundColor(Color("fontColor"))
-//                    .matchedGeometryEffect(id: "\(self.donutModel.name)donutPrice", in: animation)
                 
                 Spacer()
             }
@@ -66,8 +63,6 @@ struct DonutCardView: View {
             
             
         }
-//        .matchedGeometryEffect(id: "\(self.donutModel.name)fullView", in: animation)
-//        .ignoresSafeArea()
         .background(Color("background"))
         .frame(width: 170, height: 250, alignment: .center)
         .cornerRadius(35)

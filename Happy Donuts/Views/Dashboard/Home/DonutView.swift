@@ -73,7 +73,6 @@ struct DonutView: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text(self.name)
-//                        .matchedGeometryEffect(id: "\(self.donutModel.name)donutName", in: animation)
                         .font(.system(size: 28, weight: .black, design: .rounded))
                         .foregroundColor(Color("fontColor"))
                     
@@ -90,12 +89,10 @@ struct DonutView: View {
                     Text("$\(self.price) c/u")
                         .font(.system(size: 22, weight: .black, design: .rounded))
                         .foregroundColor(Color("fontColor"))
-//                        .matchedGeometryEffect(id: "\(self.donutModel.name)donutPrice", in: animation)
                     
                     Text(self.description)
                         .font(.system(size: 18, weight: .bold, design: .rounded))
                         .foregroundColor(Color("fontColor"))
-//                        .matchedGeometryEffect(id: "\(self.donutModel.name)donutDescription", in: animation)
                         .padding(.top, 10)
                 }
             }
@@ -210,11 +207,9 @@ struct DonutView: View {
             Spacer()
             
         }
-//        .matchedGeometryEffect(id: "\(self.donutModel.name)fullView", in: animation)
-        .ignoresSafeArea()
         .background(Color("background"))
-//        .cornerRadius(35)
-//        .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
+        .cornerRadius(35)
+        .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
         .onAppear {
             withAnimation(.spring(response: 0.7, dampingFraction: 0.85)) {
                 self.isDonutInfoShowing = true
