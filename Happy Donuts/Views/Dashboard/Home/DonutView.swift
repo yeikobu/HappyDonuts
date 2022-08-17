@@ -21,6 +21,7 @@ struct DonutView: View {
     @Binding var price: Int
     @Binding var description: String
     @Binding var isDonutSelected: Bool
+    @Binding var dismissedDonut: String
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -57,9 +58,13 @@ struct DonutView: View {
                             .cornerRadius(30)
                             .shadow(color: Color("shadow"), radius: 1, x: 1, y: 1)
                             .onTapGesture {
-                                withAnimation(.spring(response: 0.5, dampingFraction: 0.85)) {
-                                    self.isDonutSelected = false
+                                self.dismissedDonut = self.name
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    withAnimation(.spring(response: 0.4, dampingFraction: 1)) {
+                                        self.isDonutSelected = false
+                                    }
                                 }
+                               
                                 
                             }
                     }
@@ -225,7 +230,7 @@ struct DonutView_Previews: PreviewProvider {
     @State static var description = "Donut bañada en en manjar, con sufflés crocantes de chocolate y salsa de chocolate. \n\nEsta donut fue creada pensando en el paladar de los fanáticos de lo crocante y el chocolate."
     
     static var previews: some View {
-        DonutView(donutModel: DonutModel.init(), animation: animation, imgUrl: $imgUrl, name: $name, price: $price, description: $description, isDonutSelected: .constant(false))
+        DonutView(donutModel: DonutModel.init(), animation: animation, imgUrl: $imgUrl, name: $name, price: $price, description: $description, isDonutSelected: .constant(false), dismissedDonut: $name)
     }
 }
 

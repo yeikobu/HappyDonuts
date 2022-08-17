@@ -92,12 +92,18 @@ final class DonutsViewModel: ObservableObject {
         }
     }
     
-    
+    /// This method save the data in diferents variables in order to be used in the View.
+    /// - Returns: Void
     func setDataFromSelectedDonut(imgUrl: String, name: String, price: Int, description: String, donutModel: DonutModel) {
         self.imgUrl = imgUrl
         self.name = name
         self.price = price
         self.description = description
         self.donutModel = donutModel
+    }
+    
+    
+    func countDonuts(categoryElements: [DonutModel]) -> Int {
+        return categoryElements.count
     }
 }
