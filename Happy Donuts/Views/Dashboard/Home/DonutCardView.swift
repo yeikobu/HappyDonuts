@@ -10,7 +10,7 @@ import Kingfisher
 
 struct DonutCardView: View {
     
-    @ObservedObject private var donutsViewModel = DonutsViewModel()
+    @StateObject private var donutsViewModel = DonutsViewModel()
     @State var donutModel: DonutModel
     var animation: Namespace.ID
     

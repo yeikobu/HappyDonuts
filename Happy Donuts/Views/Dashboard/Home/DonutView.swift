@@ -203,13 +203,11 @@ struct DonutView: View {
             .padding(.trailing, 10)
             .offset(x: 0, y: self.isDonutInfoShowing ? 0 : 1200)
             
-            
             Spacer()
-            
+            Spacer()
         }
+        .ignoresSafeArea()
         .background(Color("background"))
-        .cornerRadius(35)
-        .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
         .onAppear {
             withAnimation(.spring(response: 0.7, dampingFraction: 0.85)) {
                 self.isDonutInfoShowing = true

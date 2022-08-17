@@ -15,10 +15,6 @@ struct HomeView: View {
     @State var searchDonut: String = ""
     @State var selectedCategory: String = "populares"
     @State var isDonutSelected: Bool = false
-    @State var imgUrl: String = ""
-    @State var name: String = ""
-    @State var price: Int = 0
-    @State var description: String = ""
     @State var donutModel = DonutModel.init()
     
     @Namespace var animation

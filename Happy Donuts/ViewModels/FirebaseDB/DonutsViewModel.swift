@@ -10,6 +10,7 @@ import Foundation
 final class DonutsViewModel: ObservableObject {
     private let donutsRepository: DonutsRepository
     private let homeViewModel: HomeViewModel = HomeViewModel()
+    
     @Published var donutsModel: [DonutModel] = []
     @Published var glaseadaDonuts: [DonutModel] = []
     @Published var chocolateDonuts: [DonutModel] = []
