@@ -23,8 +23,9 @@ struct DashboardView: View {
                 .navigationBarBackButtonHidden(true)
             
         }
-        .background(Color("background"))
         .ignoresSafeArea()
+        .background(Color("background"))
+
     }
     
 }
@@ -103,6 +104,7 @@ struct CustomTabView: View {
             )
             
         }
+        .ignoresSafeArea(.keyboard, edges: .bottom)
         
         
         

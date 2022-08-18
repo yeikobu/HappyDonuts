@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     
+    @ObservedObject var loginViewModel: LoginViewModel = LoginViewModel()
+    
     @State var email: String = ""
     @State var password: String = ""
     @State var confirmPass: String = ""
@@ -16,7 +18,6 @@ struct LoginView: View {
     @State var isEmailCorrect: Bool = false
     @State var isSignupComplete: Bool = false
     @State var isLoginComplete: Bool = false
-    @ObservedObject var loginViewModel: LoginViewModel = LoginViewModel()
     @State var errorMessage: String = ""
     @Namespace var animation
     
@@ -152,7 +153,7 @@ struct LoginView: View {
                                 RoundedRectangle(cornerRadius: 15, style: .continuous)
                                     .foregroundColor(Color("textField"))
                                     .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
-                            )
+                            ) //End email text field
                             
                             
                             HStack { //Password text field
@@ -267,9 +268,9 @@ struct LoginView: View {
                                 Button { //Login button
                                     //                            print(self.loginViewModel.validatePassword(password: self.password))
                                     //                            print(self.password)
-                                    self.isLoginComplete = true
                                     
-                                    print(self.isLoginComplete)
+                                    self.loginViewModel.login(email: self.email, password: self.password)
+                                    
                                 } label: {
                                     VStack {
                                         Text("Login")
@@ -330,15 +331,6 @@ struct LoginView: View {
                         }
                         .padding(.top, 50)
                         
-                        
-                        Spacer()
-                        
-                        NavigationLink(isActive: self.$isLoginComplete) {
-                            DashboardView()
-                        } label: {
-                            EmptyView()
-                        }
-                        
                         NavigationLink(isActive: self.$loginViewModel.itWasAccountCreated) {
                             DashboardView()
                         } label: {
@@ -353,14 +345,14 @@ struct LoginView: View {
                     
                 }
                 
-                if self.loginViewModel.itWasAccountCreated {
-                    DashboardView()
-                }
-                
             }
+        }
+        .onAppear {
+            self.isLoginComplete = self.loginViewModel.autoLogin()
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
+        
         
     }
 }

@@ -18,6 +18,14 @@ final class AuthRepository {
     func createNewUser(email: String, password: String, completionBlock: @escaping (Result<UserModel, Error>) -> Void) {
         authDatasource.createNewUser(email: email, password: password, completionBlock: completionBlock)
     }
+    
+    func login(email: String, password: String, completionBlock: @escaping(Result<UserModel, Error>) -> Void) {
+        authDatasource.login(email: email, password: password, completionBlock: completionBlock)
+    }
+    
+    func getCurrentUser() -> UserModel? {
+        authDatasource.getCurrentUser()
+    }
 
 }
 

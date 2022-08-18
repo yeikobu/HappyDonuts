@@ -15,7 +15,6 @@
 		162956CB28A1EDE700755069 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 162956CA28A1EDE700755069 /* Kingfisher */; };
 		162956CE28A48FD100755069 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162956CD28A48FD100755069 /* StringExtensions.swift */; };
 		16B083FA288B60430089FEC0 /* Happy_DonutsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B083F9288B60430089FEC0 /* Happy_DonutsApp.swift */; };
-		16B083FC288B60430089FEC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B083FB288B60430089FEC0 /* ContentView.swift */; };
 		16B083FE288B60450089FEC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16B083FD288B60450089FEC0 /* Assets.xcassets */; };
 		16B08401288B60450089FEC0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16B08400288B60450089FEC0 /* Preview Assets.xcassets */; };
 		16B08409288B84460089FEC0 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B08408288B84460089FEC0 /* SplashScreenView.swift */; };
@@ -52,7 +51,6 @@
 		162956CD28A48FD100755069 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		16B083F6288B60430089FEC0 /* Happy Donuts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Donuts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B083F9288B60430089FEC0 /* Happy_DonutsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_DonutsApp.swift; sourceTree = "<group>"; };
-		16B083FB288B60430089FEC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16B083FD288B60450089FEC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16B08400288B60450089FEC0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		16B08408288B84460089FEC0 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 				16B0840A288B84D10089FEC0 /* ViewModels */,
 				16B08407288B84180089FEC0 /* Views */,
 				16B083F9288B60430089FEC0 /* Happy_DonutsApp.swift */,
-				16B083FB288B60430089FEC0 /* ContentView.swift */,
 				16B0841D2891AB890089FEC0 /* GoogleService-Info.plist */,
 				16B08410288B86280089FEC0 /* DonutAnimation.json */,
 				16B083FD288B60450089FEC0 /* Assets.xcassets */,
@@ -372,7 +369,6 @@
 				16B0843128933F8B0089FEC0 /* AuthDatasource.swift in Sources */,
 				16B08433289340D80089FEC0 /* AuthRepository.swift in Sources */,
 				16B0841C2890A5FC0089FEC0 /* UserModel.swift in Sources */,
-				16B083FC288B60430089FEC0 /* ContentView.swift in Sources */,
 				16B084372894C9000089FEC0 /* DashboardView.swift in Sources */,
 				16B084172890A4330089FEC0 /* LoginViewModel.swift in Sources */,
 				16B083FA288B60430089FEC0 /* Happy_DonutsApp.swift in Sources */,

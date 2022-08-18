@@ -25,4 +25,28 @@ final class AuthDatasource {
         }
     }
     
+    
+    func login(email: String, password: String, completionBlock: @escaping(Result<UserModel, Error>) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { authDataResult, error in
+            if let error = error {
+                print("Login error: \(error.localizedDescription)")
+                completionBlock(.failure(error))
+                return
+            }
+            
+            if let email = authDataResult?.user.email {
+                completionBlock(.success(.init(userEmail: email)))
+            }
+        }
+    }
+    
+    
+    func getCurrentUser() -> UserModel? {
+        guard let email = Auth.auth().currentUser?.email else {
+            return nil
+        }
+        
+        return .init(userEmail: email)
+    }
+    
 }

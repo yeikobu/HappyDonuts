@@ -27,6 +27,9 @@ final class LoginViewModel: ObservableObject {
     
     init(authRepository: AuthRepository = AuthRepository()) {
         self.authRepository = authRepository
+        
+        getCurrentUser()
+        print(userModel?.userEmail ?? "")
     }
     
     /// This method validates email's format.
@@ -96,11 +99,39 @@ final class LoginViewModel: ObservableObject {
             
             self.itWasAccountCreated = true
         }
-        
-        
-        
     }
     
     
+    func login(email: String, password: String) {
+        if validateEmail(userEmail: email) && validatePassword(password: password) {
+            authRepository.login(email: email, password: password) { [weak self] result in
+                switch result {
+                case .success(let user):
+                    print(user)
+                    self?.itWasAccountCreated = true
+                    self?.userModel = user
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    
+    func autoLogin() -> Bool{
+        if self.userModel != nil {
+            self.itWasAccountCreated = true
+            print("Dentro del scope: \(self.itWasAccountCreated)")
+            return self.itWasAccountCreated
+        }
+        print("Fuera del scope: \(self.itWasAccountCreated)")
+        return self.itWasAccountCreated
+    }
+    
+    
+    
+    func getCurrentUser() {
+        self.userModel = authRepository.getCurrentUser()
+    }
     
 }
