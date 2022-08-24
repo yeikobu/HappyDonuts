@@ -41,6 +41,9 @@
 		16B084422899C5C40089FEC0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B084412899C5C40089FEC0 /* HomeViewModel.swift */; };
 		16C62D7928A5EB9400143721 /* DonutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C62D7828A5EB9400143721 /* DonutView.swift */; };
 		16EAE3BB28B18B9B002C12B3 /* LikedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3BA28B18B9B002C12B3 /* LikedView.swift */; };
+		16EAE3BF28B5BBA2002C12B3 /* LikedDonutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3BE28B5BBA2002C12B3 /* LikedDonutDataSource.swift */; };
+		16EAE3C128B5C04D002C12B3 /* LikedDonutRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3C028B5C04D002C12B3 /* LikedDonutRepository.swift */; };
+		16EAE3C328B5C10F002C12B3 /* LikedDonutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3C228B5C10F002C12B3 /* LikedDonutViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +72,9 @@
 		16B084412899C5C40089FEC0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		16C62D7828A5EB9400143721 /* DonutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutView.swift; sourceTree = "<group>"; };
 		16EAE3BA28B18B9B002C12B3 /* LikedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedView.swift; sourceTree = "<group>"; };
+		16EAE3BE28B5BBA2002C12B3 /* LikedDonutDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedDonutDataSource.swift; sourceTree = "<group>"; };
+		16EAE3C028B5C04D002C12B3 /* LikedDonutRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedDonutRepository.swift; sourceTree = "<group>"; };
+		16EAE3C228B5C10F002C12B3 /* LikedDonutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedDonutViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +293,9 @@
 		16EAE3BD28B5AB25002C12B3 /* LikedDonutViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				16EAE3BE28B5BBA2002C12B3 /* LikedDonutDataSource.swift */,
+				16EAE3C028B5C04D002C12B3 /* LikedDonutRepository.swift */,
+				16EAE3C228B5C10F002C12B3 /* LikedDonutViewModel.swift */,
 			);
 			path = LikedDonutViewModel;
 			sourceTree = "<group>";
@@ -386,6 +395,7 @@
 				16C62D7928A5EB9400143721 /* DonutView.swift in Sources */,
 				16B084422899C5C40089FEC0 /* HomeViewModel.swift in Sources */,
 				16B0843128933F8B0089FEC0 /* AuthDatasource.swift in Sources */,
+				16EAE3BF28B5BBA2002C12B3 /* LikedDonutDataSource.swift in Sources */,
 				16B08433289340D80089FEC0 /* AuthRepository.swift in Sources */,
 				16B0841C2890A5FC0089FEC0 /* UserModel.swift in Sources */,
 				16B084372894C9000089FEC0 /* DashboardView.swift in Sources */,
@@ -395,10 +405,12 @@
 				162956C128A1B54100755069 /* DonutsDataSource.swift in Sources */,
 				16B0843E2898B6DD0089FEC0 /* HomeView.swift in Sources */,
 				16EAE3BB28B18B9B002C12B3 /* LikedView.swift in Sources */,
+				16EAE3C128B5C04D002C12B3 /* LikedDonutRepository.swift in Sources */,
 				16B08414288B86960089FEC0 /* LoginView.swift in Sources */,
 				162956C328A1DE7F00755069 /* DonutsRepository.swift in Sources */,
 				16B08409288B84460089FEC0 /* SplashScreenView.swift in Sources */,
 				162956C828A1E98C00755069 /* DonutCardView.swift in Sources */,
+				16EAE3C328B5C10F002C12B3 /* LikedDonutViewModel.swift in Sources */,
 				162956CE28A48FD100755069 /* StringExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

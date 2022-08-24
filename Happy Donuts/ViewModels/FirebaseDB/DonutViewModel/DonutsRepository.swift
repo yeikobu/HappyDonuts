@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Lottie
 
 final class DonutsRepository {
     private let donutsDataSource: DonutsDataSource
