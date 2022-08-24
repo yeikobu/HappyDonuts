@@ -86,7 +86,7 @@ struct DonutView: View {
                     Image(systemName: "heart")
                         .font(.system(size: 25, weight: .bold, design: .rounded))
                         .foregroundColor(Color(.gray))
-                        .matchedGeometryEffect(id: "heartButton", in: animation)
+//                        .matchedGeometryEffect(id: "heartButton", in: animation)
                         .offset(x: self.isDonutInfoShowing ? 0 : 600, y: 0)
                 }
                 
@@ -101,6 +101,7 @@ struct DonutView: View {
                         .padding(.top, 10)
                 }
             }
+            .matchedGeometryEffect(id: "\(self.donutModel.name)info", in: animation)
             .padding(.horizontal, 10)
             
             VStack(alignment: .trailing) {

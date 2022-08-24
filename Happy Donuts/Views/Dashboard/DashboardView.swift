@@ -75,7 +75,7 @@ struct CustomTabView: View {
                 HomeView()
                     .tag("bag.fill")
                 
-                Text("Liked")
+                LikedView()
                     .tag("heart.fill")
                 
                 Text("Cart")

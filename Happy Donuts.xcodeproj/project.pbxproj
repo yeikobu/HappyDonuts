@@ -40,6 +40,7 @@
 		16B0843E2898B6DD0089FEC0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B0843D2898B6DC0089FEC0 /* HomeView.swift */; };
 		16B084422899C5C40089FEC0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B084412899C5C40089FEC0 /* HomeViewModel.swift */; };
 		16C62D7928A5EB9400143721 /* DonutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C62D7828A5EB9400143721 /* DonutView.swift */; };
+		16EAE3BB28B18B9B002C12B3 /* LikedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3BA28B18B9B002C12B3 /* LikedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		16B0843D2898B6DC0089FEC0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		16B084412899C5C40089FEC0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		16C62D7828A5EB9400143721 /* DonutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutView.swift; sourceTree = "<group>"; };
+		16EAE3BA28B18B9B002C12B3 /* LikedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +95,8 @@
 		162956BF28A1B50300755069 /* FirebaseDB */ = {
 			isa = PBXGroup;
 			children = (
-				162956C028A1B54100755069 /* DonutsDataSource.swift */,
-				162956C228A1DE7F00755069 /* DonutsRepository.swift */,
-				162956C528A1DF7000755069 /* DonutsViewModel.swift */,
+				16EAE3BD28B5AB25002C12B3 /* LikedDonutViewModel */,
+				16EAE3BC28B5AB07002C12B3 /* DonutViewModel */,
 			);
 			path = FirebaseDB;
 			sourceTree = "<group>";
@@ -245,6 +246,7 @@
 		16B0843B2898B68F0089FEC0 /* Liked */ = {
 			isa = PBXGroup;
 			children = (
+				16EAE3BA28B18B9B002C12B3 /* LikedView.swift */,
 			);
 			path = Liked;
 			sourceTree = "<group>";
@@ -270,6 +272,23 @@
 				16B084412899C5C40089FEC0 /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		16EAE3BC28B5AB07002C12B3 /* DonutViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				162956C028A1B54100755069 /* DonutsDataSource.swift */,
+				162956C228A1DE7F00755069 /* DonutsRepository.swift */,
+				162956C528A1DF7000755069 /* DonutsViewModel.swift */,
+			);
+			path = DonutViewModel;
+			sourceTree = "<group>";
+		};
+		16EAE3BD28B5AB25002C12B3 /* LikedDonutViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LikedDonutViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +394,7 @@
 				162956C628A1DF7000755069 /* DonutsViewModel.swift in Sources */,
 				162956C128A1B54100755069 /* DonutsDataSource.swift in Sources */,
 				16B0843E2898B6DD0089FEC0 /* HomeView.swift in Sources */,
+				16EAE3BB28B18B9B002C12B3 /* LikedView.swift in Sources */,
 				16B08414288B86960089FEC0 /* LoginView.swift in Sources */,
 				162956C328A1DE7F00755069 /* DonutsRepository.swift in Sources */,
 				16B08409288B84460089FEC0 /* SplashScreenView.swift in Sources */,

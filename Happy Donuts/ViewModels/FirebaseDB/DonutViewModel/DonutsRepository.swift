@@ -15,6 +15,10 @@ final class DonutsRepository {
         self.donutsDataSource = donutsDataSource
     }
     
+    deinit {
+        print("Eliminando referencia Donuts Repository")
+    }
+    
     func getAllDonuts(completion: @escaping (Result<[DonutModel], Error>) -> Void) {
         self.donutsDataSource.getAllDonuts(completion: completion)
     }

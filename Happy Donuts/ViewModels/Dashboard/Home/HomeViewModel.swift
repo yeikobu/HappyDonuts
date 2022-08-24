@@ -9,4 +9,8 @@ import Foundation
 
 final class HomeViewModel: ObservableObject {
     @Published var categories: [String] = ["populares", "glaseadas", "chocolate", "rellenas","normal"]
+    
+    deinit {
+        print("Home view model: Clase eliminada de memoria")
+    }
 }

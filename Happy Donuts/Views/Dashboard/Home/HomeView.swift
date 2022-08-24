@@ -149,7 +149,7 @@ struct HomeView: View {
                                 if self.selectedCategory == self.homeViewModel.categories[0] {
                                     ForEach(self.donutsViewModel.donutsModel, id: \.self) { donut in
                                         DonutCardView(donutModel: donut, animation: animation)
-                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+//                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
                                             .padding(.vertical, 2)
                                             .transition(.scale)
                                             .onTapGesture {
@@ -165,7 +165,7 @@ struct HomeView: View {
                                 if self.selectedCategory == self.homeViewModel.categories[1] {
                                     ForEach(self.donutsViewModel.glaseadaDonuts, id: \.self) { donut in
                                         DonutCardView(donutModel: donut, animation: animation)
-                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+//                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
                                             .padding(.vertical, 2)
                                             .transition(.scale)
                                             .onTapGesture {
@@ -181,7 +181,7 @@ struct HomeView: View {
                                 if self.selectedCategory == self.homeViewModel.categories[2] {
                                     ForEach(self.donutsViewModel.chocolateDonuts, id: \.self) { donut in
                                         DonutCardView(donutModel: donut, animation: animation)
-                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+//                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
                                             .padding(.vertical, 2)
                                             .transition(.scale)
                                             .onTapGesture {
@@ -197,7 +197,7 @@ struct HomeView: View {
                                 if self.selectedCategory == self.homeViewModel.categories[3] {
                                     ForEach(self.donutsViewModel.rellenaDonuts, id: \.self) { donut in
                                         DonutCardView(donutModel: donut, animation: animation)
-                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+//                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
                                             .padding(.vertical, 2)
                                             .transition(.scale)
                                             .onTapGesture {
@@ -213,7 +213,7 @@ struct HomeView: View {
                                 if self.selectedCategory == self.homeViewModel.categories[4] {
                                     ForEach(self.donutsViewModel.normalDonuts, id: \.self) { donut in
                                         DonutCardView(donutModel: donut, animation: animation)
-                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+//                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
                                             .padding(.vertical, 2)
                                             .transition(.scale)
                                             .onTapGesture {
@@ -241,7 +241,7 @@ struct HomeView: View {
             
             if isDonutSelected {
                 DonutView(donutModel: self.donutsViewModel.donutModel, animation: animation, imgUrl: self.$donutsViewModel.imgUrl, name: self.$donutsViewModel.name, price: self.$donutsViewModel.price, description: self.$donutsViewModel.description, isDonutSelected: self.$isDonutSelected, dismissedDonut: self.$dismissedDonut)
-                    .matchedGeometryEffect(id: "\(self.donutsViewModel.name)", in: animation)
+//                    .matchedGeometryEffect(id: "\(self.donutsViewModel.name)", in: animation)
             }
    
         }
