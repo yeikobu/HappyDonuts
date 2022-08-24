@@ -212,6 +212,7 @@ struct DonutView: View {
             Spacer()
             Spacer()
         }
+//        .matchedGeometryEffect(id: "\(self.donutModel.name)fullcard", in: animation)
         .ignoresSafeArea()
         .background(Color("background"))
         .onAppear {

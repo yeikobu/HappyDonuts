@@ -66,10 +66,12 @@ struct DonutCardView: View {
             
             
         }
+//        .matchedGeometryEffect(id: "\(self.donutModel.name)fullcard", in: animation)
         .background(Color("background"))
         .frame(width: 170, height: 250, alignment: .center)
         .cornerRadius(35)
         .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
+        
     }
 }
 
