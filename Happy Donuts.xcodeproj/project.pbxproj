@@ -44,6 +44,7 @@
 		16EAE3BF28B5BBA2002C12B3 /* LikedDonutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3BE28B5BBA2002C12B3 /* LikedDonutDataSource.swift */; };
 		16EAE3C128B5C04D002C12B3 /* LikedDonutRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3C028B5C04D002C12B3 /* LikedDonutRepository.swift */; };
 		16EAE3C328B5C10F002C12B3 /* LikedDonutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3C228B5C10F002C12B3 /* LikedDonutViewModel.swift */; };
+		16EAE3C728B70BDA002C12B3 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3C628B70BD9002C12B3 /* Haptics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		16EAE3BE28B5BBA2002C12B3 /* LikedDonutDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedDonutDataSource.swift; sourceTree = "<group>"; };
 		16EAE3C028B5C04D002C12B3 /* LikedDonutRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedDonutRepository.swift; sourceTree = "<group>"; };
 		16EAE3C228B5C10F002C12B3 /* LikedDonutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedDonutViewModel.swift; sourceTree = "<group>"; };
+		16EAE3C628B70BD9002C12B3 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		16B083F8288B60430089FEC0 /* Happy Donuts */ = {
 			isa = PBXGroup;
 			children = (
+				16EAE3C528B70BB7002C12B3 /* Tools */,
 				162956CC28A48FB600755069 /* Extensions */,
 				16B084182890A48C0089FEC0 /* Models */,
 				16B0840A288B84D10089FEC0 /* ViewModels */,
@@ -300,6 +303,22 @@
 			path = LikedDonutViewModel;
 			sourceTree = "<group>";
 		};
+		16EAE3C428B70B67002C12B3 /* Haptics */ = {
+			isa = PBXGroup;
+			children = (
+				16EAE3C628B70BD9002C12B3 /* Haptics.swift */,
+			);
+			path = Haptics;
+			sourceTree = "<group>";
+		};
+		16EAE3C528B70BB7002C12B3 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				16EAE3C428B70B67002C12B3 /* Haptics */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -401,6 +420,7 @@
 				16B084372894C9000089FEC0 /* DashboardView.swift in Sources */,
 				16B084172890A4330089FEC0 /* LoginViewModel.swift in Sources */,
 				16B083FA288B60430089FEC0 /* Happy_DonutsApp.swift in Sources */,
+				16EAE3C728B70BDA002C12B3 /* Haptics.swift in Sources */,
 				162956C628A1DF7000755069 /* DonutsViewModel.swift in Sources */,
 				162956C128A1B54100755069 /* DonutsDataSource.swift in Sources */,
 				16B0843E2898B6DD0089FEC0 /* HomeView.swift in Sources */,

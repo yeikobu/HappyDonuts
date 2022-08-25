@@ -33,4 +33,17 @@ final class LikedDonutDataSource {
             completion(.success(likedDonuts))
         }
     }
+    
+    
+    func addToLikedDonuts(name: String, description: String, imgUrl: String, category: String, price: Int, sellCount: Int, completion: @escaping (Result<DonutModel, Error>) -> Void) {
+        let likedDonut = DonutModel(name: name, description: description, price: price, category: category, sellCount: sellCount, imgUrl: imgUrl)
+        
+        do {
+            try database.collection(collection).document(uid).collection(subColleciton).document(name).setData(from: likedDonut)
+            
+            completion(.success(likedDonut))
+        } catch {
+            completion(.failure(error))
+        }
+    }
 }

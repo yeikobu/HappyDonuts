@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class DonutsViewModel: ObservableObject {
     private let donutsRepository: DonutsRepository
@@ -21,6 +22,8 @@ final class DonutsViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var price: Int = 0
     @Published var description: String = ""
+    @Published var category: String = ""
+    @Published var sellCount: Int = 0
     @Published var donutModel: DonutModel = DonutModel()
     
     
@@ -98,12 +101,14 @@ final class DonutsViewModel: ObservableObject {
     
     /// This method save the data in diferents variables in order to be used in the View.
     /// - Returns: Void
-    func setDataFromSelectedDonut(imgUrl: String, name: String, price: Int, description: String, donutModel: DonutModel) {
+    func setDataFromSelectedDonut(imgUrl: String, name: String, price: Int, description: String, donutModel: DonutModel, category: String, sellCount: Int) {
         self.imgUrl = imgUrl
         self.name = name
         self.price = price
         self.description = description
         self.donutModel = donutModel
+        self.category = category
+        self.sellCount = sellCount
     }
     
     

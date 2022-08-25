@@ -153,7 +153,7 @@ struct HomeView: View {
                                             .padding(.vertical, 2)
                                             .transition(.scale)
                                             .onTapGesture {
-                                                self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut)
+                                                self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut, category: donut.category, sellCount: donut.sellCount)
                                                 withAnimation(.spring(response: 0.7, dampingFraction: 0.80)) {
                                                     self.isDonutSelected = true
                                                 }
@@ -169,7 +169,7 @@ struct HomeView: View {
                                             .padding(.vertical, 2)
                                             .transition(.scale)
                                             .onTapGesture {
-                                                self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut)
+                                                self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut, category: donut.category, sellCount: donut.sellCount)
                                                 withAnimation(.spring(response: 0.7, dampingFraction: 0.80)) {
                                                     self.isDonutSelected = true
                                                 }
@@ -185,7 +185,7 @@ struct HomeView: View {
                                             .padding(.vertical, 2)
                                             .transition(.scale)
                                             .onTapGesture {
-                                                self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut)
+                                                self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut, category: donut.category, sellCount: donut.sellCount)
                                                 withAnimation(.spring(response: 0.7, dampingFraction: 0.80)) {
                                                     self.isDonutSelected = true
                                                 }
@@ -201,7 +201,7 @@ struct HomeView: View {
                                             .padding(.vertical, 2)
                                             .transition(.scale)
                                             .onTapGesture {
-                                                self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut)
+                                                self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut, category: donut.category, sellCount: donut.sellCount)
                                                 withAnimation(.spring(response: 0.7, dampingFraction: 0.80)) {
                                                     self.isDonutSelected = true
                                                 }
@@ -217,7 +217,7 @@ struct HomeView: View {
                                             .padding(.vertical, 2)
                                             .transition(.scale)
                                             .onTapGesture {
-                                                self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut)
+                                                self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut, category: donut.category, sellCount: donut.sellCount)
                                                 withAnimation(.spring(response: 0.7, dampingFraction: 0.80)) {
                                                     self.isDonutSelected = true
                                                 }
@@ -240,7 +240,7 @@ struct HomeView: View {
             }
             
             if isDonutSelected {
-                DonutView(donutModel: self.donutsViewModel.donutModel, animation: animation, imgUrl: self.$donutsViewModel.imgUrl, name: self.$donutsViewModel.name, price: self.$donutsViewModel.price, description: self.$donutsViewModel.description, isDonutSelected: self.$isDonutSelected, dismissedDonut: self.$dismissedDonut)
+                DonutView(donutModel: self.donutsViewModel.donutModel, animation: animation, imgUrl: self.$donutsViewModel.imgUrl, name: self.$donutsViewModel.name, price: self.$donutsViewModel.price, description: self.$donutsViewModel.description, isDonutSelected: self.$isDonutSelected, dismissedDonut: self.$dismissedDonut, category: self.$donutsViewModel.category, sellCount: self.$donutsViewModel.sellCount)
 //                    .matchedGeometryEffect(id: "\(self.donutsViewModel.name)", in: animation)
             }
    
