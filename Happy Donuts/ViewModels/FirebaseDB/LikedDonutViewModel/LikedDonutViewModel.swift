@@ -19,6 +19,10 @@ final class LikedDonutViewModel: ObservableObject {
         self.likedDonutRepository = likedDonutRepository
     }
     
+    deinit {
+        print("LikedDonutViewModel removed from memory!")
+    }
+    
     func getLikedDonuts() {
         self.likedDonutRepository.getLikedDonuts { [weak self] result in
             switch result {
@@ -44,22 +48,8 @@ final class LikedDonutViewModel: ObservableObject {
         }
     }
     
-//    func checkIfDonutLiked(name: String) {
-//        print(likedDonuts)
-//        getLikedDonuts()
-//        
-////        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//            self.likedDonuts.forEach { donut in
-//                if donut.name == name {
-//                    print("liked")
-//                    self.isDonutLiked = true
-//                } else {
-//                    print("Not liked")
-//                    self.isDonutLiked = false
-//                }
-//            }
-////        }
-//        
-//    }
+    func checkIfDonutAlreadyLiked(donut: DonutModel) async -> Bool {
+        return await self.likedDonutRepository.checkIfDonutAlreadyLiked(donut: donut)
+    }
     
 }

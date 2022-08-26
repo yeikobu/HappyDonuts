@@ -46,4 +46,19 @@ final class LikedDonutDataSource {
             completion(.failure(error))
         }
     }
+    
+    
+    @MainActor
+    func checkIfDonutAlreadyLiked(donut: DonutModel) async -> Bool {
+        var donutModel = [DonutModel]()
+        do {
+            let query = try await database.collection(collection).document(uid).collection(subColleciton).getDocuments()
+            let documents = query.documents.compactMap({$0})
+            let donuts = documents.map { try? $0.data(as: DonutModel.self)}.compactMap{$0}
+            donutModel = donuts
+        } catch {
+            print(error.localizedDescription)
+        }
+        return donutModel.contains(donut)
+    }
 }

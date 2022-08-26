@@ -21,4 +21,8 @@ final class LikedDonutRepository {
     func addToLikedDonuts(name: String, description: String, imgUrl: String, category: String, price: Int, sellCount: Int, completion: @escaping (Result<DonutModel, Error>) -> Void) {
         self.likedDonutDataSource.addToLikedDonuts(name: name, description: description, imgUrl: imgUrl, category: category, price: price, sellCount: sellCount, completion: completion)
     }
+    
+    func checkIfDonutAlreadyLiked(donut: DonutModel) async -> Bool {
+       return await self.likedDonutDataSource.checkIfDonutAlreadyLiked(donut: donut)
+    }
 }

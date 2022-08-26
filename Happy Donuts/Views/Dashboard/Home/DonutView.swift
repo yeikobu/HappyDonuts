@@ -245,15 +245,14 @@ struct DonutView: View {
         .ignoresSafeArea()
         .background(Color("background"))
         .onAppear {
-//            self.likedDonutViewModel.getLikedDonuts()
+            
+            Task {
+                self.isDonutLiked = await self.likedDonutViewModel.checkIfDonutAlreadyLiked(donut: self.donutModel)
+            }
             
             withAnimation(.spring(response: 0.7, dampingFraction: 0.85)) {
                 self.isDonutInfoShowing = true
             }
-//            self.likedDonutViewModel.checkIfDonutLiked(name: self.name)
-//            print(self.likedDonutViewModel.likedDonuts)
-            
-//            print(self.donutModel)
             
         }
     }
