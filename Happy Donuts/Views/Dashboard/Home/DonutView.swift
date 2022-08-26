@@ -76,8 +76,6 @@ struct DonutView: View {
                                         self.isDonutSelected = false
                                     }
                                 }
-                               
-                                
                             }
                     }
                     .padding(.top, 35)

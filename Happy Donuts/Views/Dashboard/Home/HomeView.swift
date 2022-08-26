@@ -12,10 +12,11 @@ struct HomeView: View {
     @ObservedObject var homeViewModel: HomeViewModel = HomeViewModel()
     @ObservedObject var donutsViewModel: DonutsViewModel = DonutsViewModel()
     
+    @State var donutModel = DonutModel.init()
+    
     @State var searchDonut: String = ""
     @State var selectedCategory: String = "populares"
     @State var isDonutSelected: Bool = false
-    @State var donutModel = DonutModel.init()
     @State var dismissedDonut: String = ""
     
     @Namespace var animation
@@ -227,7 +228,6 @@ struct HomeView: View {
                                 }
                                 
                             }
-                            .matchedGeometryEffect(id: "grid", in: animation)
                         }
                         
                     }
