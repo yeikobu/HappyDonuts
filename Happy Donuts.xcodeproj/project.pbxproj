@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1626517328BAAC5200C4A90E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626517228BAAC5200C4A90E /* ProfileView.swift */; };
+		1626517628BAACC800C4A90E /* UserDataCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626517528BAACC800C4A90E /* UserDataCardView.swift */; };
+		1626517828BAACE600C4A90E /* OrdersHistoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626517728BAACE500C4A90E /* OrdersHistoryCardView.swift */; };
+		1626517C28BAB12E00C4A90E /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626517B28BAB12E00C4A90E /* ViewExtensions.swift */; };
 		162956BE28A1B2C600755069 /* DonutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162956BD28A1B2C600755069 /* DonutModel.swift */; };
 		162956C128A1B54100755069 /* DonutsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162956C028A1B54100755069 /* DonutsDataSource.swift */; };
 		162956C328A1DE7F00755069 /* DonutsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162956C228A1DE7F00755069 /* DonutsRepository.swift */; };
@@ -48,6 +52,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1626517228BAAC5200C4A90E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		1626517528BAACC800C4A90E /* UserDataCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataCardView.swift; sourceTree = "<group>"; };
+		1626517728BAACE500C4A90E /* OrdersHistoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersHistoryCardView.swift; sourceTree = "<group>"; };
+		1626517B28BAB12E00C4A90E /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		162956BD28A1B2C600755069 /* DonutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutModel.swift; sourceTree = "<group>"; };
 		162956C028A1B54100755069 /* DonutsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutsDataSource.swift; sourceTree = "<group>"; };
 		162956C228A1DE7F00755069 /* DonutsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutsRepository.swift; sourceTree = "<group>"; };
@@ -100,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1626517428BAAC9300C4A90E /* SubsViews */ = {
+			isa = PBXGroup;
+			children = (
+				1626517528BAACC800C4A90E /* UserDataCardView.swift */,
+				1626517728BAACE500C4A90E /* OrdersHistoryCardView.swift */,
+			);
+			path = SubsViews;
+			sourceTree = "<group>";
+		};
 		162956BF28A1B50300755069 /* FirebaseDB */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				162956CD28A48FD100755069 /* StringExtensions.swift */,
+				1626517B28BAB12E00C4A90E /* ViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,6 +248,8 @@
 		16B084382898B6310089FEC0 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				162956C728A1E98C00755069 /* DonutCardView.swift */,
+				16C62D7828A5EB9400143721 /* DonutView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -237,10 +257,8 @@
 		16B084392898B6590089FEC0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				16B084382898B6310089FEC0 /* Subviews */,
 				16B0843D2898B6DC0089FEC0 /* HomeView.swift */,
-				162956C728A1E98C00755069 /* DonutCardView.swift */,
-				16C62D7828A5EB9400143721 /* DonutView.swift */,
+				16B084382898B6310089FEC0 /* Subviews */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -248,6 +266,8 @@
 		16B0843A2898B67E0089FEC0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				1626517228BAAC5200C4A90E /* ProfileView.swift */,
+				1626517428BAAC9300C4A90E /* SubsViews */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -415,6 +435,7 @@
 				16B084422899C5C40089FEC0 /* HomeViewModel.swift in Sources */,
 				16B0843128933F8B0089FEC0 /* AuthDatasource.swift in Sources */,
 				16EAE3BF28B5BBA2002C12B3 /* LikedDonutDataSource.swift in Sources */,
+				1626517328BAAC5200C4A90E /* ProfileView.swift in Sources */,
 				16B08433289340D80089FEC0 /* AuthRepository.swift in Sources */,
 				16B0841C2890A5FC0089FEC0 /* UserModel.swift in Sources */,
 				16B084372894C9000089FEC0 /* DashboardView.swift in Sources */,
@@ -426,8 +447,11 @@
 				16B0843E2898B6DD0089FEC0 /* HomeView.swift in Sources */,
 				16EAE3BB28B18B9B002C12B3 /* LikedView.swift in Sources */,
 				16EAE3C128B5C04D002C12B3 /* LikedDonutRepository.swift in Sources */,
+				1626517628BAACC800C4A90E /* UserDataCardView.swift in Sources */,
 				16B08414288B86960089FEC0 /* LoginView.swift in Sources */,
 				162956C328A1DE7F00755069 /* DonutsRepository.swift in Sources */,
+				1626517C28BAB12E00C4A90E /* ViewExtensions.swift in Sources */,
+				1626517828BAACE600C4A90E /* OrdersHistoryCardView.swift in Sources */,
 				16B08409288B84460089FEC0 /* SplashScreenView.swift in Sources */,
 				162956C828A1E98C00755069 /* DonutCardView.swift in Sources */,
 				16EAE3C328B5C10F002C12B3 /* LikedDonutViewModel.swift in Sources */,

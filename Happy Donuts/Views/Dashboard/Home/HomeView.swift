@@ -31,7 +31,7 @@ struct HomeView: View {
                     ZStack {
                         Rectangle()
                             .frame(height: 140, alignment: .center)
-                            .cornerRadius(35)
+                            .cornerRadius(35, corners: [.bottomLeft, .bottomRight])
                             .foregroundColor(Color("pink"))
                             
                         Image("logo")

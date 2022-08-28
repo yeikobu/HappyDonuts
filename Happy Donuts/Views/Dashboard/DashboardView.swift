@@ -69,7 +69,7 @@ struct CustomTabView: View {
             
             TabView(selection: $selectedTab) {
                 
-                Text("Profile")
+                ProfileView()
                     .tag("person.fill")
                 
                 HomeView()
