@@ -63,14 +63,18 @@ struct DonutCardView: View {
             
             Spacer()
             
-            
-            
         }
+        .background(
+            RoundedRectangle(cornerRadius: 35)
+                .matchedGeometryEffect(id: "\(self.donutModel.name)CardForm", in: animation)
+                .foregroundColor(Color("background"))
+                .cornerRadius(35)
+                .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
+        )
+        .frame(width: 170, height: 250)
 //        .matchedGeometryEffect(id: "\(self.donutModel.name)fullcard", in: animation)
-        .background(Color("background"))
-        .frame(width: 170, height: 250, alignment: .center)
-        .cornerRadius(35)
-        .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
+        
+       
         
     }
 }

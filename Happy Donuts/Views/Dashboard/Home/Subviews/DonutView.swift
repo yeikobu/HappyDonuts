@@ -71,8 +71,13 @@ struct DonutView: View {
                             .shadow(color: Color("shadow"), radius: 1, x: 1, y: 1)
                             .onTapGesture {
                                 self.dismissedDonut = self.name
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                    withAnimation(.spring(response: 0.4, dampingFraction: 1)) {
+                                
+                                withAnimation(.spring(response: 2, dampingFraction: 0.8)) {
+                                    self.isDonutInfoShowing = false
+                                }
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                                    withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                                         self.isDonutSelected = false
                                     }
                                 }
@@ -160,7 +165,7 @@ struct DonutView: View {
                                 .frame(width: 40, height: 40)
                         }
                         .background(
-                                self.donutModel.category == "glaseadas" ? Color("pink") :
+                            self.donutModel.category == "glaseadas" ? Color("pink") :
                                 self.donutModel.category == "chocolate" ? Color("green") :
                                 self.donutModel.category == "normal" ? Color("blue") :
                                 self.donutModel.category == "rellenas" ? Color("purple") :
@@ -241,7 +246,7 @@ struct DonutView: View {
                     .cornerRadius(15)
                     .shadow(color: Color("shadow"), radius: 1, x: 0, y: 1)
                 }
-
+                
             }
             .padding(.top, 40)
             .padding(.trailing, 10)
@@ -250,16 +255,23 @@ struct DonutView: View {
             Spacer()
             Spacer()
         }
-//        .matchedGeometryEffect(id: "\(self.donutModel.name)fullcard", in: animation)
+        //        .matchedGeometryEffect(id: "\(self.donutModel.name)fullcard", in: animation)
         .ignoresSafeArea()
-        .background(Color("background"))
+        .background(
+            RoundedRectangle(cornerRadius: 35)
+                .matchedGeometryEffect(id: "\(self.donutModel.name)CardForm", in: animation)
+                .foregroundColor(Color("background"))
+                .cornerRadius(35)
+                .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
+        )
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
             
             Task {
                 self.isDonutLiked = await self.likedDonutViewModel.checkIfDonutAlreadyLiked(donut: self.donutModel)
             }
             
-            withAnimation(.spring(response: 0.7, dampingFraction: 0.85)) {
+            withAnimation(.spring(response: 0.7, dampingFraction: 0.8)) {
                 self.isDonutInfoShowing = true
             }
             
