@@ -19,9 +19,6 @@ final class LikedDonutViewModel: ObservableObject {
         self.likedDonutRepository = likedDonutRepository
     }
     
-    deinit {
-        print("LikedDonutViewModel removed from memory!")
-    }
     
     func getLikedDonuts() {
         self.likedDonutRepository.getLikedDonuts { [weak self] result in
@@ -41,15 +38,22 @@ final class LikedDonutViewModel: ObservableObject {
             switch result {
             case .success( _):
                 self?.isDonutLiked = true
-                print("Donut added to liked donuts")
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
     
+    
     func checkIfDonutAlreadyLiked(donut: DonutModel) async -> Bool {
         return await self.likedDonutRepository.checkIfDonutAlreadyLiked(donut: donut)
+    }
+    
+    
+    func deleteDonutFromLikedDonuts(name: String) async {
+        if await self.likedDonutRepository.deleteDonutFromLikedDonuts(name: name) {
+            print("removed!")
+        }
     }
     
 }

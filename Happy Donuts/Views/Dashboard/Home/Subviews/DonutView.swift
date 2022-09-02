@@ -96,21 +96,32 @@ struct DonutView: View {
                     Image(systemName: self.isDonutLiked ? "heart.fill" : "heart")
                         .font(.system(size: 25, weight: .bold, design: .rounded))
                         .foregroundColor(self.isDonutLiked ? Color(.red) : Color(.gray))
-//                        .matchedGeometryEffect(id: "heartButton", in: animation)
                         .offset(x: self.isDonutInfoShowing ? 0 : 600, y: 0)
                         .onTapGesture {
+                            
                             self.hapticsEngine.likeFunctionVibration()
-                            self.likedDonutViewModel.isDonutLiked = true
+                            self.likedDonutViewModel.isDonutLiked.toggle()
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + self.buttonAnimationDuration) {
                                 withAnimation(.spring(response: buttonAnimationDuration, dampingFraction: 1)) {
                                     self.isLikedButtonAnimated = false
                                     self.isDonutLiked.toggle()
+                                    if !self.isDonutLiked {
+                                        Task {
+                                            await self.likedDonutViewModel.deleteDonutFromLikedDonuts(name: self.name)
+                                        }
+                                    }
                                 }
                             }
                             
                             if self.likedDonutViewModel.isDonutLiked {
                                 self.likedDonutViewModel.addToLikedDonuts(name: self.name, description: self.description, imgUrl: self.imgUrl, category: self.category, price: self.price, sellCount: self.sellCount)
+                            }
+                            
+                            if !self.isDonutLiked {
+                                Task {
+                                    
+                                }
                             }
                             
                         }

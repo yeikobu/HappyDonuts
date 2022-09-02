@@ -25,4 +25,8 @@ final class LikedDonutRepository {
     func checkIfDonutAlreadyLiked(donut: DonutModel) async -> Bool {
        return await self.likedDonutDataSource.checkIfDonutAlreadyLiked(donut: donut)
     }
+    
+    func deleteDonutFromLikedDonuts(name: String) async -> Bool {
+        return await self.likedDonutDataSource.deleteDonutFromLikedDonuts(name: name)
+    }
 }

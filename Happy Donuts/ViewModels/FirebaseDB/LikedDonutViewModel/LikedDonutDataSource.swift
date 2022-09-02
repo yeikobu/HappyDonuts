@@ -61,4 +61,16 @@ final class LikedDonutDataSource {
         }
         return donutModel.contains(donut)
     }
+    
+    
+    @MainActor
+    func deleteDonutFromLikedDonuts(name: String) async -> Bool {
+        var isRemoved: Bool = false
+        if let query = try? await database.collection(collection).document(uid).collection(subColleciton).document(name).delete() {
+            print(query)
+            isRemoved = true
+            return isRemoved
+        }
+        return isRemoved
+    }
 }

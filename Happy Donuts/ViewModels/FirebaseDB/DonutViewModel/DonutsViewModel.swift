@@ -34,10 +34,6 @@ final class DonutsViewModel: ObservableObject {
         getDonutsFromSelectedCategory()
     }
     
-    deinit {
-        print("Donuts View Model: Clase eliminada de memoria")
-    }
-    
     
     /// This method get all the donuts data from Firebase and saves the data in one array of DonutModels
     /// - Returns: Void
