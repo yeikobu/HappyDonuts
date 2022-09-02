@@ -10,11 +10,21 @@ import Kingfisher
 
 struct DonutView: View {
     
+    @StateObject var hapticsEngine: Haptics = Haptics()
+    @StateObject var likedDonutViewModel: LikedDonutViewModel = LikedDonutViewModel()
+    
     @State var donutModel: DonutModel
     @State var isDonutInfoShowing: Bool = false
+    @State var isLikedButtonAnimated: Bool = false
+    @State var isDonutLiked: Bool = false
     @State var quantity: Int = 0
     @State var totalQuantity: Int = 0
-    var animation: Namespace.ID
+    
+    let animation: Namespace.ID
+    let buttonAnimationDuration:  Double = 0.15
+    var likedButtonAnimationScale: CGFloat {
+        isLikedButtonAnimated ? 1.5 : 0.8
+    }
     
     @Binding var imgUrl: String
     @Binding var name: String
@@ -22,6 +32,8 @@ struct DonutView: View {
     @Binding var description: String
     @Binding var isDonutSelected: Bool
     @Binding var dismissedDonut: String
+    @Binding var category: String
+    @Binding var sellCount: Int
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -64,8 +76,6 @@ struct DonutView: View {
                                         self.isDonutSelected = false
                                     }
                                 }
-                               
-                                
                             }
                     }
                     .padding(.top, 35)
@@ -83,11 +93,39 @@ struct DonutView: View {
                     
                     Spacer()
                     
-                    Image(systemName: "heart")
+                    Image(systemName: self.isDonutLiked ? "heart.fill" : "heart")
                         .font(.system(size: 25, weight: .bold, design: .rounded))
-                        .foregroundColor(Color(.gray))
-                        .matchedGeometryEffect(id: "heartButton", in: animation)
+                        .foregroundColor(self.isDonutLiked ? Color(.red) : Color(.gray))
                         .offset(x: self.isDonutInfoShowing ? 0 : 600, y: 0)
+                        .onTapGesture {
+                            
+                            self.hapticsEngine.likeFunctionVibration()
+                            self.likedDonutViewModel.isDonutLiked.toggle()
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + self.buttonAnimationDuration) {
+                                withAnimation(.spring(response: buttonAnimationDuration, dampingFraction: 1)) {
+                                    self.isLikedButtonAnimated = false
+                                    self.isDonutLiked.toggle()
+                                    if !self.isDonutLiked {
+                                        Task {
+                                            await self.likedDonutViewModel.deleteDonutFromLikedDonuts(name: self.name)
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            if self.likedDonutViewModel.isDonutLiked {
+                                self.likedDonutViewModel.addToLikedDonuts(name: self.name, description: self.description, imgUrl: self.imgUrl, category: self.category, price: self.price, sellCount: self.sellCount)
+                            }
+                            
+                            if !self.isDonutLiked {
+                                Task {
+                                    
+                                }
+                            }
+                            
+                        }
+                        .scaleEffect(self.isLikedButtonAnimated ? self.likedButtonAnimationScale : 1)
                 }
                 
                 VStack(alignment: .leading) {
@@ -101,6 +139,7 @@ struct DonutView: View {
                         .padding(.top, 10)
                 }
             }
+            .matchedGeometryEffect(id: "\(self.donutModel.name)info", in: animation)
             .padding(.horizontal, 10)
             
             VStack(alignment: .trailing) {
@@ -211,12 +250,19 @@ struct DonutView: View {
             Spacer()
             Spacer()
         }
+//        .matchedGeometryEffect(id: "\(self.donutModel.name)fullcard", in: animation)
         .ignoresSafeArea()
         .background(Color("background"))
         .onAppear {
+            
+            Task {
+                self.isDonutLiked = await self.likedDonutViewModel.checkIfDonutAlreadyLiked(donut: self.donutModel)
+            }
+            
             withAnimation(.spring(response: 0.7, dampingFraction: 0.85)) {
                 self.isDonutInfoShowing = true
             }
+            
         }
     }
 }
@@ -228,9 +274,11 @@ struct DonutView_Previews: PreviewProvider {
     @State static var name = "Choco Crunch"
     @State static var price = 1800
     @State static var description = "Donut bañada en en manjar, con sufflés crocantes de chocolate y salsa de chocolate. \n\nEsta donut fue creada pensando en el paladar de los fanáticos de lo crocante y el chocolate."
+    @State static var category = "chocolate"
+    @State static var sellCount = 1800
     
     static var previews: some View {
-        DonutView(donutModel: DonutModel.init(), animation: animation, imgUrl: $imgUrl, name: $name, price: $price, description: $description, isDonutSelected: .constant(false), dismissedDonut: $name)
+        DonutView(donutModel: DonutModel.init(), animation: animation, imgUrl: $imgUrl, name: $name, price: $price, description: $description, isDonutSelected: .constant(false), dismissedDonut: $name, category: $category, sellCount: $sellCount)
     }
 }
 

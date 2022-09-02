@@ -10,7 +10,6 @@ import Kingfisher
 
 struct DonutCardView: View {
     
-    @StateObject private var donutsViewModel = DonutsViewModel()
     @State var donutModel: DonutModel
     var animation: Namespace.ID
     
@@ -35,38 +34,44 @@ struct DonutCardView: View {
             }
             .matchedGeometryEffect(id: "\(self.donutModel.name)backgroundColor", in: animation)
             
-            VStack(alignment: .leading) {
-                Text(self.donutModel.name)
-                    .font(.system(size: 14, weight: .black, design: .rounded))
-                    .foregroundColor(Color("fontColor"))  
+            VStack {
+                VStack(alignment: .leading) {
+                    Text(self.donutModel.name)
+                        .font(.system(size: 14, weight: .black, design: .rounded))
+                        .foregroundColor(Color("fontColor"))
+                    
+                    Text(self.donutModel.description)
+                        .font(.system(size: 11, weight: .bold, design: .rounded))
+                        .foregroundColor(Color("fontColor"))
+                        .frame(height: 32)
+                }
+                .padding(.horizontal, 5)
                 
-                Text(self.donutModel.description)
-                    .font(.system(size: 11, weight: .bold, design: .rounded))
-                    .foregroundColor(Color("fontColor"))
-                    .frame(height: 32)
+                HStack(alignment: .center) {
+                    
+                    Spacer()
+                    
+                    Text("$\(donutModel.price)")
+                        .font(.system(size: 14, weight: .black, design: .rounded))
+                        .foregroundColor(Color("fontColor"))
+                    
+                    Spacer()
+                }
             }
-            .padding(.horizontal, 5)
+            .matchedGeometryEffect(id: "\(self.donutModel.name)info", in: animation)
             
-            HStack(alignment: .center) {
-                
-                Spacer()
-                
-                Text("$\(donutModel.price)")
-                    .font(.system(size: 14, weight: .black, design: .rounded))
-                    .foregroundColor(Color("fontColor"))
-                
-                Spacer()
-            }
             
             Spacer()
             
             
             
         }
+//        .matchedGeometryEffect(id: "\(self.donutModel.name)fullcard", in: animation)
         .background(Color("background"))
         .frame(width: 170, height: 250, alignment: .center)
         .cornerRadius(35)
         .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
+        
     }
 }
 

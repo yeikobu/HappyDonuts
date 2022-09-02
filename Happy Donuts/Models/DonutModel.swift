@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DonutModel: Decodable, Hashable {
+struct DonutModel: Decodable, Hashable, Encodable {
     var name: String = ""
     var description: String = ""
     var price: Int = 0

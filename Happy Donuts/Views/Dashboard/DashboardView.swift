@@ -69,13 +69,13 @@ struct CustomTabView: View {
             
             TabView(selection: $selectedTab) {
                 
-                Text("Profile")
+                ProfileView()
                     .tag("person.fill")
                 
                 HomeView()
                     .tag("bag.fill")
                 
-                Text("Liked")
+                LikedView()
                     .tag("heart.fill")
                 
                 Text("Cart")
