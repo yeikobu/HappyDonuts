@@ -24,7 +24,7 @@ struct DonutCardView: View {
                             self.donutModel.category == "rellenas" ? Color("purple") :
                             Color("pink")
                     )
-                    .frame(width: 170, height: 140, alignment: .center)
+                    .frame(maxWidth: 170, maxHeight: 140, alignment: .center)
                     .cornerRadius(35)
                 
                 KFImage(URL(string: self.donutModel.imgUrl))
@@ -71,7 +71,7 @@ struct DonutCardView: View {
                 .cornerRadius(35)
                 .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
         )
-        .frame(width: 170, height: 250)
+        .frame(maxWidth: 170, maxHeight: 250)
 //        .matchedGeometryEffect(id: "\(self.donutModel.name)fullcard", in: animation)
         
        

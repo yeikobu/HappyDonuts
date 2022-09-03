@@ -231,9 +231,11 @@ struct HomeView: View {
                         }
                         
                     }
-                    .padding(.horizontal, 15)
+//                    .padding(.horizontal, 15)
                     .padding(.bottom, 35)
                 }
+                .padding(.horizontal, 10)
+
                 // MARK: - End Donuts Scroll View
                 
                 Spacer()
