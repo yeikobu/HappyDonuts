@@ -77,7 +77,7 @@ struct DonutView: View {
                                 }
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-                                    withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                                    withAnimation(.spring(response: 0.2, dampingFraction: 0.8)) {
                                         self.isDonutSelected = false
                                     }
                                 }
@@ -138,7 +138,7 @@ struct DonutView: View {
                         .font(.system(size: 22, weight: .black, design: .rounded))
                         .foregroundColor(Color("fontColor"))
                     
-                    Text(self.description)
+                    Text(String(describing: self.description).replacingOccurrences(of: "\\n", with: "\n\n"))
                         .font(.system(size: 18, weight: .bold, design: .rounded))
                         .foregroundColor(Color("fontColor"))
                         .padding(.top, 10)

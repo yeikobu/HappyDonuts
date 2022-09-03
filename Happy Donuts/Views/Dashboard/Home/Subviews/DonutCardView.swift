@@ -40,7 +40,7 @@ struct DonutCardView: View {
                         .font(.system(size: 14, weight: .black, design: .rounded))
                         .foregroundColor(Color("fontColor"))
                     
-                    Text(self.donutModel.description)
+                    Text(String(describing: self.donutModel.description).replacingOccurrences(of: "\\n", with: " "))
                         .font(.system(size: 11, weight: .bold, design: .rounded))
                         .foregroundColor(Color("fontColor"))
                         .frame(height: 32)
