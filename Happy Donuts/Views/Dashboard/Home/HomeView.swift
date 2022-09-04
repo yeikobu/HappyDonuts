@@ -14,7 +14,7 @@ struct HomeView: View {
     
     @State var donutModel = DonutModel.init()
     
-    @State var searchDonut: String = ""
+    @State var searchedDonut: String = ""
     @State var selectedCategory: String = "populares"
     @State var isDonutSelected: Bool = false
     @State var dismissedDonut: String = ""
@@ -60,18 +60,22 @@ struct HomeView: View {
                             .padding(.leading, 10)
                             
                             ZStack(alignment: .leading) {
-                                if self.searchDonut.isEmpty {
+                                if self.searchedDonut.isEmpty {
                                     Text(verbatim: "Busca alguna donut...")
                                         .font(.system(size: 18, weight: .bold, design: .rounded))
                                         .foregroundColor(Color("fontColor"))
                                 }
                                 
-                                TextField("", text: self.$searchDonut)
+                                TextField("", text: self.$searchedDonut)
                                     .foregroundColor(Color("fontColor"))
                                     .font(.system(size: 18, weight: .bold, design: .rounded))
                                     .keyboardType(.default)
                                     .ignoresSafeArea(.keyboard, edges: .bottom)
                                     .padding(.vertical, 10)
+                                    .onChange(of: self.searchedDonut) { newValue in
+                                        donutsViewModel.searchDonut(searchedDonut: self.searchedDonut)
+                                        print("new value: \(newValue)")
+                                    }
                             }
                         }
                         .background(
@@ -147,10 +151,90 @@ struct HomeView: View {
                             
                             LazyVGrid(columns: self.gridForm) {
                                 
-                                if self.selectedCategory == self.homeViewModel.categories[0] {
-                                    ForEach(self.donutsViewModel.donutsModel, id: \.self) { donut in
+                                if searchedDonut.isEmpty {
+                                    if self.selectedCategory == self.homeViewModel.categories[0] {
+                                        ForEach(self.donutsViewModel.donutsModel, id: \.self) { donut in
+                                            DonutCardView(donutModel: donut, animation: animation)
+    //                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                                .padding(.vertical, 2)
+                                                .transition(.scale)
+                                                .onTapGesture {
+                                                    self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut, category: donut.category, sellCount: donut.sellCount)
+                                                    withAnimation(.spring(response: 0.7, dampingFraction: 0.80)) {
+                                                        self.isDonutSelected = true
+                                                    }
+                                                }
+                                                .id(donut.name)
+                                        }
+                                    }
+                                    
+                                    if self.selectedCategory == self.homeViewModel.categories[1] {
+                                        ForEach(self.donutsViewModel.glaseadaDonuts, id: \.self) { donut in
+                                            DonutCardView(donutModel: donut, animation: animation)
+    //                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                                .padding(.vertical, 2)
+                                                .transition(.scale)
+                                                .onTapGesture {
+                                                    self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut, category: donut.category, sellCount: donut.sellCount)
+                                                    withAnimation(.spring(response: 0.7, dampingFraction: 0.80)) {
+                                                        self.isDonutSelected = true
+                                                    }
+                                                }
+                                                .id(donut.name)
+                                        }
+                                    }
+                                    
+                                    if self.selectedCategory == self.homeViewModel.categories[2] {
+                                        ForEach(self.donutsViewModel.chocolateDonuts, id: \.self) { donut in
+                                            DonutCardView(donutModel: donut, animation: animation)
+    //                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                                .padding(.vertical, 2)
+                                                .transition(.scale)
+                                                .onTapGesture {
+                                                    self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut, category: donut.category, sellCount: donut.sellCount)
+                                                    withAnimation(.spring(response: 0.7, dampingFraction: 0.80)) {
+                                                        self.isDonutSelected = true
+                                                    }
+                                                }
+                                                .id(donut.name)
+                                        }
+                                    }
+                                    
+                                    if self.selectedCategory == self.homeViewModel.categories[3] {
+                                        ForEach(self.donutsViewModel.rellenaDonuts, id: \.self) { donut in
+                                            DonutCardView(donutModel: donut, animation: animation)
+    //                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                                .padding(.vertical, 2)
+                                                .transition(.scale)
+                                                .onTapGesture {
+                                                    self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut, category: donut.category, sellCount: donut.sellCount)
+                                                    withAnimation(.spring(response: 0.7, dampingFraction: 0.80)) {
+                                                        self.isDonutSelected = true
+                                                    }
+                                                }
+                                                .id(donut.name)
+                                        }
+                                    }
+                                    
+                                    if self.selectedCategory == self.homeViewModel.categories[4] {
+                                        ForEach(self.donutsViewModel.normalDonuts, id: \.self) { donut in
+                                            DonutCardView(donutModel: donut, animation: animation)
+    //                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
+                                                .padding(.vertical, 2)
+                                                .transition(.scale)
+                                                .onTapGesture {
+                                                    self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut, category: donut.category, sellCount: donut.sellCount)
+                                                    withAnimation(.spring(response: 0.7, dampingFraction: 0.80)) {
+                                                        self.isDonutSelected = true
+                                                    }
+                                                }
+                                                .id(donut.name)
+                                        }
+                                    }
+                                    
+                                } else {
+                                    ForEach(self.donutsViewModel.searchedDonuts, id: \.self) { donut in
                                         DonutCardView(donutModel: donut, animation: animation)
-//                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
                                             .padding(.vertical, 2)
                                             .transition(.scale)
                                             .onTapGesture {
@@ -163,69 +247,6 @@ struct HomeView: View {
                                     }
                                 }
                                 
-                                if self.selectedCategory == self.homeViewModel.categories[1] {
-                                    ForEach(self.donutsViewModel.glaseadaDonuts, id: \.self) { donut in
-                                        DonutCardView(donutModel: donut, animation: animation)
-//                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
-                                            .padding(.vertical, 2)
-                                            .transition(.scale)
-                                            .onTapGesture {
-                                                self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut, category: donut.category, sellCount: donut.sellCount)
-                                                withAnimation(.spring(response: 0.7, dampingFraction: 0.80)) {
-                                                    self.isDonutSelected = true
-                                                }
-                                            }
-                                            .id(donut.name)
-                                    }
-                                }
-                                
-                                if self.selectedCategory == self.homeViewModel.categories[2] {
-                                    ForEach(self.donutsViewModel.chocolateDonuts, id: \.self) { donut in
-                                        DonutCardView(donutModel: donut, animation: animation)
-//                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
-                                            .padding(.vertical, 2)
-                                            .transition(.scale)
-                                            .onTapGesture {
-                                                self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut, category: donut.category, sellCount: donut.sellCount)
-                                                withAnimation(.spring(response: 0.7, dampingFraction: 0.80)) {
-                                                    self.isDonutSelected = true
-                                                }
-                                            }
-                                            .id(donut.name)
-                                    }
-                                }
-                                
-                                if self.selectedCategory == self.homeViewModel.categories[3] {
-                                    ForEach(self.donutsViewModel.rellenaDonuts, id: \.self) { donut in
-                                        DonutCardView(donutModel: donut, animation: animation)
-//                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
-                                            .padding(.vertical, 2)
-                                            .transition(.scale)
-                                            .onTapGesture {
-                                                self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut, category: donut.category, sellCount: donut.sellCount)
-                                                withAnimation(.spring(response: 0.7, dampingFraction: 0.80)) {
-                                                    self.isDonutSelected = true
-                                                }
-                                            }
-                                            .id(donut.name)
-                                    }
-                                }
-                                
-                                if self.selectedCategory == self.homeViewModel.categories[4] {
-                                    ForEach(self.donutsViewModel.normalDonuts, id: \.self) { donut in
-                                        DonutCardView(donutModel: donut, animation: animation)
-//                                            .matchedGeometryEffect(id: "\(donut.name)", in: animation)
-                                            .padding(.vertical, 2)
-                                            .transition(.scale)
-                                            .onTapGesture {
-                                                self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut, category: donut.category, sellCount: donut.sellCount)
-                                                withAnimation(.spring(response: 0.7, dampingFraction: 0.80)) {
-                                                    self.isDonutSelected = true
-                                                }
-                                            }
-                                            .id(donut.name)
-                                    }
-                                }
                                 
                             }
                         }

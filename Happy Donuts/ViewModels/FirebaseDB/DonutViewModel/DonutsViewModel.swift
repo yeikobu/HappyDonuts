@@ -17,6 +17,7 @@ final class DonutsViewModel: ObservableObject {
     @Published var chocolateDonuts: [DonutModel] = []
     @Published var rellenaDonuts: [DonutModel] = []
     @Published var normalDonuts: [DonutModel] = []
+    @Published var searchedDonuts: [DonutModel] = []
     @Published var lastItem: String = ""
     @Published var imgUrl: String = ""
     @Published var name: String = ""
@@ -111,4 +112,18 @@ final class DonutsViewModel: ObservableObject {
     func countDonuts(categoryElements: [DonutModel]) -> Int {
         return categoryElements.count
     }
+    
+    
+    func searchDonut(searchedDonut: String) {
+        var matchedDonuts = [DonutModel]()
+        
+        self.donutsModel.forEach { donut in
+            if donut.name.contains(searchedDonut) || donut.description.contains(searchedDonut.lowercased()) {
+                matchedDonuts.append(donut)
+            }
+        }
+        
+        self.searchedDonuts = matchedDonuts
+    }
+    
 }
