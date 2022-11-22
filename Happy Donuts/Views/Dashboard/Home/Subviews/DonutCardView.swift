@@ -24,7 +24,7 @@ struct DonutCardView: View {
                             self.donutModel.category == "rellenas" ? Color("purple") :
                             Color("pink")
                     )
-                    .frame(maxWidth: 170, maxHeight: 140, alignment: .center)
+                    .frame(width: 170, height: 130, alignment: .center)
                     .cornerRadius(35)
                 
                 KFImage(URL(string: self.donutModel.imgUrl))

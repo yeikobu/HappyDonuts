@@ -12,6 +12,7 @@ struct DonutView: View {
     
     @StateObject var hapticsEngine: Haptics = Haptics()
     @StateObject var likedDonutViewModel: LikedDonutViewModel = LikedDonutViewModel()
+    @StateObject var shoppingCartViewModel: ShoppingCartViewModel = ShoppingCartViewModel()
     
     @State var donutModel: DonutModel
     @State var isDonutInfoShowing: Bool = false
@@ -53,6 +54,7 @@ struct DonutView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 200, height: 200, alignment: .center)
+                    .padding(.top, 30)
                 
                 ZStack(alignment: .topTrailing) {
                     VStack {
@@ -228,6 +230,7 @@ struct DonutView: View {
                 
                 Button {
                     self.isDonutSelected = false
+                    shoppingCartViewModel.addToShoppingCart(donut: donutModel)
                 } label: {
                     VStack {
                         Image(systemName: "cart.fill.badge.plus")

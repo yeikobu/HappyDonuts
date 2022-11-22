@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16193EC0292C622100F087D5 /* ShoppingCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16193EBF292C622100F087D5 /* ShoppingCartViewModel.swift */; };
 		1626517328BAAC5200C4A90E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626517228BAAC5200C4A90E /* ProfileView.swift */; };
 		1626517628BAACC800C4A90E /* UserDataCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626517528BAACC800C4A90E /* UserDataCardView.swift */; };
 		1626517828BAACE600C4A90E /* OrdersHistoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626517728BAACE500C4A90E /* OrdersHistoryCardView.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16193EBF292C622100F087D5 /* ShoppingCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewModel.swift; sourceTree = "<group>"; };
 		1626517228BAAC5200C4A90E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		1626517528BAACC800C4A90E /* UserDataCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataCardView.swift; sourceTree = "<group>"; };
 		1626517728BAACE500C4A90E /* OrdersHistoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersHistoryCardView.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		16A20F86292C4F82000ECF7A /* ShoppingCart */ = {
 			isa = PBXGroup;
 			children = (
+				16193EBF292C622100F087D5 /* ShoppingCartViewModel.swift */,
 			);
 			path = ShoppingCart;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				16FB1F2228C449AA00B95A71 /* UserDataView.swift in Sources */,
 				1626517828BAACE600C4A90E /* OrdersHistoryCardView.swift in Sources */,
 				16B08409288B84460089FEC0 /* SplashScreenView.swift in Sources */,
+				16193EC0292C622100F087D5 /* ShoppingCartViewModel.swift in Sources */,
 				162956C828A1E98C00755069 /* DonutCardView.swift in Sources */,
 				16EAE3C328B5C10F002C12B3 /* LikedDonutViewModel.swift in Sources */,
 				162956CE28A48FD100755069 /* StringExtensions.swift in Sources */,

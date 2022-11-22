@@ -78,7 +78,7 @@ struct CustomTabView: View {
                 LikedView()
                     .tag("heart.fill")
                 
-                Text("Cart")
+                ShoppingCartView()
                     .tag("cart.fill")
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
