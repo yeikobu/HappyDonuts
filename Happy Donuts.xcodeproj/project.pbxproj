@@ -18,6 +18,7 @@
 		162956C828A1E98C00755069 /* DonutCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162956C728A1E98C00755069 /* DonutCardView.swift */; };
 		162956CB28A1EDE700755069 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 162956CA28A1EDE700755069 /* Kingfisher */; };
 		162956CE28A48FD100755069 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162956CD28A48FD100755069 /* StringExtensions.swift */; };
+		16A20F88292C4FCC000ECF7A /* ShoppingCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A20F87292C4FCC000ECF7A /* ShoppingCartView.swift */; };
 		16B083FA288B60430089FEC0 /* Happy_DonutsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B083F9288B60430089FEC0 /* Happy_DonutsApp.swift */; };
 		16B083FE288B60450089FEC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16B083FD288B60450089FEC0 /* Assets.xcassets */; };
 		16B08401288B60450089FEC0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16B08400288B60450089FEC0 /* Preview Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		16FB1F1C28C1A2C000B95A71 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FB1F1B28C1A2C000B95A71 /* ProfileRepository.swift */; };
 		16FB1F1E28C1A2D300B95A71 /* ProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FB1F1D28C1A2D300B95A71 /* ProfileDataSource.swift */; };
 		16FB1F2028C2F19900B95A71 /* UserExtraDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FB1F1F28C2F19900B95A71 /* UserExtraDataModel.swift */; };
+		16FB1F2228C449AA00B95A71 /* UserDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FB1F2128C449AA00B95A71 /* UserDataView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,7 @@
 		162956C528A1DF7000755069 /* DonutsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutsViewModel.swift; sourceTree = "<group>"; };
 		162956C728A1E98C00755069 /* DonutCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutCardView.swift; sourceTree = "<group>"; };
 		162956CD28A48FD100755069 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		16A20F87292C4FCC000ECF7A /* ShoppingCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartView.swift; sourceTree = "<group>"; };
 		16B083F6288B60430089FEC0 /* Happy Donuts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Donuts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B083F9288B60430089FEC0 /* Happy_DonutsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_DonutsApp.swift; sourceTree = "<group>"; };
 		16B083FD288B60450089FEC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 		16FB1F1B28C1A2C000B95A71 /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
 		16FB1F1D28C1A2D300B95A71 /* ProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
 		16FB1F1F28C2F19900B95A71 /* UserExtraDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExtraDataModel.swift; sourceTree = "<group>"; };
+		16FB1F2128C449AA00B95A71 /* UserDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,17 +125,9 @@
 			children = (
 				1626517528BAACC800C4A90E /* UserDataCardView.swift */,
 				1626517728BAACE500C4A90E /* OrdersHistoryCardView.swift */,
+				16FB1F2128C449AA00B95A71 /* UserDataView.swift */,
 			);
 			path = SubsViews;
-			sourceTree = "<group>";
-		};
-		162956BF28A1B50300755069 /* FirebaseDB */ = {
-			isa = PBXGroup;
-			children = (
-				16EAE3BD28B5AB25002C12B3 /* LikedDonutViewModel */,
-				16EAE3BC28B5AB07002C12B3 /* DonutViewModel */,
-			);
-			path = FirebaseDB;
 			sourceTree = "<group>";
 		};
 		162956CC28A48FB600755069 /* Extensions */ = {
@@ -141,6 +137,13 @@
 				1626517B28BAB12E00C4A90E /* ViewExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		16A20F86292C4F82000ECF7A /* ShoppingCart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ShoppingCart;
 			sourceTree = "<group>";
 		};
 		16B083ED288B60420089FEC0 = {
@@ -197,9 +200,11 @@
 		16B0840A288B84D10089FEC0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				16A20F86292C4F82000ECF7A /* ShoppingCart */,
+				16B084402899C5AB0089FEC0 /* Home */,
+				16EAE3BC28B5AB07002C12B3 /* Donuts */,
+				16EAE3BD28B5AB25002C12B3 /* Liked */,
 				16FB1F1728C1A15D00B95A71 /* Profile */,
-				162956BF28A1B50300755069 /* FirebaseDB */,
-				16B0843F2899C59B0089FEC0 /* Dashboard */,
 				16B084152890A41C0089FEC0 /* Login */,
 				16B0840B288B84F90089FEC0 /* LottieImage.swift */,
 			);
@@ -250,7 +255,7 @@
 				16B0843A2898B67E0089FEC0 /* Profile */,
 				16B084392898B6590089FEC0 /* Home */,
 				16B0843B2898B68F0089FEC0 /* Liked */,
-				16B0843C2898B6960089FEC0 /* Cart */,
+				16B0843C2898B6960089FEC0 /* ShoppingCart */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -290,19 +295,12 @@
 			path = Liked;
 			sourceTree = "<group>";
 		};
-		16B0843C2898B6960089FEC0 /* Cart */ = {
+		16B0843C2898B6960089FEC0 /* ShoppingCart */ = {
 			isa = PBXGroup;
 			children = (
+				16A20F87292C4FCC000ECF7A /* ShoppingCartView.swift */,
 			);
-			path = Cart;
-			sourceTree = "<group>";
-		};
-		16B0843F2899C59B0089FEC0 /* Dashboard */ = {
-			isa = PBXGroup;
-			children = (
-				16B084402899C5AB0089FEC0 /* Home */,
-			);
-			path = Dashboard;
+			path = ShoppingCart;
 			sourceTree = "<group>";
 		};
 		16B084402899C5AB0089FEC0 /* Home */ = {
@@ -313,24 +311,24 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		16EAE3BC28B5AB07002C12B3 /* DonutViewModel */ = {
+		16EAE3BC28B5AB07002C12B3 /* Donuts */ = {
 			isa = PBXGroup;
 			children = (
 				162956C028A1B54100755069 /* DonutsDataSource.swift */,
 				162956C228A1DE7F00755069 /* DonutsRepository.swift */,
 				162956C528A1DF7000755069 /* DonutsViewModel.swift */,
 			);
-			path = DonutViewModel;
+			path = Donuts;
 			sourceTree = "<group>";
 		};
-		16EAE3BD28B5AB25002C12B3 /* LikedDonutViewModel */ = {
+		16EAE3BD28B5AB25002C12B3 /* Liked */ = {
 			isa = PBXGroup;
 			children = (
 				16EAE3BE28B5BBA2002C12B3 /* LikedDonutDataSource.swift */,
 				16EAE3C028B5C04D002C12B3 /* LikedDonutRepository.swift */,
 				16EAE3C228B5C10F002C12B3 /* LikedDonutViewModel.swift */,
 			);
-			path = LikedDonutViewModel;
+			path = Liked;
 			sourceTree = "<group>";
 		};
 		16EAE3C428B70B67002C12B3 /* Haptics */ = {
@@ -468,12 +466,14 @@
 				162956C628A1DF7000755069 /* DonutsViewModel.swift in Sources */,
 				162956C128A1B54100755069 /* DonutsDataSource.swift in Sources */,
 				16B0843E2898B6DD0089FEC0 /* HomeView.swift in Sources */,
+				16A20F88292C4FCC000ECF7A /* ShoppingCartView.swift in Sources */,
 				16EAE3BB28B18B9B002C12B3 /* LikedView.swift in Sources */,
 				16EAE3C128B5C04D002C12B3 /* LikedDonutRepository.swift in Sources */,
 				1626517628BAACC800C4A90E /* UserDataCardView.swift in Sources */,
 				16B08414288B86960089FEC0 /* LoginView.swift in Sources */,
 				162956C328A1DE7F00755069 /* DonutsRepository.swift in Sources */,
 				1626517C28BAB12E00C4A90E /* ViewExtensions.swift in Sources */,
+				16FB1F2228C449AA00B95A71 /* UserDataView.swift in Sources */,
 				1626517828BAACE600C4A90E /* OrdersHistoryCardView.swift in Sources */,
 				16B08409288B84460089FEC0 /* SplashScreenView.swift in Sources */,
 				162956C828A1E98C00755069 /* DonutCardView.swift in Sources */,

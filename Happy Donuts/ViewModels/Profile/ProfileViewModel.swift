@@ -37,6 +37,7 @@ final class ProfileViewModel: ObservableObject {
     }
     
     
+    @MainActor
     func getUserExtraData() async {
         let userData = await self.profileRepository.getUserExtraData()
         userData.forEach { data in
