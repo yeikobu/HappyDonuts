@@ -14,6 +14,7 @@ struct DashboardView: View {
     
     @State var backToLogin = false
     @State var selectedTab = "bag.fill"
+    @StateObject var shoppingCartViewModel = ShoppingCartViewModel()
     
     var body: some View {
         
@@ -25,6 +26,7 @@ struct DashboardView: View {
         }
         .ignoresSafeArea()
         .background(Color("background"))
+        .environmentObject(shoppingCartViewModel)
 
     }
     
@@ -78,7 +80,7 @@ struct CustomTabView: View {
                 LikedView()
                     .tag("heart.fill")
                 
-                Text("Cart")
+                ShoppingCartView()
                     .tag("cart.fill")
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))

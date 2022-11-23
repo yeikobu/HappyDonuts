@@ -8,31 +8,34 @@
 import SwiftUI
 
 struct UserDataCardView: View {
+    
+    @StateObject var profileViewModel = ProfileViewModel()
+    
     var body: some View {
         VStack {
             VStack(spacing: 10) {
                 HStack {
                     Text("Nombre: ")
                     Spacer()
-                    Text("Jacob Aguilar")
+                    Text("\(self.profileViewModel.userExtraDataModel.userName)")
                 }
                 
                 HStack {
                     Text("Correo: ")
                     Spacer()
-                    Text(verbatim: "aguilar.campos.jacob@gmail.com")
+                    Text(verbatim: String(describing: self.profileViewModel.userModel!.userEmail))
                 }
                 
                 HStack {
                     Text("Teléfono: ")
                     Spacer()
-                    Text("+56956598995")
+                    Text("\(self.profileViewModel.userExtraDataModel.userPhoneNumber)")
                 }
                 
                 HStack {
                     Text("Domicilio")
                     Spacer()
-                    Text("Las Calilas 1209, Quinta Normal")
+                    Text("\(self.profileViewModel.userExtraDataModel.direction)")
                 }
                 
                 VStack {
@@ -61,6 +64,9 @@ struct UserDataCardView: View {
         .background(Color("background"))
         .cornerRadius(35)
         .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
+        .task {
+            await self.profileViewModel.getUserExtraData()
+        }
     }
 }
 

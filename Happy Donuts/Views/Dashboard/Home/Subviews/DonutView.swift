@@ -12,12 +12,13 @@ struct DonutView: View {
     
     @StateObject var hapticsEngine: Haptics = Haptics()
     @StateObject var likedDonutViewModel: LikedDonutViewModel = LikedDonutViewModel()
+    @EnvironmentObject var shoppingCartViewModel: ShoppingCartViewModel
     
     @State var donutModel: DonutModel
     @State var isDonutInfoShowing: Bool = false
     @State var isLikedButtonAnimated: Bool = false
     @State var isDonutLiked: Bool = false
-    @State var quantity: Int = 0
+    @State var quantity: Int = 1
     @State var totalQuantity: Int = 0
     
     let animation: Namespace.ID
@@ -53,6 +54,7 @@ struct DonutView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 200, height: 200, alignment: .center)
+                    .padding(.top, 30)
                 
                 ZStack(alignment: .topTrailing) {
                     VStack {
@@ -72,12 +74,12 @@ struct DonutView: View {
                             .onTapGesture {
                                 self.dismissedDonut = self.name
                                 
-                                withAnimation(.spring(response: 2, dampingFraction: 0.8)) {
+                                withAnimation(.spring(response: 0.7, dampingFraction: 1)) {
                                     self.isDonutInfoShowing = false
                                 }
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-                                    withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                                    withAnimation(.spring(response: 0.2, dampingFraction: 1)) {
                                         self.isDonutSelected = false
                                     }
                                 }
@@ -138,13 +140,14 @@ struct DonutView: View {
                         .font(.system(size: 22, weight: .black, design: .rounded))
                         .foregroundColor(Color("fontColor"))
                     
-                    Text(self.description)
+                    Text(String(describing: self.description).replacingOccurrences(of: "\\n", with: "\n\n"))
                         .font(.system(size: 18, weight: .bold, design: .rounded))
                         .foregroundColor(Color("fontColor"))
                         .padding(.top, 10)
                 }
             }
-            .matchedGeometryEffect(id: "\(self.donutModel.name)info", in: animation)
+//            .matchedGeometryEffect(id: "\(self.donutModel.name)info", in: animation)
+            .offset(x: self.isDonutInfoShowing ? 0 : -800, y: 0)
             .padding(.horizontal, 10)
             
             VStack(alignment: .trailing) {
@@ -153,8 +156,8 @@ struct DonutView: View {
                     
                     Button {
                         self.quantity -= 1
-                        if self.quantity < 0 {
-                            self.quantity = 0
+                        if self.quantity < 1 {
+                            self.quantity = 1
                         }
                     } label: {
                         VStack {
@@ -227,7 +230,8 @@ struct DonutView: View {
                     .foregroundColor(Color("fontColor"))
                 
                 Button {
-                    self.isDonutSelected = false
+//                    self.isDonutSelected = false
+                    shoppingCartViewModel.addToShoppingCart(donut: self.donutModel, quantity: self.quantity, quantityPrice: (self.price * self.quantity))
                 } label: {
                     VStack {
                         Image(systemName: "cart.fill.badge.plus")
@@ -271,11 +275,12 @@ struct DonutView: View {
                 self.isDonutLiked = await self.likedDonutViewModel.checkIfDonutAlreadyLiked(donut: self.donutModel)
             }
             
-            withAnimation(.spring(response: 0.7, dampingFraction: 0.8)) {
+            withAnimation(.spring(response: 0.7, dampingFraction: 1)) {
                 self.isDonutInfoShowing = true
             }
             
         }
+        .environmentObject(shoppingCartViewModel)
     }
 }
 

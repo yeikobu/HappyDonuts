@@ -11,6 +11,7 @@ import Kingfisher
 struct DonutCardView: View {
     
     @State var donutModel: DonutModel
+    @EnvironmentObject var shoppingCartViewModel: ShoppingCartViewModel
     var animation: Namespace.ID
     
     var body: some View {
@@ -24,7 +25,7 @@ struct DonutCardView: View {
                             self.donutModel.category == "rellenas" ? Color("purple") :
                             Color("pink")
                     )
-                    .frame(width: 170, height: 140, alignment: .center)
+                    .frame(width: 170, height: 130, alignment: .center)
                     .cornerRadius(35)
                 
                 KFImage(URL(string: self.donutModel.imgUrl))
@@ -40,7 +41,7 @@ struct DonutCardView: View {
                         .font(.system(size: 14, weight: .black, design: .rounded))
                         .foregroundColor(Color("fontColor"))
                     
-                    Text(self.donutModel.description)
+                    Text(String(describing: self.donutModel.description).replacingOccurrences(of: "\\n", with: " "))
                         .font(.system(size: 11, weight: .bold, design: .rounded))
                         .foregroundColor(Color("fontColor"))
                         .frame(height: 32)
@@ -66,12 +67,12 @@ struct DonutCardView: View {
         }
         .background(
             RoundedRectangle(cornerRadius: 35)
-                .matchedGeometryEffect(id: "\(self.donutModel.name)CardForm", in: animation)
+//                .matchedGeometryEffect(id: "\(self.donutModel.name)CardForm", in: animation)
                 .foregroundColor(Color("background"))
                 .cornerRadius(35)
                 .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
         )
-        .frame(width: 170, height: 250)
+        .frame(maxWidth: 170, maxHeight: 250)
 //        .matchedGeometryEffect(id: "\(self.donutModel.name)fullcard", in: animation)
         
        

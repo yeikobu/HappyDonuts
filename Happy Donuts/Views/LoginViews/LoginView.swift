@@ -43,7 +43,6 @@ struct LoginView: View {
                                 .frame(width: 175, height: 110, alignment: .center)
                         } //End Logo
                         
-                        
                         HStack(spacing: 2) { //Login and signup switch
                             
                             ZStack {
@@ -330,6 +329,8 @@ struct LoginView: View {
                             
                         }
                         .padding(.top, 50)
+                        
+                        Spacer()
                         
                         NavigationLink(isActive: self.$loginViewModel.itWasAccountCreated) {
                             DashboardView()
