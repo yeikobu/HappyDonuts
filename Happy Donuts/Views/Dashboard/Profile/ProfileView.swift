@@ -75,6 +75,7 @@ struct ProfileView: View {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 20)
             }
+            .padding(.bottom, 70)
 
             
             Spacer()

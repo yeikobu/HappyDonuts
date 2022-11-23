@@ -33,7 +33,7 @@ struct LoginView: View {
                                 Rectangle()
                             }
                             .frame(height: 220, alignment: .top)
-                            .cornerRadius(35)
+                            .cornerRadius(35, corners: [.bottomLeft, .bottomRight])
                             .foregroundColor(!self.loginViewModel.isSignupButtonSelected ? Color("pink") : Color("green"))
                             
                             

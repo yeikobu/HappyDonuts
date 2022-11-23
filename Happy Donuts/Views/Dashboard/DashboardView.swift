@@ -99,8 +99,9 @@ struct CustomTabView: View {
             .padding(.horizontal, 34)
             .padding(.vertical, 16)
             .background(
-                RoundedRectangle(cornerRadius: 25, style: .continuous)
+                Rectangle()
                     .foregroundColor(Color("background"))
+                    .cornerRadius(25, corners: [.topLeft, .topRight])
                     .shadow(color: Color("shadow"), radius: 2, x: 2, y: -2)
                     .shadow(color: Color("shadow"), radius: -1, x: -2, y: 2)
             )

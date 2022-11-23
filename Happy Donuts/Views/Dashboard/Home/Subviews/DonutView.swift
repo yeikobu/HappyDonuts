@@ -92,118 +92,154 @@ struct DonutView: View {
             }
             .matchedGeometryEffect(id: "\(self.donutModel.name)backgroundColor", in: animation)
             
-            VStack(alignment: .leading) {
-                HStack {
-                    Text(self.name)
-                        .font(.system(size: 28, weight: .black, design: .rounded))
-                        .foregroundColor(Color("fontColor"))
-                    
-                    Spacer()
-                    
-                    Image(systemName: self.isDonutLiked ? "heart.fill" : "heart")
-                        .font(.system(size: 25, weight: .bold, design: .rounded))
-                        .foregroundColor(self.isDonutLiked ? Color(.red) : Color(.gray))
-                        .offset(x: self.isDonutInfoShowing ? 0 : 600, y: 0)
-                        .onTapGesture {
-                            
-                            self.hapticsEngine.likeFunctionVibration()
-                            self.likedDonutViewModel.isDonutLiked.toggle()
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + self.buttonAnimationDuration) {
-                                withAnimation(.spring(response: buttonAnimationDuration, dampingFraction: 1)) {
-                                    self.isLikedButtonAnimated = false
-                                    self.isDonutLiked.toggle()
-                                    if !self.isDonutLiked {
-                                        Task {
-                                            await self.likedDonutViewModel.deleteDonutFromLikedDonuts(name: self.name)
+            ScrollView {
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(self.name)
+                            .font(.system(size: 28, weight: .black, design: .rounded))
+                            .foregroundColor(Color("fontColor"))
+                        
+                        Spacer()
+                        
+                        Image(systemName: self.isDonutLiked ? "heart.fill" : "heart")
+                            .font(.system(size: 25, weight: .bold, design: .rounded))
+                            .foregroundColor(self.isDonutLiked ? Color(.red) : Color(.gray))
+                            .offset(x: self.isDonutInfoShowing ? 0 : 1200, y: 0)
+                            .onTapGesture {
+                                
+                                self.hapticsEngine.likeFunctionVibration()
+                                self.likedDonutViewModel.isDonutLiked.toggle()
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + self.buttonAnimationDuration) {
+                                    withAnimation(.spring(response: buttonAnimationDuration, dampingFraction: 1)) {
+                                        self.isLikedButtonAnimated = false
+                                        self.isDonutLiked.toggle()
+                                        if !self.isDonutLiked {
+                                            Task {
+                                                await self.likedDonutViewModel.deleteDonutFromLikedDonuts(name: self.name)
+                                            }
                                         }
                                     }
                                 }
-                            }
-                            
-                            if self.likedDonutViewModel.isDonutLiked {
-                                self.likedDonutViewModel.addToLikedDonuts(name: self.name, description: self.description, imgUrl: self.imgUrl, category: self.category, price: self.price, sellCount: self.sellCount)
-                            }
-                            
-                            if !self.isDonutLiked {
-                                Task {
-                                    
+                                
+                                if self.likedDonutViewModel.isDonutLiked {
+                                    self.likedDonutViewModel.addToLikedDonuts(name: self.name, description: self.description, imgUrl: self.imgUrl, category: self.category, price: self.price, sellCount: self.sellCount)
                                 }
+                                
+                                if !self.isDonutLiked {
+                                    Task {
+                                        
+                                    }
+                                }
+                                
                             }
+                            .scaleEffect(self.isLikedButtonAnimated ? self.likedButtonAnimationScale : 1)
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        Text("$\(self.price) c/u")
+                            .font(.system(size: 22, weight: .black, design: .rounded))
+                            .foregroundColor(Color("fontColor"))
+                        
+                        Text(String(describing: self.description).replacingOccurrences(of: "\\n", with: "\n\n"))
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .foregroundColor(Color("fontColor"))
+                            .padding(.top, 10)
+                    }
+                }
+    //            .matchedGeometryEffect(id: "\(self.donutModel.name)info", in: animation)
+                .offset(x: self.isDonutInfoShowing ? 0 : -800, y: 0)
+                .padding(.horizontal, 10)
+                
+                VStack(alignment: .trailing) {
+                    HStack {
+                        Spacer()
+                        
+                        Button {
+                            self.quantity -= 1
+                            if self.quantity < 1 {
+                                self.quantity = 1
+                            }
+                        } label: {
+                            VStack {
+                                Image(systemName: "minus")
+                                    .font(.system(size: 32, weight: .black, design: .rounded))
+                                    .foregroundColor(Color("buttonTextColor"))
+                                    .padding(4)
+                                    .frame(width: 40, height: 40)
+                            }
+                            .background(
+                                self.donutModel.category == "glaseadas" ? Color("pink") :
+                                    self.donutModel.category == "chocolate" ? Color("green") :
+                                    self.donutModel.category == "normal" ? Color("blue") :
+                                    self.donutModel.category == "rellenas" ? Color("purple") :
+                                    Color("green")
+                            )
+                            .cornerRadius(12)
+                            .shadow(color: Color("shadow"), radius: 1, x: 0, y: 1)
                             
                         }
-                        .scaleEffect(self.isLikedButtonAnimated ? self.likedButtonAnimationScale : 1)
+                        
+                        Text("\(self.quantity)")
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .foregroundColor(Color("fontColor"))
+                            .padding(.leading, 5)
+                            .background(
+                                RoundedRectangle(cornerRadius: 15, style: .continuous)
+                                    .foregroundColor(Color("textField"))
+                                    .shadow(color: Color("shadow"), radius: 0.5, x: 0, y: 1)
+                                    .frame(width: 70,height: 40, alignment: .leading)
+                            )
+                            .frame(width: 70)
+                        
+                        
+                        Button {
+                            self.quantity += 1
+                            if self.quantity > 20 {
+                                self.quantity = 20
+                            }
+                        } label: {
+                            VStack {
+                                Image(systemName: "plus")
+                                    .font(.system(size: 32, weight: .black, design: .rounded))
+                                    .foregroundColor(Color("buttonTextColor"))
+                                    .padding(4)
+                                    .frame(width: 40, height: 40)
+                            }
+                            .background(
+                                self.donutModel.category == "glaseadas" ? Color("pink") :
+                                    self.donutModel.category == "chocolate" ? Color("green") :
+                                    self.donutModel.category == "normal" ? Color("blue") :
+                                    self.donutModel.category == "rellenas" ? Color("purple") :
+                                    Color("green")
+                            )
+                            .cornerRadius(15)
+                            .shadow(color: Color("shadow"), radius: 1, x: 0, y: 1)
+                        }
+                        
+                    }
                 }
+                .padding(.horizontal, 10)
+                .padding(.top, 40)
+                .offset(x: self.isDonutInfoShowing ? 0 : 800, y: 0)
                 
-                VStack(alignment: .leading) {
-                    Text("$\(self.price) c/u")
-                        .font(.system(size: 22, weight: .black, design: .rounded))
-                        .foregroundColor(Color("fontColor"))
-                    
-                    Text(String(describing: self.description).replacingOccurrences(of: "\\n", with: "\n\n"))
-                        .font(.system(size: 18, weight: .bold, design: .rounded))
-                        .foregroundColor(Color("fontColor"))
-                        .padding(.top, 10)
-                }
-            }
-//            .matchedGeometryEffect(id: "\(self.donutModel.name)info", in: animation)
-            .offset(x: self.isDonutInfoShowing ? 0 : -800, y: 0)
-            .padding(.horizontal, 10)
-            
-            VStack(alignment: .trailing) {
                 HStack {
                     Spacer()
                     
-                    Button {
-                        self.quantity -= 1
-                        if self.quantity < 1 {
-                            self.quantity = 1
-                        }
-                    } label: {
-                        VStack {
-                            Image(systemName: "minus")
-                                .font(.system(size: 32, weight: .black, design: .rounded))
-                                .foregroundColor(Color("buttonTextColor"))
-                                .padding(4)
-                                .frame(width: 40, height: 40)
-                        }
-                        .background(
-                            self.donutModel.category == "glaseadas" ? Color("pink") :
-                                self.donutModel.category == "chocolate" ? Color("green") :
-                                self.donutModel.category == "normal" ? Color("blue") :
-                                self.donutModel.category == "rellenas" ? Color("purple") :
-                                Color("green")
-                        )
-                        .cornerRadius(12)
-                        .shadow(color: Color("shadow"), radius: 1, x: 0, y: 1)
-                        
-                    }
-                    
-                    Text("\(self.quantity)")
-                        .font(.system(size: 18, weight: .bold, design: .rounded))
+                    Text("$\(self.price * self.quantity)")
+                        .font(.system(size: 22, weight: .black, design: .rounded))
                         .foregroundColor(Color("fontColor"))
-                        .padding(.leading, 5)
-                        .background(
-                            RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                .foregroundColor(Color("textField"))
-                                .shadow(color: Color("shadow"), radius: 0.5, x: 0, y: 1)
-                                .frame(width: 70,height: 40, alignment: .leading)
-                        )
-                        .frame(width: 70)
-                    
                     
                     Button {
-                        self.quantity += 1
-                        if self.quantity > 20 {
-                            self.quantity = 20
-                        }
+    //                    self.isDonutSelected = false
+                        shoppingCartViewModel.addToShoppingCart(donut: self.donutModel, quantity: self.quantity, quantityPrice: (self.price * self.quantity))
                     } label: {
                         VStack {
-                            Image(systemName: "plus")
-                                .font(.system(size: 32, weight: .black, design: .rounded))
+                            Image(systemName: "cart.fill.badge.plus")
+                                .font(.system(size: 28, weight: .black, design: .rounded))
                                 .foregroundColor(Color("buttonTextColor"))
                                 .padding(4)
-                                .frame(width: 40, height: 40)
+                                .frame(width: 45, height: 45)
                         }
                         .background(
                             self.donutModel.category == "glaseadas" ? Color("pink") :
@@ -217,49 +253,16 @@ struct DonutView: View {
                     }
                     
                 }
-            }
-            .padding(.horizontal, 10)
-            .padding(.top, 40)
-            .offset(x: self.isDonutInfoShowing ? 0 : 800, y: 0)
-            
-            HStack {
+                .padding(.top, 40)
+                .padding(.trailing, 10)
+                .offset(x: 0, y: self.isDonutInfoShowing ? 0 : 1200)
+                
                 Spacer()
-                
-                Text("$\(self.price * self.quantity)")
-                    .font(.system(size: 22, weight: .black, design: .rounded))
-                    .foregroundColor(Color("fontColor"))
-                
-                Button {
-//                    self.isDonutSelected = false
-                    shoppingCartViewModel.addToShoppingCart(donut: self.donutModel, quantity: self.quantity, quantityPrice: (self.price * self.quantity))
-                } label: {
-                    VStack {
-                        Image(systemName: "cart.fill.badge.plus")
-                            .font(.system(size: 28, weight: .black, design: .rounded))
-                            .foregroundColor(Color("buttonTextColor"))
-                            .padding(4)
-                            .frame(width: 45, height: 45)
-                    }
-                    .background(
-                        self.donutModel.category == "glaseadas" ? Color("pink") :
-                            self.donutModel.category == "chocolate" ? Color("green") :
-                            self.donutModel.category == "normal" ? Color("blue") :
-                            self.donutModel.category == "rellenas" ? Color("purple") :
-                            Color("green")
-                    )
-                    .cornerRadius(15)
-                    .shadow(color: Color("shadow"), radius: 1, x: 0, y: 1)
-                }
-                
+                Spacer()
             }
-            .padding(.top, 40)
-            .padding(.trailing, 10)
-            .offset(x: 0, y: self.isDonutInfoShowing ? 0 : 1200)
+            .padding(.bottom, 80)
             
-            Spacer()
-            Spacer()
         }
-        //        .matchedGeometryEffect(id: "\(self.donutModel.name)fullcard", in: animation)
         .ignoresSafeArea()
         .background(
             RoundedRectangle(cornerRadius: 35)
