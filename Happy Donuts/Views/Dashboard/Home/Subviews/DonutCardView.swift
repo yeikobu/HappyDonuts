@@ -67,7 +67,7 @@ struct DonutCardView: View {
         }
         .background(
             RoundedRectangle(cornerRadius: 35)
-                .matchedGeometryEffect(id: "\(self.donutModel.name)CardForm", in: animation)
+//                .matchedGeometryEffect(id: "\(self.donutModel.name)CardForm", in: animation)
                 .foregroundColor(Color("background"))
                 .cornerRadius(35)
                 .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)

@@ -74,12 +74,12 @@ struct DonutView: View {
                             .onTapGesture {
                                 self.dismissedDonut = self.name
                                 
-                                withAnimation(.spring(response: 2, dampingFraction: 0.8)) {
+                                withAnimation(.spring(response: 0.7, dampingFraction: 1)) {
                                     self.isDonutInfoShowing = false
                                 }
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-                                    withAnimation(.spring(response: 0.2, dampingFraction: 0.8)) {
+                                    withAnimation(.spring(response: 0.2, dampingFraction: 1)) {
                                         self.isDonutSelected = false
                                     }
                                 }
@@ -146,7 +146,8 @@ struct DonutView: View {
                         .padding(.top, 10)
                 }
             }
-            .matchedGeometryEffect(id: "\(self.donutModel.name)info", in: animation)
+//            .matchedGeometryEffect(id: "\(self.donutModel.name)info", in: animation)
+            .offset(x: self.isDonutInfoShowing ? 0 : -800, y: 0)
             .padding(.horizontal, 10)
             
             VStack(alignment: .trailing) {
@@ -274,7 +275,7 @@ struct DonutView: View {
                 self.isDonutLiked = await self.likedDonutViewModel.checkIfDonutAlreadyLiked(donut: self.donutModel)
             }
             
-            withAnimation(.spring(response: 0.7, dampingFraction: 0.8)) {
+            withAnimation(.spring(response: 0.7, dampingFraction: 1)) {
                 self.isDonutInfoShowing = true
             }
             
