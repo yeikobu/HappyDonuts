@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ShoppingCartView: View {
+    
+    @EnvironmentObject var shoppingCartViewModel: ShoppingCartViewModel
+    
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             ZStack {
                 Rectangle()
                     .frame(height: 140, alignment: .center)
@@ -24,20 +27,35 @@ struct ShoppingCartView: View {
             }
             .ignoresSafeArea()
             
-            VStack(alignment: .leading) {
+            VStack {
                 Text("Confirma tu pedido")
                     .font(.system(size: 24, weight: .black, design: .rounded))
                     .foregroundColor(Color("fontColor"))
-                    .frame(alignment: .leading)
-                
-                ScrollView(showsIndicators: false) {
-                    
-                }
-                
-                Spacer()
             }
+            .frame(alignment: .leading)
             .padding(.horizontal, 15)
+            .padding(.top, -50)
             
+            Spacer()
+            
+            if shoppingCartViewModel.cartItems.count > 0 {
+                ScrollView(showsIndicators: false) {
+                    ForEach(shoppingCartViewModel.cartItems) { item in
+                        HStack {
+                            Text(item.donut.name)
+                        }
+                    }
+                }
+            } else {
+                HStack {
+                    Spacer()
+                    Text("Tu carrito de compras está vacío...")
+                    Spacer()
+                }
+                .frame(alignment: .center)
+            }
+            
+            Spacer()
             Spacer()
         }
     }
@@ -46,5 +64,6 @@ struct ShoppingCartView: View {
 struct ShoppingCartView_Previews: PreviewProvider {
     static var previews: some View {
         ShoppingCartView()
+            .environmentObject(ShoppingCartViewModel())
     }
 }

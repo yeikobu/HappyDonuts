@@ -11,6 +11,7 @@ import Kingfisher
 struct DonutCardView: View {
     
     @State var donutModel: DonutModel
+    @EnvironmentObject var shoppingCartViewModel: ShoppingCartViewModel
     var animation: Namespace.ID
     
     var body: some View {

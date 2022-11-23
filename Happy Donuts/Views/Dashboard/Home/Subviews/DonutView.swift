@@ -12,13 +12,13 @@ struct DonutView: View {
     
     @StateObject var hapticsEngine: Haptics = Haptics()
     @StateObject var likedDonutViewModel: LikedDonutViewModel = LikedDonutViewModel()
-    @StateObject var shoppingCartViewModel: ShoppingCartViewModel = ShoppingCartViewModel()
+    @EnvironmentObject var shoppingCartViewModel: ShoppingCartViewModel
     
     @State var donutModel: DonutModel
     @State var isDonutInfoShowing: Bool = false
     @State var isLikedButtonAnimated: Bool = false
     @State var isDonutLiked: Bool = false
-    @State var quantity: Int = 0
+    @State var quantity: Int = 1
     @State var totalQuantity: Int = 0
     
     let animation: Namespace.ID
@@ -155,8 +155,8 @@ struct DonutView: View {
                     
                     Button {
                         self.quantity -= 1
-                        if self.quantity < 0 {
-                            self.quantity = 0
+                        if self.quantity < 1 {
+                            self.quantity = 1
                         }
                     } label: {
                         VStack {
@@ -229,8 +229,8 @@ struct DonutView: View {
                     .foregroundColor(Color("fontColor"))
                 
                 Button {
-                    self.isDonutSelected = false
-                    shoppingCartViewModel.addToShoppingCart(donut: donutModel)
+//                    self.isDonutSelected = false
+                    shoppingCartViewModel.addToShoppingCart(donut: self.donutModel, quantity: self.quantity, quantityPrice: self.totalQuantity)
                 } label: {
                     VStack {
                         Image(systemName: "cart.fill.badge.plus")
@@ -279,6 +279,7 @@ struct DonutView: View {
             }
             
         }
+        .environmentObject(shoppingCartViewModel)
     }
 }
 

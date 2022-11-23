@@ -12,10 +12,12 @@ import FirebaseCore
 struct Happy_DonutsApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+//    @StateObject var shoppingCartViewModel = ShoppingCartViewModel()
     
     var body: some Scene {
         WindowGroup {
             SplashScreenView()
+//                .environmentObject(shoppingCartViewModel)
         }
     }
 }
