@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		16193EC0292C622100F087D5 /* ShoppingCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16193EBF292C622100F087D5 /* ShoppingCartViewModel.swift */; };
-		16193EC2292D69CE00F087D5 /* ShoppingCartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16193EC1292D69CE00F087D5 /* ShoppingCartModel.swift */; };
+		16193EC2292D69CE00F087D5 /* CartItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16193EC1292D69CE00F087D5 /* CartItemModel.swift */; };
+		16193EC5292EAC3700F087D5 /* ItemsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16193EC4292EAC3700F087D5 /* ItemsCardView.swift */; };
 		1626517328BAAC5200C4A90E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626517228BAAC5200C4A90E /* ProfileView.swift */; };
 		1626517628BAACC800C4A90E /* UserDataCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626517528BAACC800C4A90E /* UserDataCardView.swift */; };
 		1626517828BAACE600C4A90E /* OrdersHistoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626517728BAACE500C4A90E /* OrdersHistoryCardView.swift */; };
@@ -61,7 +62,8 @@
 
 /* Begin PBXFileReference section */
 		16193EBF292C622100F087D5 /* ShoppingCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewModel.swift; sourceTree = "<group>"; };
-		16193EC1292D69CE00F087D5 /* ShoppingCartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartModel.swift; sourceTree = "<group>"; };
+		16193EC1292D69CE00F087D5 /* CartItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemModel.swift; sourceTree = "<group>"; };
+		16193EC4292EAC3700F087D5 /* ItemsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCardView.swift; sourceTree = "<group>"; };
 		1626517228BAAC5200C4A90E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		1626517528BAACC800C4A90E /* UserDataCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataCardView.swift; sourceTree = "<group>"; };
 		1626517728BAACE500C4A90E /* OrdersHistoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersHistoryCardView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16193EC3292EAC0300F087D5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				16193EC4292EAC3700F087D5 /* ItemsCardView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		1626517428BAAC9300C4A90E /* SubsViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,7 +251,7 @@
 				16B0841B2890A5FC0089FEC0 /* UserModel.swift */,
 				162956BD28A1B2C600755069 /* DonutModel.swift */,
 				16FB1F1F28C2F19900B95A71 /* UserExtraDataModel.swift */,
-				16193EC1292D69CE00F087D5 /* ShoppingCartModel.swift */,
+				16193EC1292D69CE00F087D5 /* CartItemModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -304,6 +314,7 @@
 		16B0843C2898B6960089FEC0 /* ShoppingCart */ = {
 			isa = PBXGroup;
 			children = (
+				16193EC3292EAC0300F087D5 /* Components */,
 				16A20F87292C4FCC000ECF7A /* ShoppingCartView.swift */,
 			);
 			path = ShoppingCart;
@@ -476,12 +487,13 @@
 				16EAE3BB28B18B9B002C12B3 /* LikedView.swift in Sources */,
 				16EAE3C128B5C04D002C12B3 /* LikedDonutRepository.swift in Sources */,
 				1626517628BAACC800C4A90E /* UserDataCardView.swift in Sources */,
+				16193EC5292EAC3700F087D5 /* ItemsCardView.swift in Sources */,
 				16B08414288B86960089FEC0 /* LoginView.swift in Sources */,
 				162956C328A1DE7F00755069 /* DonutsRepository.swift in Sources */,
 				1626517C28BAB12E00C4A90E /* ViewExtensions.swift in Sources */,
 				16FB1F2228C449AA00B95A71 /* UserDataView.swift in Sources */,
 				1626517828BAACE600C4A90E /* OrdersHistoryCardView.swift in Sources */,
-				16193EC2292D69CE00F087D5 /* ShoppingCartModel.swift in Sources */,
+				16193EC2292D69CE00F087D5 /* CartItemModel.swift in Sources */,
 				16B08409288B84460089FEC0 /* SplashScreenView.swift in Sources */,
 				16193EC0292C622100F087D5 /* ShoppingCartViewModel.swift in Sources */,
 				162956C828A1E98C00755069 /* DonutCardView.swift in Sources */,

@@ -231,7 +231,7 @@ struct DonutView: View {
                 
                 Button {
 //                    self.isDonutSelected = false
-                    shoppingCartViewModel.addToShoppingCart(donut: self.donutModel, quantity: self.quantity, quantityPrice: self.totalQuantity)
+                    shoppingCartViewModel.addToShoppingCart(donut: self.donutModel, quantity: self.quantity, quantityPrice: (self.price * self.quantity))
                 } label: {
                     VStack {
                         Image(systemName: "cart.fill.badge.plus")

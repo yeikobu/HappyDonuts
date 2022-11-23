@@ -10,16 +10,17 @@ import Foundation
 
 final class ShoppingCartViewModel: ObservableObject {
     
-    @Published var cartItems: [ShoppingCartModel] = []
+    @Published var cartItems: [CartItemModel] = []
     
     func addToShoppingCart(donut: DonutModel, quantity: Int, quantityPrice: Int) {
-        cartItems.append(ShoppingCartModel(donut: donut, quantity: quantity, quantityPrice: quantityPrice))
+        cartItems.append(CartItemModel(donut: donut, quantity: quantity, quantityPrice: quantityPrice))
         printItems()
     }
     
     func printItems() {
         self.cartItems.forEach { item in
             print(item.donut.name)
+            print(item.quantityPrice)
         }
     }
 }

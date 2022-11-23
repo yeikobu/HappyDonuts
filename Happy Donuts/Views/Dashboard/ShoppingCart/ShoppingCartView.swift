@@ -34,19 +34,24 @@ struct ShoppingCartView: View {
             }
             .frame(alignment: .leading)
             .padding(.horizontal, 15)
-            .padding(.top, -50)
+            .padding(.top, -20)
             
-            Spacer()
+//            Spacer()
             
             if shoppingCartViewModel.cartItems.count > 0 {
-                ScrollView(showsIndicators: false) {
+                ScrollView(showsIndicators: true) {
                     ForEach(shoppingCartViewModel.cartItems) { item in
                         HStack {
-                            Text(item.donut.name)
+                            Spacer()
+                            ItemsCardView(cartItemModel: item)
+                                .padding(.top, 5)
+                            Spacer() 
                         }
                     }
                 }
+                .frame(maxHeight: 300)
             } else {
+                Spacer()
                 HStack {
                     Spacer()
                     Text("Tu carrito de compras está vacío...")
@@ -55,6 +60,7 @@ struct ShoppingCartView: View {
                 .frame(alignment: .center)
             }
             
+            Spacer()
             Spacer()
             Spacer()
         }
