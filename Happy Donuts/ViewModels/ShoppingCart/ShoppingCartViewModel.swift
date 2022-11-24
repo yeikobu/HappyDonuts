@@ -11,16 +11,21 @@ import Foundation
 final class ShoppingCartViewModel: ObservableObject {
     
     @Published var cartItems: [CartItemModel] = []
+    @Published var donutsTotalPrice: Int = 0
+    var deliveryPrice: Int = 4000
     
     func addToShoppingCart(donut: DonutModel, quantity: Int, quantityPrice: Int) {
         cartItems.append(CartItemModel(donut: donut, quantity: quantity, quantityPrice: quantityPrice))
-        printItems()
     }
     
-    func printItems() {
-        self.cartItems.forEach { item in
-            print(item.donut.name)
-            print(item.quantityPrice)
+    func sumTotalPrice() {
+        self.donutsTotalPrice = cartItems.map({$0.quantityPrice}).reduce(0, +)
+    }
+    
+    func removeFromCart(id: UUID) {
+        if let itemIndex = self.cartItems.firstIndex(where: {$0.id == id}) {
+            cartItems.remove(at: itemIndex)
         }
     }
+    
 }

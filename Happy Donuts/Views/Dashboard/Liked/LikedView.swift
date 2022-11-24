@@ -61,6 +61,7 @@ struct LikedView: View {
                                     LazyVGrid(columns: self.gridForm) {
                                         ForEach(self.likedDonutViewModel.likedDonuts, id: \.self) { donut in
                                             DonutCardView(donutModel: donut, animation: animation)
+                                                .padding(.top, 5)
                                                 .onTapGesture {
                                                     self.donutsViewModel.setDataFromSelectedDonut(imgUrl: donut.imgUrl, name: donut.name, price: donut.price, description: donut.description, donutModel: donut, category: donut.category, sellCount: donut.sellCount)
                                                     withAnimation(.spring(response: 0.7, dampingFraction: 0.80)) {
@@ -75,6 +76,7 @@ struct LikedView: View {
                                 }
                             }
                             .padding(.horizontal, 10)
+                            .padding(.bottom, 35)
                         }
                         .padding(.top, -5)
                     }

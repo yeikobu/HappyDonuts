@@ -48,11 +48,22 @@ struct ItemsCardView: View {
                     HStack {
                         //Minus Button
                         Button {
+                            //updating the view
                             self.cartItemModel.quantity -= 1
                             if self.cartItemModel.quantity < 1 {
                                 self.cartItemModel.quantity = 1
                             }
-                            self.cartItemModel.quantityPrice = self.cartItemModel.donut.price * self.cartItemModel.quantity
+                            
+                            //updating the viewModel array
+                            if let item = self.shoppingCartViewModel.cartItems.firstIndex(where: {$0.id == self.cartItemModel.id}) {
+                                self.shoppingCartViewModel.cartItems[item].quantity -= 1
+                                if self.shoppingCartViewModel.cartItems[item].quantity < 1 {
+                                    self.shoppingCartViewModel.cartItems[item].quantity = 1
+                                }
+                                self.shoppingCartViewModel.cartItems[item].quantityPrice = self.cartItemModel.donut.price * self.shoppingCartViewModel.cartItems[item].quantity
+                            }
+                            
+                            self.shoppingCartViewModel.sumTotalPrice()
                         } label: {
                             VStack {
                                 Image(systemName: "minus")
@@ -70,7 +81,6 @@ struct ItemsCardView: View {
                             )
                             .cornerRadius(8)
                             .shadow(color: Color("shadow"), radius: 1, x: 0, y: 1)
-                            
                         }
                         
                         Text("\(self.cartItemModel.quantity)")
@@ -88,11 +98,22 @@ struct ItemsCardView: View {
                         
                         //Plus Button
                         Button {
+                            //updatig the view
                             self.cartItemModel.quantity += 1
                             if self.cartItemModel.quantity > 20 {
                                 self.cartItemModel.quantity = 20
                             }
-                            self.cartItemModel.quantityPrice = self.cartItemModel.donut.price * self.cartItemModel.quantity
+                            
+                            //updating the viewModel array
+                            if let item = self.shoppingCartViewModel.cartItems.firstIndex(where: {$0.id == self.cartItemModel.id}) {
+                                self.shoppingCartViewModel.cartItems[item].quantity += 1
+                                if self.shoppingCartViewModel.cartItems[item].quantity > 20 {
+                                    self.shoppingCartViewModel.cartItems[item].quantity = 20
+                                }
+                                self.shoppingCartViewModel.cartItems[item].quantityPrice = self.cartItemModel.donut.price * self.shoppingCartViewModel.cartItems[item].quantity
+                            }
+                            
+                            self.shoppingCartViewModel.sumTotalPrice()
                         } label: {
                             VStack {
                                 Image(systemName: "plus")
@@ -136,7 +157,10 @@ struct ItemsCardView: View {
             
             
             Button {
-                //
+                withAnimation(.easeIn) {
+                    self.shoppingCartViewModel.removeFromCart(id: self.cartItemModel.id)
+                    self.shoppingCartViewModel.sumTotalPrice()
+                }
             } label: {
                 VStack {
                     Image(systemName: "trash.fill")
