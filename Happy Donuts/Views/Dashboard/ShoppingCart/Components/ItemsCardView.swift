@@ -53,6 +53,7 @@ struct ItemsCardView: View {
                                 self.cartItemModel.quantity = 1
                             }
                             self.cartItemModel.quantityPrice = self.cartItemModel.donut.price * self.cartItemModel.quantity
+//                            self.shoppingCartViewModel.substractAllDonutsTotalPay()
                         } label: {
                             VStack {
                                 Image(systemName: "minus")
@@ -70,7 +71,6 @@ struct ItemsCardView: View {
                             )
                             .cornerRadius(8)
                             .shadow(color: Color("shadow"), radius: 1, x: 0, y: 1)
-                            
                         }
                         
                         Text("\(self.cartItemModel.quantity)")
@@ -93,6 +93,7 @@ struct ItemsCardView: View {
                                 self.cartItemModel.quantity = 20
                             }
                             self.cartItemModel.quantityPrice = self.cartItemModel.donut.price * self.cartItemModel.quantity
+//                            self.shoppingCartViewModel.sumAllDonutsTotalPay()
                         } label: {
                             VStack {
                                 Image(systemName: "plus")

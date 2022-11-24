@@ -14,13 +14,6 @@ final class ShoppingCartViewModel: ObservableObject {
     
     func addToShoppingCart(donut: DonutModel, quantity: Int, quantityPrice: Int) {
         cartItems.append(CartItemModel(donut: donut, quantity: quantity, quantityPrice: quantityPrice))
-        printItems()
     }
     
-    func printItems() {
-        self.cartItems.forEach { item in
-            print(item.donut.name)
-            print(item.quantityPrice)
-        }
-    }
 }
