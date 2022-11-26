@@ -11,6 +11,8 @@ struct ShoppingCartView: View {
     
     @EnvironmentObject var shoppingCartViewModel: ShoppingCartViewModel
     @State private var isDelivery = false
+    @State private var isDeliveryToCurrentLocation = false
+    @State private var isMapSHowing = false
     @Namespace var animation
     
     var body: some View {
@@ -38,7 +40,6 @@ struct ShoppingCartView: View {
                 .padding(.top, -30)
                 
                 ScrollView(showsIndicators: false) {
-                    
                     if shoppingCartViewModel.cartItems.count > 0 {
                         VStack(alignment: .leading) {
                             ForEach(shoppingCartViewModel.cartItems) { item in
@@ -52,7 +53,6 @@ struct ShoppingCartView: View {
                                 }
                             }
                         }
-                        
                         
                         Text("¿Cómo deseas obtener tu pedido?")
                             .font(.system(size: 20, weight: .bold, design: .rounded))
@@ -78,10 +78,11 @@ struct ShoppingCartView: View {
                                         .onTapGesture {
                                             withAnimation(.easeIn) {
                                                 self.isDelivery = false
+                                                self.isDeliveryToCurrentLocation = false
                                             }
                                         }
                                     
-                                    if !isDelivery {
+                                    if !isDelivery && !isDeliveryToCurrentLocation {
                                         Rectangle()
                                             .frame(width: 10, height: 10)
                                             .foregroundColor(Color("blue"))
@@ -118,10 +119,50 @@ struct ShoppingCartView: View {
                                         .onTapGesture {
                                             withAnimation(.easeIn) {
                                                 self.isDelivery = true
+                                                self.isDeliveryToCurrentLocation = false
                                             }
                                         }
                                     
-                                    if isDelivery {
+                                    if isDelivery && !isDeliveryToCurrentLocation {
+                                        Rectangle()
+                                            .frame(width: 10, height: 10)
+                                            .foregroundColor(Color("blue"))
+                                            .cornerRadius(20)
+                                            .shadow(color: Color("shadow"), radius: 1, x: 0, y: 1)
+                                            .shadow(color: Color("shadow"), radius: 1, x: 0, y: -0)
+                                            .matchedGeometryEffect(id: "isdelivery", in: animation)
+                                    }
+                                }
+                                .padding(.trailing, 5)
+                            }
+                            
+                            HStack {
+                                Text("Enviar a mi ubicación actual")
+                                    .font(.system(size: 16, weight: .semibold, design: .rounded))
+                                
+                                Spacer()
+                                
+                                ZStack {
+                                    Rectangle()
+                                        .frame(width: 20, height: 20)
+                                        .foregroundColor(Color("switchBackground"))
+                                        .cornerRadius(20)
+                                        .shadow(color: Color("shadow"), radius: 0.5, x: 0, y: 1)
+                                        .shadow(color: Color("shadow"), radius: 0.5, x: 0, y: -0)
+                                        .shadow(color: Color("shadow"), radius: 0.5, x: 1, y: 0)
+                                        .shadow(color: Color("shadow"), radius: 0.5, x: -1, y: 0)
+                                        .onTapGesture {
+                                            withAnimation(.easeIn) {
+                                                self.isDelivery = false
+                                                self.isDeliveryToCurrentLocation = true
+                                                self.isMapSHowing = true
+                                            }
+                                        }
+                                        .sheet(isPresented: self.$isMapSHowing) {
+                                            LocationView()
+                                        }
+                                    
+                                    if isDeliveryToCurrentLocation {
                                         Rectangle()
                                             .frame(width: 10, height: 10)
                                             .foregroundColor(Color("blue"))
