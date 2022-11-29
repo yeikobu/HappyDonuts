@@ -10,6 +10,7 @@ import SwiftUI
 struct ShoppingCartView: View {
     
     @EnvironmentObject var shoppingCartViewModel: ShoppingCartViewModel
+    @StateObject var locationViewModel = LocationViewModel()
     @State private var isDelivery = false
     @State private var isDeliveryToCurrentLocation = false
     @State private var isMapSHowing = false
@@ -137,8 +138,16 @@ struct ShoppingCartView: View {
                             }
                             
                             HStack {
-                                Text("Enviar a mi ubicación actual")
-                                    .font(.system(size: 16, weight: .semibold, design: .rounded))
+                                if self.locationViewModel.selectedLocation == "" {
+                                    Text("Ubicación diferente")
+                                        .font(.system(size: 16, weight: .semibold, design: .rounded))
+                                }
+                                
+                                if self.locationViewModel.selectedLocation != "" {
+                                    Text("\(self.locationViewModel.selectedLocation)")
+                                        .font(.system(size: 16, weight: .bold, design: .rounded))
+                                }
+                                
                                 
                                 Spacer()
                                 
@@ -237,6 +246,7 @@ struct ShoppingCartView: View {
         .onAppear {
             self.shoppingCartViewModel.sumTotalPrice()
         }
+        .environmentObject(self.locationViewModel)
     }
 }
 

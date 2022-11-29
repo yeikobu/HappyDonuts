@@ -10,7 +10,8 @@ import MapKit
 
 struct LocationView: View {
     
-    @StateObject var locationViewModel = LocationViewModel()
+//    @StateObject var locationViewModel = LocationViewModel()
+    @EnvironmentObject var locationViewModel: LocationViewModel
     
     @Environment(\.dismiss) var dismiss
     
@@ -128,7 +129,6 @@ struct LocationView: View {
                         Button {
                             if let coordinate = locationViewModel.userCurrentLocation?.coordinate {
                                 locationViewModel.mapView.region = .init(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
-                                print("Coordinate: \(coordinate)")
                                 locationViewModel.addDraggablePin(coordinate: coordinate)
                                 locationViewModel.updatePlaceMark(location: .init(latitude: coordinate.latitude, longitude: coordinate.longitude))
                             }

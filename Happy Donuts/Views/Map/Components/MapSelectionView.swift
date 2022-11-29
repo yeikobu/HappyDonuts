@@ -43,7 +43,8 @@ struct MapSelectionView: View {
                     .padding(.vertical, 10)
                     
                     Button {
-                        //
+                        locationViewModel.selectedLocation = "\(place.name ?? ""), \(place.locality ?? "")"
+                        print("Localizacion: \(locationViewModel.selectedLocation)")
                     } label: {
                         Text("Confirmar")
                             .frame(maxWidth: .infinity)

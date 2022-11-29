@@ -22,6 +22,7 @@ final class LocationViewModel: NSObject, ObservableObject, MKMapViewDelegate, CL
     @Published var userCurrentLocation: CLLocation?
     @Published var pickedLocation: CLLocation?
     @Published var pickedPlaceMark: CLPlacemark?
+    @Published var selectedLocation: String = ""
     var cancellable: AnyCancellable?
     
     struct DefaultRegion {
