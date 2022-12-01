@@ -52,6 +52,8 @@
 		16C62D7928A5EB9400143721 /* DonutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C62D7828A5EB9400143721 /* DonutView.swift */; };
 		16D1F8E52931C2DE005C8941 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 16D1F8E42931C2DE005C8941 /* Settings.bundle */; };
 		16D1F8EA2932F735005C8941 /* MapSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1F8E92932F735005C8941 /* MapSelectionView.swift */; };
+		16D1F8EC29394F7C005C8941 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1F8EB29394F7B005C8941 /* OrderModel.swift */; };
+		16D1F8EE2939557F005C8941 /* ShoppingCartDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1F8ED2939557F005C8941 /* ShoppingCartDataSource.swift */; };
 		16EAE3BB28B18B9B002C12B3 /* LikedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3BA28B18B9B002C12B3 /* LikedView.swift */; };
 		16EAE3BF28B5BBA2002C12B3 /* LikedDonutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3BE28B5BBA2002C12B3 /* LikedDonutDataSource.swift */; };
 		16EAE3C128B5C04D002C12B3 /* LikedDonutRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3C028B5C04D002C12B3 /* LikedDonutRepository.swift */; };
@@ -102,6 +104,8 @@
 		16D1F8E32931BEB8005C8941 /* Happy-Donuts-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Happy-Donuts-Info.plist"; sourceTree = SOURCE_ROOT; };
 		16D1F8E42931C2DE005C8941 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		16D1F8E92932F735005C8941 /* MapSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSelectionView.swift; sourceTree = "<group>"; };
+		16D1F8EB29394F7B005C8941 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
+		16D1F8ED2939557F005C8941 /* ShoppingCartDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartDataSource.swift; sourceTree = "<group>"; };
 		16EAE3BA28B18B9B002C12B3 /* LikedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedView.swift; sourceTree = "<group>"; };
 		16EAE3BE28B5BBA2002C12B3 /* LikedDonutDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedDonutDataSource.swift; sourceTree = "<group>"; };
 		16EAE3C028B5C04D002C12B3 /* LikedDonutRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedDonutRepository.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				16193EBF292C622100F087D5 /* ShoppingCartViewModel.swift */,
+				16D1F8ED2939557F005C8941 /* ShoppingCartDataSource.swift */,
 			);
 			path = ShoppingCart;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 				162956BD28A1B2C600755069 /* DonutModel.swift */,
 				16FB1F1F28C2F19900B95A71 /* UserExtraDataModel.swift */,
 				16193EC1292D69CE00F087D5 /* CartItemModel.swift */,
+				16D1F8EB29394F7B005C8941 /* OrderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -528,9 +534,11 @@
 				16EAE3BB28B18B9B002C12B3 /* LikedView.swift in Sources */,
 				16D1F8EA2932F735005C8941 /* MapSelectionView.swift in Sources */,
 				16EAE3C128B5C04D002C12B3 /* LikedDonutRepository.swift in Sources */,
+				16D1F8EE2939557F005C8941 /* ShoppingCartDataSource.swift in Sources */,
 				1626517628BAACC800C4A90E /* UserDataCardView.swift in Sources */,
 				16193EC5292EAC3700F087D5 /* ItemsCardView.swift in Sources */,
 				16B08414288B86960089FEC0 /* LoginView.swift in Sources */,
+				16D1F8EC29394F7C005C8941 /* OrderModel.swift in Sources */,
 				162956C328A1DE7F00755069 /* DonutsRepository.swift in Sources */,
 				1626517C28BAB12E00C4A90E /* ViewExtensions.swift in Sources */,
 				16FB1F2228C449AA00B95A71 /* UserDataView.swift in Sources */,
