@@ -27,4 +27,9 @@ final class ProfileRespository {
     func getUserExtraData() async -> [UserExtraDataModel] {
         await profileDataSource.getUserExtraData()
     }
+    
+    @MainActor
+    func setUserExtraData(userExtraData: UserExtraDataModel) {
+        profileDataSource.setUserExtraData(userExtraData: userExtraData)
+    }
 }

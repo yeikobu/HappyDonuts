@@ -162,7 +162,7 @@ struct ShoppingCartView: View {
                                         .shadow(color: Color("shadow"), radius: 0.5, x: -1, y: 0)
                                         .onTapGesture {
                                             withAnimation(.easeIn) {
-                                                self.isDelivery = false
+                                                self.isDelivery = true
                                                 self.isDeliveryToCurrentLocation = true
                                                 self.isMapSHowing = true
                                             }

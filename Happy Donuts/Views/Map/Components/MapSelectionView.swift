@@ -11,6 +11,7 @@ import MapKit
 struct MapSelectionView: View {
     
     @EnvironmentObject var locationViewModel: LocationViewModel
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ZStack {
@@ -45,6 +46,7 @@ struct MapSelectionView: View {
                     Button {
                         locationViewModel.selectedLocation = "\(place.name ?? ""), \(place.locality ?? "")"
                         print("Localizacion: \(locationViewModel.selectedLocation)")
+                        dismiss()
                     } label: {
                         Text("Confirmar")
                             .frame(maxWidth: .infinity)
