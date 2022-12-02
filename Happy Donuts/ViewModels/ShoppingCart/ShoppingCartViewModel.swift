@@ -13,6 +13,8 @@ final class ShoppingCartViewModel: ObservableObject {
     @Published var cartItems: [CartItemModel] = []
     @Published var userDonutOrders: [OrderModel] = []
     @Published var donutsTotalPrice: Int = 0
+    @Published var currentOrderUUID = UUID()
+    @Published var currentOrderStatus = 0
     private let profileViewModel = ProfileViewModel()
     private let shoppingCartRepository: ShoppingCartRepository
     var deliveryPrice: Int = 4000
@@ -62,6 +64,7 @@ final class ShoppingCartViewModel: ObservableObject {
     @MainActor
     func setOrderedCart(orderModel: OrderModel) {
         self.shoppingCartRepository.setOrderedCart(orderModel: orderModel)
+        self.currentOrderUUID = orderModel.id
     }
     
     @MainActor

@@ -110,8 +110,6 @@ struct ShoppingCartView: View {
                                             Text("(Debes agregar tu dirección en tu perfil)")
                                                 .font(.system(size: 14, weight: .regular, design: .rounded))
                                         }
-                                        
-                                        
                                     }
                                     
                                     Spacer()
@@ -210,7 +208,7 @@ struct ShoppingCartView: View {
                             .padding(.vertical, 20)
                             
                             if self.shoppingCartViewModel.isCheckoutButtonTapped {
-                                LottieImage(animationName: "Loading", loopMode: .repeat(5))
+                                LottieImage(animationName: "Loading", loopMode: .loop)
                                     .frame(width: 100, height: 100)
                             } else {
                                 HStack {
@@ -219,7 +217,6 @@ struct ShoppingCartView: View {
                                     
                                     Button {
                                         self.shoppingCartViewModel.isCheckoutButtonTapped = true
-                                        
                                         Task {
                                             await self.shoppingCartViewModel.checkUserDataCompleted()
                                             if !self.shoppingCartViewModel.showUserInfoError {
@@ -228,6 +225,8 @@ struct ShoppingCartView: View {
                                                 let currentDate = "\(calendar.component(.year, from: date))/\(calendar.component(.month, from: date))/\(calendar.component(.day, from: date)) \(calendar.component(.hour, from: date)):\(calendar.component(.minute, from: date))"
                                                 
                                                 self.shoppingCartViewModel.setOrderedCart(orderModel: OrderModel(cartItems: self.shoppingCartViewModel.cartItems, finalPrice: (self.isDelivery ? (self.shoppingCartViewModel.deliveryPrice + self.shoppingCartViewModel.donutsTotalPrice) : self.shoppingCartViewModel.donutsTotalPrice), date: currentDate, location: self.isDelivery ? self.locationViewModel.selectedLocation : "Retiro en tienda"))
+                                            } else {
+                                                self.shoppingCartViewModel.isCheckoutButtonTapped = false
                                             }
                                         }
                                     } label: {
@@ -276,6 +275,89 @@ struct ShoppingCartView: View {
             }
             .environmentObject(self.locationViewModel)
             
+            if self.shoppingCartViewModel.currentOrderStatus == 1 {
+                ZStack {
+                    Rectangle()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .foregroundColor(Color("background"))
+                    VStack {
+                        Text("Estamos Preparando tu pedido... 🍩")
+                            .font(.system(size: 20, weight: .black, design: .rounded))
+                        
+                        LottieImage(animationName: "Preparing", loopMode: .loop)
+                            .frame(width: 250, height: 250)
+                    }
+                }
+                .ignoresSafeArea()
+            }
+            
+            if self.shoppingCartViewModel.currentOrderStatus == 2 {
+                ZStack {
+                    Rectangle()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .foregroundColor(Color("background"))
+                    VStack {
+                        Text("Tu pedido está en camino")
+                            .font(.system(size: 20, weight: .black, design: .rounded))
+                        
+                        LottieImage(animationName: "Deliveryman", loopMode: .loop)
+                            .frame(width: 300, height: 300)
+                    }
+                }
+                .ignoresSafeArea()
+            }
+            
+            if self.shoppingCartViewModel.currentOrderStatus == 3 {
+                ZStack {
+                    Rectangle()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .foregroundColor(Color("background"))
+                    VStack {
+                        Text("Tu pedido está listo para retirar")
+                            .font(.system(size: 20, weight: .black, design: .rounded))
+                        
+                        LottieImage(animationName: "Bag", loopMode: .loop)
+                            .frame(width: 300, height: 300)
+                    }
+                }
+                .ignoresSafeArea()
+            }
+            
+            if self.shoppingCartViewModel.currentOrderStatus == 4 {
+                ZStack {
+                    Rectangle()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .foregroundColor(Color("background"))
+                    VStack {
+                        Text("Tu pedido ha sido entregado 🤤")
+                            .font(.system(size: 20, weight: .black, design: .rounded))
+                        
+                        Button {
+                            self.shoppingCartViewModel.cartItems = []
+                            self.shoppingCartViewModel.userDonutOrders.forEach { order in
+                                if order.id == self.shoppingCartViewModel.currentOrderUUID {
+                                    self.shoppingCartViewModel.currentOrderStatus = order.status
+                                    print(order.status)
+                                }
+                            }
+                        } label: {
+                            Text("Aceptar")
+                                .frame(maxWidth: .infinity)
+                                .foregroundColor(Color("buttonTextColor"))
+                                .font(.system(size: 16, weight: .bold, design: .rounded))
+                                .padding(.vertical, 12)
+                                .background{
+                                    RoundedRectangle (cornerRadius: 30, style: .continuous)
+                                        .fill(Color("blue"))
+                                }
+                                .padding(30)
+                        }
+
+                    }
+                }
+                .ignoresSafeArea()
+            }
+            
             if self.shoppingCartViewModel.showUserInfoError {
                 VStack {
                     Rectangle()
@@ -296,6 +378,7 @@ struct ShoppingCartView: View {
                     
                     Button {
                         self.shoppingCartViewModel.showUserInfoError = false
+                        self.shoppingCartViewModel.isCheckoutButtonTapped = false
                     } label: {
                         Text("Aceptar")
                             .frame(maxWidth: .infinity)
@@ -317,6 +400,21 @@ struct ShoppingCartView: View {
                 .shadow(color: Color("shadow"), radius: 4, x: 1, y: 2)
                 .padding(.horizontal)
             }
+            
+        }
+        .task {
+            repeat {
+                await self.shoppingCartViewModel.getUserOrders()
+                
+                self.shoppingCartViewModel.userDonutOrders.forEach { order in
+                    if order.id == self.shoppingCartViewModel.currentOrderUUID {
+                        self.shoppingCartViewModel.currentOrderStatus = order.status
+                        print(order.status)
+                    }
+                }
+                try? await Task.sleep(nanoseconds: 5_000_000_000)
+            } while (!Task.isCancelled)
+            print("task cancelled")
             
         }
     }

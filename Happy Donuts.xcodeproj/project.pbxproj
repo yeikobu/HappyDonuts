@@ -56,6 +56,9 @@
 		16D1F8EE2939557F005C8941 /* ShoppingCartDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1F8ED2939557F005C8941 /* ShoppingCartDataSource.swift */; };
 		16D1F8F029395A09005C8941 /* ShoppingCartRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1F8EF29395A09005C8941 /* ShoppingCartRepository.swift */; };
 		16D1F8F229398703005C8941 /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 16D1F8F129398703005C8941 /* Loading.json */; };
+		16D1F8F62939B218005C8941 /* Deliveryman.json in Resources */ = {isa = PBXBuildFile; fileRef = 16D1F8F52939B218005C8941 /* Deliveryman.json */; };
+		16D1F8F82939B3BB005C8941 /* Preparing.json in Resources */ = {isa = PBXBuildFile; fileRef = 16D1F8F72939B3BB005C8941 /* Preparing.json */; };
+		16D1F8FA2939B44D005C8941 /* Bag.json in Resources */ = {isa = PBXBuildFile; fileRef = 16D1F8F92939B44D005C8941 /* Bag.json */; };
 		16EAE3BB28B18B9B002C12B3 /* LikedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3BA28B18B9B002C12B3 /* LikedView.swift */; };
 		16EAE3BF28B5BBA2002C12B3 /* LikedDonutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3BE28B5BBA2002C12B3 /* LikedDonutDataSource.swift */; };
 		16EAE3C128B5C04D002C12B3 /* LikedDonutRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3C028B5C04D002C12B3 /* LikedDonutRepository.swift */; };
@@ -110,6 +113,9 @@
 		16D1F8ED2939557F005C8941 /* ShoppingCartDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartDataSource.swift; sourceTree = "<group>"; };
 		16D1F8EF29395A09005C8941 /* ShoppingCartRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartRepository.swift; sourceTree = "<group>"; };
 		16D1F8F129398703005C8941 /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading.json; sourceTree = "<group>"; };
+		16D1F8F52939B218005C8941 /* Deliveryman.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Deliveryman.json; sourceTree = "<group>"; };
+		16D1F8F72939B3BB005C8941 /* Preparing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Preparing.json; sourceTree = "<group>"; };
+		16D1F8F92939B44D005C8941 /* Bag.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Bag.json; sourceTree = "<group>"; };
 		16EAE3BA28B18B9B002C12B3 /* LikedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedView.swift; sourceTree = "<group>"; };
 		16EAE3BE28B5BBA2002C12B3 /* LikedDonutDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedDonutDataSource.swift; sourceTree = "<group>"; };
 		16EAE3C028B5C04D002C12B3 /* LikedDonutRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedDonutRepository.swift; sourceTree = "<group>"; };
@@ -226,6 +232,9 @@
 				16B083F9288B60430089FEC0 /* Happy_DonutsApp.swift */,
 				16B0841D2891AB890089FEC0 /* GoogleService-Info.plist */,
 				16D1F8F129398703005C8941 /* Loading.json */,
+				16D1F8F52939B218005C8941 /* Deliveryman.json */,
+				16D1F8F92939B44D005C8941 /* Bag.json */,
+				16D1F8F72939B3BB005C8941 /* Preparing.json */,
 				16B08410288B86280089FEC0 /* DonutAnimation.json */,
 				16B083FD288B60450089FEC0 /* Assets.xcassets */,
 				16B083FF288B60450089FEC0 /* Preview Content */,
@@ -499,11 +508,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16D1F8FA2939B44D005C8941 /* Bag.json in Resources */,
+				16D1F8F62939B218005C8941 /* Deliveryman.json in Resources */,
 				16B08411288B86280089FEC0 /* DonutAnimation.json in Resources */,
 				16B0841E2891AB890089FEC0 /* GoogleService-Info.plist in Resources */,
 				16D1F8F229398703005C8941 /* Loading.json in Resources */,
 				16D1F8E52931C2DE005C8941 /* Settings.bundle in Resources */,
 				16B08401288B60450089FEC0 /* Preview Assets.xcassets in Resources */,
+				16D1F8F82939B3BB005C8941 /* Preparing.json in Resources */,
 				16B083FE288B60450089FEC0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
