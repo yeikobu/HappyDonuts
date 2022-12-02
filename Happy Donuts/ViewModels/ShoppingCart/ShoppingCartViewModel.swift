@@ -11,11 +11,18 @@ import SwiftUI
 final class ShoppingCartViewModel: ObservableObject {
     
     @Published var cartItems: [CartItemModel] = []
+    @Published var userDonutOrders: [OrderModel] = []
     @Published var donutsTotalPrice: Int = 0
-    private var profileViewModel = ProfileViewModel()
+    private let profileViewModel = ProfileViewModel()
+    private let shoppingCartRepository: ShoppingCartRepository
     var deliveryPrice: Int = 4000
     var errorMessage: String = ""
     @Published var showUserInfoError: Bool = false
+    @Published var isCheckoutButtonTapped: Bool = false
+    
+    init(shoppingCartRepository: ShoppingCartRepository = ShoppingCartRepository()) {
+        self.shoppingCartRepository = shoppingCartRepository
+    }
     
     func addToShoppingCart(donut: DonutModel, quantity: Int, quantityPrice: Int) {
         cartItems.append(CartItemModel(donut: donut, quantity: quantity, quantityPrice: quantityPrice))
@@ -50,6 +57,17 @@ final class ShoppingCartViewModel: ObservableObject {
             errorMessage = ""
         }
         print(errorMessage)
+    }
+    
+    @MainActor
+    func setOrderedCart(orderModel: OrderModel) {
+        self.shoppingCartRepository.setOrderedCart(orderModel: orderModel)
+    }
+    
+    @MainActor
+    func getUserOrders() async {
+        let userOrders = await self.shoppingCartRepository.getUserOrders()
+        self.userDonutOrders = userOrders
     }
     
 }

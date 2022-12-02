@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct OrdersHistoryCardView: View {
+    
+    @StateObject var shoppingCartViewModel = ShoppingCartViewModel()
+    
     var body: some View {
         VStack {
-            ResumedOrderHistoryView()
+            
+            ForEach(self.shoppingCartViewModel.userDonutOrders) { order in
+                ResumedOrderHistoryView(date: order.date, totalOrderPrice: order.finalPrice)
+            }
             
             VStack {
                 Button {
@@ -37,6 +43,11 @@ struct OrdersHistoryCardView: View {
         .background(Color("background"))
         .cornerRadius(25)
         .shadow(color: Color("shadow"), radius: 2, x: 0, y: 1)
+        .onAppear {
+            Task {
+                await self.shoppingCartViewModel.getUserOrders()
+            }
+        }
      
     }
 }
@@ -49,14 +60,18 @@ struct OrdersHistoryCardView_Previews: PreviewProvider {
 
 
 struct ResumedOrderHistoryView: View {
+    
+    @State var date: String
+    @State var totalOrderPrice: Int
+    
     var body: some View {
         VStack {
             HStack {
-                Text("22-07-2022")
+                Text(date)
                 
                 Spacer()
                 
-                Text("Total: $17000")
+                Text("Total: $\(totalOrderPrice)")
                 
                 Spacer()
                 

@@ -54,6 +54,8 @@
 		16D1F8EA2932F735005C8941 /* MapSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1F8E92932F735005C8941 /* MapSelectionView.swift */; };
 		16D1F8EC29394F7C005C8941 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1F8EB29394F7B005C8941 /* OrderModel.swift */; };
 		16D1F8EE2939557F005C8941 /* ShoppingCartDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1F8ED2939557F005C8941 /* ShoppingCartDataSource.swift */; };
+		16D1F8F029395A09005C8941 /* ShoppingCartRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1F8EF29395A09005C8941 /* ShoppingCartRepository.swift */; };
+		16D1F8F229398703005C8941 /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 16D1F8F129398703005C8941 /* Loading.json */; };
 		16EAE3BB28B18B9B002C12B3 /* LikedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3BA28B18B9B002C12B3 /* LikedView.swift */; };
 		16EAE3BF28B5BBA2002C12B3 /* LikedDonutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3BE28B5BBA2002C12B3 /* LikedDonutDataSource.swift */; };
 		16EAE3C128B5C04D002C12B3 /* LikedDonutRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EAE3C028B5C04D002C12B3 /* LikedDonutRepository.swift */; };
@@ -106,6 +108,8 @@
 		16D1F8E92932F735005C8941 /* MapSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSelectionView.swift; sourceTree = "<group>"; };
 		16D1F8EB29394F7B005C8941 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		16D1F8ED2939557F005C8941 /* ShoppingCartDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartDataSource.swift; sourceTree = "<group>"; };
+		16D1F8EF29395A09005C8941 /* ShoppingCartRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartRepository.swift; sourceTree = "<group>"; };
+		16D1F8F129398703005C8941 /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading.json; sourceTree = "<group>"; };
 		16EAE3BA28B18B9B002C12B3 /* LikedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedView.swift; sourceTree = "<group>"; };
 		16EAE3BE28B5BBA2002C12B3 /* LikedDonutDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedDonutDataSource.swift; sourceTree = "<group>"; };
 		16EAE3C028B5C04D002C12B3 /* LikedDonutRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedDonutRepository.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 			children = (
 				16193EBF292C622100F087D5 /* ShoppingCartViewModel.swift */,
 				16D1F8ED2939557F005C8941 /* ShoppingCartDataSource.swift */,
+				16D1F8EF29395A09005C8941 /* ShoppingCartRepository.swift */,
 			);
 			path = ShoppingCart;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				16B08407288B84180089FEC0 /* Views */,
 				16B083F9288B60430089FEC0 /* Happy_DonutsApp.swift */,
 				16B0841D2891AB890089FEC0 /* GoogleService-Info.plist */,
+				16D1F8F129398703005C8941 /* Loading.json */,
 				16B08410288B86280089FEC0 /* DonutAnimation.json */,
 				16B083FD288B60450089FEC0 /* Assets.xcassets */,
 				16B083FF288B60450089FEC0 /* Preview Content */,
@@ -495,6 +501,7 @@
 			files = (
 				16B08411288B86280089FEC0 /* DonutAnimation.json in Resources */,
 				16B0841E2891AB890089FEC0 /* GoogleService-Info.plist in Resources */,
+				16D1F8F229398703005C8941 /* Loading.json in Resources */,
 				16D1F8E52931C2DE005C8941 /* Settings.bundle in Resources */,
 				16B08401288B60450089FEC0 /* Preview Assets.xcassets in Resources */,
 				16B083FE288B60450089FEC0 /* Assets.xcassets in Resources */,
@@ -521,6 +528,7 @@
 				1626517328BAAC5200C4A90E /* ProfileView.swift in Sources */,
 				16B08433289340D80089FEC0 /* AuthRepository.swift in Sources */,
 				16B0841C2890A5FC0089FEC0 /* UserModel.swift in Sources */,
+				16D1F8F029395A09005C8941 /* ShoppingCartRepository.swift in Sources */,
 				16B084372894C9000089FEC0 /* DashboardView.swift in Sources */,
 				16B084172890A4330089FEC0 /* LoginViewModel.swift in Sources */,
 				16193EC8293150F400F087D5 /* LocationView.swift in Sources */,

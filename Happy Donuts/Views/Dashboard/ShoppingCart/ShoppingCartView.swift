@@ -103,8 +103,14 @@ struct ShoppingCartView: View {
                                         Text("Enviar a: ")
                                             .font(.system(size: 16, weight: .semibold, design: .rounded))
                                         
-                                        Text("Digüeñes 5083, Renca")
-                                            .font(.system(size: 16, weight: .semibold, design: .rounded))
+                                        if !self.profileViewModel.userExtraDataModel.location.isEmpty {
+                                            Text(self.profileViewModel.userExtraDataModel.location)
+                                                .font(.system(size: 16, weight: .semibold, design: .rounded))
+                                        } else {
+                                            Text("(Debes agregar tu dirección en tu perfil)")
+                                                .font(.system(size: 14, weight: .regular, design: .rounded))
+                                        }
+                                        
                                         
                                     }
                                     
@@ -137,6 +143,9 @@ struct ShoppingCartView: View {
                                         }
                                     }
                                     .padding(.trailing, 5)
+                                }
+                                .task {
+                                    await self.profileViewModel.getUserExtraData()
                                 }
                                 
                                 HStack {
@@ -200,29 +209,44 @@ struct ShoppingCartView: View {
                             .frame(maxWidth: .infinity, alignment: .trailing)
                             .padding(.vertical, 20)
                             
-                            HStack {
-                                Text("Procesar pago")
-                                    .font(.system(size: 16, weight: .semibold, design: .rounded))
-                                
-                                Button {
-                                    Task {
-                                        await self.shoppingCartViewModel.checkUserDataCompleted()
+                            if self.shoppingCartViewModel.isCheckoutButtonTapped {
+                                LottieImage(animationName: "Loading", loopMode: .repeat(5))
+                                    .frame(width: 100, height: 100)
+                            } else {
+                                HStack {
+                                    Text("Procesar pago")
+                                        .font(.system(size: 16, weight: .semibold, design: .rounded))
+                                    
+                                    Button {
+                                        self.shoppingCartViewModel.isCheckoutButtonTapped = true
+                                        
+                                        Task {
+                                            await self.shoppingCartViewModel.checkUserDataCompleted()
+                                            if !self.shoppingCartViewModel.showUserInfoError {
+                                                let date = Date()
+                                                let calendar = Calendar.current
+                                                let currentDate = "\(calendar.component(.year, from: date))/\(calendar.component(.month, from: date))/\(calendar.component(.day, from: date)) \(calendar.component(.hour, from: date)):\(calendar.component(.minute, from: date))"
+                                                
+                                                self.shoppingCartViewModel.setOrderedCart(orderModel: OrderModel(cartItems: self.shoppingCartViewModel.cartItems, finalPrice: (self.isDelivery ? (self.shoppingCartViewModel.deliveryPrice + self.shoppingCartViewModel.donutsTotalPrice) : self.shoppingCartViewModel.donutsTotalPrice), date: currentDate, location: self.isDelivery ? self.locationViewModel.selectedLocation : "Retiro en tienda"))
+                                            }
+                                        }
+                                    } label: {
+                                        VStack {
+                                            Image(systemName: "creditcard.fill")
+                                                .font(.system(size: 25, weight: .black, design: .rounded))
+                                                .foregroundColor(Color("buttonTextColor"))
+                                                .padding(4)
+                                                .frame(width: 40, height: 40)
+                                        }
+                                        .background(Color("blue"))
+                                        .cornerRadius(12)
+                                        .shadow(color: Color("shadow"), radius: 1, x: 0, y: 1)
                                     }
-                                } label: {
-                                    VStack {
-                                        Image(systemName: "creditcard.fill")
-                                            .font(.system(size: 25, weight: .black, design: .rounded))
-                                            .foregroundColor(Color("buttonTextColor"))
-                                            .padding(4)
-                                            .frame(width: 40, height: 40)
-                                    }
-                                    .background(Color("blue"))
-                                    .cornerRadius(12)
-                                    .shadow(color: Color("shadow"), radius: 1, x: 0, y: 1)
                                 }
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .padding(.bottom, 35)
                             }
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                            .padding(.bottom, 35)
+                            
                         }
                     }
                     .padding(.bottom, 20)
@@ -301,6 +325,5 @@ struct ShoppingCartView: View {
 struct ShoppingCartView_Previews: PreviewProvider {
     static var previews: some View {
         ShoppingCartView()
-            .environmentObject(ShoppingCartViewModel())
     }
 }

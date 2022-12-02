@@ -7,10 +7,9 @@
 
 import Foundation
 
-struct CartItemModel: Hashable, Identifiable {
+struct CartItemModel: Hashable, Identifiable, Encodable, Decodable {
     var id = UUID()
     var donut: DonutModel = DonutModel()
     var quantity: Int = 1
     var quantityPrice: Int = 1000
-    
 }
