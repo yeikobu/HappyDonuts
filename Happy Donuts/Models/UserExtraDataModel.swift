@@ -8,7 +8,7 @@
 import Foundation
 
 struct UserExtraDataModel: Decodable, Encodable {
-    var userPhoneNumber: String = "Ingresa tu número de contacto"
-    var userName: String = "Ingresa tu nombre de contacto"
-    var direction: String = "Ingresa tu dirección"
+    var phone: String = ""
+    var name: String = ""
+    var location: String = ""
 }

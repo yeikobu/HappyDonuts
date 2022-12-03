@@ -13,7 +13,7 @@ import FirebaseAuth
 final class LikedDonutDataSource {
     private let database = Firestore.firestore()
     private let collection = "Liked"
-    private let uid = String(describing: Auth.auth().currentUser!.uid)
+    private let uid = String(describing: Auth.auth().currentUser?.uid)
     private let subColleciton = "likedDonuts"
     
     func getLikedDonuts(completion: @escaping (Result<[DonutModel], Error>) -> Void) {
