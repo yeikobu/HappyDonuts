@@ -231,7 +231,7 @@ struct DonutView: View {
                         .foregroundColor(Color("fontColor"))
                     
                     Button {
-    //                    self.isDonutSelected = false
+                        self.hapticsEngine.addedToCartFunctionVibration()
                         shoppingCartViewModel.addToShoppingCart(donut: self.donutModel, quantity: self.quantity, quantityPrice: (self.price * self.quantity))
                     } label: {
                         VStack {

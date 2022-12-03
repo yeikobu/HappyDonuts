@@ -12,6 +12,7 @@ struct ShoppingCartView: View {
     @EnvironmentObject var shoppingCartViewModel: ShoppingCartViewModel
     @StateObject var locationViewModel: LocationViewModel = LocationViewModel()
     @StateObject var profileViewModel: ProfileViewModel = ProfileViewModel()
+    @StateObject var haptics: Haptics = Haptics()
     @State private var isDelivery = false
     @State private var isDeliveryToCurrentLocation = false
     @State private var isMapSHowing = false
@@ -219,6 +220,7 @@ struct ShoppingCartView: View {
                                     Button {
                                         self.shoppingCartViewModel.isCheckoutButtonTapped = true
                                         Task {
+                                            self.haptics.likeFunctionVibration()
                                             await self.shoppingCartViewModel.checkUserDataCompleted()
                                             if !self.shoppingCartViewModel.showUserInfoError {
                                                 let date = Date()
