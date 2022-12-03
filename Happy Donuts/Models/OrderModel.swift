@@ -14,4 +14,5 @@ struct OrderModel: Hashable, Identifiable, Encodable, Decodable {
     var date: String = ""
     var location: String = ""
     var status: Int = 0
+    var dateID: String = ""
 }

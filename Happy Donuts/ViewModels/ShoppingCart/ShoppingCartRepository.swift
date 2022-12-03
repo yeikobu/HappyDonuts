@@ -24,4 +24,8 @@ final class ShoppingCartRepository {
         await self.shoppingCartDataSource.getUserOrders()
     }
     
+    func setOrderAsFinished(orderModel: OrderModel) {
+        self.shoppingCartDataSource.setOrderAsFinished(orderModel: orderModel)
+    }
+    
 }

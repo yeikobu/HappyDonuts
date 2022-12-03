@@ -73,4 +73,8 @@ final class ShoppingCartViewModel: ObservableObject {
         self.userDonutOrders = userOrders
     }
     
+    func setOrderAsFinished(orderModel: OrderModel) {
+        self.shoppingCartRepository.setOrderAsFinished(orderModel: orderModel)
+    }
+    
 }

@@ -127,6 +127,7 @@ struct ShoppingCartView: View {
                                                 withAnimation(.easeIn) {
                                                     self.isDelivery = true
                                                     self.isDeliveryToCurrentLocation = false
+                                                    self.locationViewModel.selectedLocation = self.profileViewModel.userExtraDataModel.location
                                                 }
                                             }
                                         
@@ -223,8 +224,9 @@ struct ShoppingCartView: View {
                                                 let date = Date()
                                                 let calendar = Calendar.current
                                                 let currentDate = "\(calendar.component(.year, from: date))/\(calendar.component(.month, from: date))/\(calendar.component(.day, from: date)) \(calendar.component(.hour, from: date)):\(calendar.component(.minute, from: date))"
+                                                let orderDate = "\(calendar.component(.year, from: date))\(calendar.component(.month, from: date))\(calendar.component(.day, from: date))\(calendar.component(.hour, from: date))\(calendar.component(.minute, from: date))\(calendar.component(.second, from: date))\(calendar.component(.nanosecond, from: date))"
                                                 
-                                                self.shoppingCartViewModel.setOrderedCart(orderModel: OrderModel(cartItems: self.shoppingCartViewModel.cartItems, finalPrice: (self.isDelivery ? (self.shoppingCartViewModel.deliveryPrice + self.shoppingCartViewModel.donutsTotalPrice) : self.shoppingCartViewModel.donutsTotalPrice), date: currentDate, location: self.isDelivery ? self.locationViewModel.selectedLocation : "Retiro en tienda"))
+                                                self.shoppingCartViewModel.setOrderedCart(orderModel: OrderModel(cartItems: self.shoppingCartViewModel.cartItems, finalPrice: (self.isDelivery ? (self.shoppingCartViewModel.deliveryPrice + self.shoppingCartViewModel.donutsTotalPrice) : self.shoppingCartViewModel.donutsTotalPrice), date: currentDate, location: self.isDelivery ? self.locationViewModel.selectedLocation : "Retiro en tienda", dateID: orderDate))
                                             } else {
                                                 self.shoppingCartViewModel.isCheckoutButtonTapped = false
                                             }
@@ -334,10 +336,14 @@ struct ShoppingCartView: View {
                         
                         Button {
                             self.shoppingCartViewModel.cartItems = []
+                            self.shoppingCartViewModel.isCheckoutButtonTapped = false
                             self.shoppingCartViewModel.userDonutOrders.forEach { order in
                                 if order.id == self.shoppingCartViewModel.currentOrderUUID {
                                     self.shoppingCartViewModel.currentOrderStatus = order.status
                                     print(order.status)
+                                    var currentOrder = order
+                                    currentOrder.status = 5
+                                    self.shoppingCartViewModel.setOrderAsFinished(orderModel: currentOrder)
                                 }
                             }
                         } label: {

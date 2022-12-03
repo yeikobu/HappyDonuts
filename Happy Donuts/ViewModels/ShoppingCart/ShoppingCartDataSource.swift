@@ -19,11 +19,7 @@ final class ShoppingCartDataSource {
     @MainActor
     func setOrderedCart(orderModel: OrderModel) {
         do {
-            let date = Date()
-            let calendar = Calendar.current
-            let orderDate = "\(calendar.component(.year, from: date))\(calendar.component(.month, from: date))\(calendar.component(.day, from: date))\(calendar.component(.hour, from: date))\(calendar.component(.minute, from: date))\(calendar.component(.second, from: date))\(calendar.component(.nanosecond, from: date))"
-            
-            try database.collection(collection).document(uid).collection(subColleciton).document("order\(orderDate)").setData(from: orderModel)
+            try database.collection(collection).document(uid).collection(subColleciton).document("order\(orderModel.dateID)").setData(from: orderModel)
         } catch {
             print(error.localizedDescription)
         }
@@ -43,5 +39,13 @@ final class ShoppingCartDataSource {
         }
         
         return orders
+    }
+    
+    func setOrderAsFinished(orderModel: OrderModel) {
+        do {
+            try database.collection(collection).document(uid).collection(subColleciton).document("order\(orderModel.dateID)").setData(from: orderModel)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
