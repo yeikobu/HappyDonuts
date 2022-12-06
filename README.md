@@ -12,7 +12,7 @@
 </p>
 
 
-https://user-images.githubusercontent.com/69016178/205798552-df4204a5-f6eb-401b-891f-65b6ad122ff9.mp4
+https://user-images.githubusercontent.com/69016178/205802936-716d1b56-4c54-49e3-9610-52dc2dd7d639.mp4
 
 
 ## Features
@@ -23,7 +23,7 @@ https://user-images.githubusercontent.com/69016178/205798552-df4204a5-f6eb-401b-
 - [x] Check your history orders. 
 - [x] The haptic engine works only on physical devices when you press some buttons. 
 
-## Requirements
+## Requirements if you want to run the app in your simulator
 
 - iOS 15.0+
 - XCode 13.3+
@@ -34,7 +34,7 @@ https://user-images.githubusercontent.com/69016178/205798552-df4204a5-f6eb-401b-
 You can use `Git Clone` to clone the repository and run the app.
 
 ```
-git clone https://github.com/J-kobu/MyEasyCryptoManager.git
+https://github.com/J-kobu/HappyDonuts.git
 ```
 
 #### Manually
