@@ -10,6 +10,5 @@ import Foundation
 struct LoginModel {
     
     var user: UserModel?
-    var isLoginSelectd: Bool?
     
 }

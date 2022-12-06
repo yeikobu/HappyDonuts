@@ -9,11 +9,11 @@ import SwiftUI
 
 struct SplashScreenView: View {
     
+    @StateObject var profileViewModel = ProfileViewModel()
     @State var isAnimationActive: Bool = false
     
     var body: some View {
         ZStack {
-            
             Color("pink")
                 .ignoresSafeArea()
             
@@ -36,6 +36,11 @@ struct SplashScreenView: View {
                 }
             }
             
+        }
+        .onAppear {
+            Task {
+                await self.profileViewModel.getUserExtraData()
+            }
         }
     }
 }
