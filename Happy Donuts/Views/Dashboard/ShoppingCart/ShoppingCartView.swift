@@ -210,7 +210,7 @@ struct ShoppingCartView: View {
                             .padding(.vertical, 20)
                             
                             if self.shoppingCartViewModel.isCheckoutButtonTapped {
-                                LottieImage(animationName: "Loading", loopMode: .loop)
+                                LottieImage(name: "Loading", loopMode: .loop)
                                     .frame(width: 100, height: 100)
                             } else {
                                 HStack {
@@ -288,7 +288,7 @@ struct ShoppingCartView: View {
                         Text("Estamos Preparando tu pedido... 🍩")
                             .font(.system(size: 20, weight: .black, design: .rounded))
                         
-                        LottieImage(animationName: "Preparing", loopMode: .loop)
+                        LottieImage(name: "Preparing", loopMode: .loop)
                             .frame(width: 250, height: 250)
                     }
                 }
@@ -304,7 +304,7 @@ struct ShoppingCartView: View {
                         Text("Tu pedido está en camino")
                             .font(.system(size: 20, weight: .black, design: .rounded))
                         
-                        LottieImage(animationName: "Deliveryman", loopMode: .loop)
+                        LottieImage(name: "Deliveryman", loopMode: .loop)
                             .frame(width: 300, height: 300)
                     }
                 }
@@ -320,7 +320,7 @@ struct ShoppingCartView: View {
                         Text("Tu pedido está listo para retirar")
                             .font(.system(size: 20, weight: .black, design: .rounded))
                         
-                        LottieImage(animationName: "Bag", loopMode: .loop)
+                        LottieImage(name: "Bag", loopMode: .loop)
                             .frame(width: 300, height: 300)
                     }
                 }

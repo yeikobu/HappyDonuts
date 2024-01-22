@@ -10,25 +10,24 @@ import Lottie
 
 struct LottieImage: UIViewRepresentable {
     
-    let animationName: String
+    let name: String
     let loopMode: LottieLoopMode
+    let animationView = LottieAnimationView()
     
     func makeUIView(context: Context) -> some UIView {
         let view = UIView(frame: .zero)
-        let animationView = AnimationView()
-        let animation = Animation.named(animationName)
-        animationView.animation = animation
+ 
+        animationView.animation = LottieAnimation.named(name)
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = loopMode
         animationView.play()
-        
-        animationView.translatesAutoresizingMaskIntoConstraints = false
+ 
         view.addSubview(animationView)
-        NSLayoutConstraint.activate([
-            animationView.heightAnchor.constraint(equalTo: view.heightAnchor),
-            animationView.widthAnchor.constraint(equalTo: view.widthAnchor)
-        ])
-        
+ 
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        animationView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        animationView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+ 
         return view
     }
     

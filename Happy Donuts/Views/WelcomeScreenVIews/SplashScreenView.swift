@@ -24,7 +24,7 @@ struct SplashScreenView: View {
                             .transition(.move(edge: .bottom))
                     }
                 } else {
-                    LottieImage(animationName: "DonutAnimation", loopMode: .playOnce)
+                    LottieImage(name: "DonutAnimation", loopMode: .playOnce)
                         .frame(width: 120, height: 120)
                 }
             }
